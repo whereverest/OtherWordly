@@ -1,0 +1,158 @@
+{
+  "howToPlay": [
+    "<p>You are a Termarian from Alphazoid Prime. And the galaxy is a mess.</p> <p>Your task is to <b>match</b> related words, throwing a <b>core word</b> from the sun into orbiting <b>target words</b>. This is complicated by <b>missing letters</b> and ever-changing <b>obstacles</b>. Matching words helps you gain <b>energy and candy</b> to complete levels. In normal levels, your 2nd and 3rd matches gain you energy; in the candy levels, the first match spawns candy you collect.</p>",
+
+    "<p>Immerse yourself in a meaningful game with thousands of topics, and over <b>32 thousand different words</b>. Draw upon your knowledge of the meanings of words associated by <b>synonyms</b> (hot + fiery) and <b>trivia</b> (Wesley Crusher + Star Trek). Decipher words with <b>obscured letters</b>. Does “fruit” match “a_pl_“ or “ba_eb_ll”? (Answer: It’s “apple,” not “baseball.”). The game is relaxing and untimed – except for the <b>bonus levels</b>, where it’s time to hustle and fulfill the challenges of the Great Space Whales. When you get to bonus levels, that’s your time to shine. Win bonus levels for <b>gifts</b>. Delight your sidekicks with delicious, fashionable, and longed-for goodies.</p>"
+  ],
+
+  "theStory": [
+    "<p><b>Alphazoid Prime</b> is a peaceful galaxy filled with all sorts of <b>aliens</b>, <b>robots</b>, and <b>friendly creatures</b>, all brought together by their love of words. Everyone prospers thanks to the advanced technology of the <b>Lexiborgs</b>, who disappeared long ago.</p>",
+
+    "<p>When a mysterious object soars through Alphazoid Prime, the galaxy’s <b>words begin to scramble</b>. What’s going on, and what does it have to do with the Lexiborgs? It is up to you to unravel this mystery and <b>unscramble the words</b> of Alphazoid Prime before they are lost forever.</p>"
+  ],
+
+  "gameplayDetails": [
+    {
+      "name": "Fling",
+      "iconName": "fling",
+      "text": "Throw core words outwards from the sun using a flinging motion, as if you were flinging a coin across a tabletop. On the iPad, you can use 2 fingers to rotate core words before throwing."
+    },
+    {
+      "name": "Slingshot",
+      "iconName": "slingshot",
+      "text": "You can also slingshot by double-tap+hold on a core word, or make slingshot the main way to throw from the ACCESS menu when paused."
+    },
+    {
+      "name": "Difficulty",
+      "iconName": "difficulty",
+      "text": "Want easier or harder play? Go to accessibility to adjust the speed of motion, or how many of the letters are missing."
+    },
+    {
+      "name": "Obstacles",
+      "iconName": "obstacles",
+      "text": "The blocks bounce your core word away, and the mines will cost you 2 energy. Sometimes you need to sacrifice some energy to clear space. You have a moment of safe immunity after you hit a mine. There's a small explosive clearing around core words when you match words. You can use this explosive force to clear out bumpers and mines."
+    },
+    {
+      "name": "Opposites",
+      "iconName": "opposites",
+      "text": "Sometimes you have to think upside down. When the core words are spiky, then you are looking to match opposites."
+    },
+    {
+      "name": "Energy",
+      "iconName": "energy",
+      "text": "The core word indicates how much energy you will accrue. One bolt = earn one energy from a match; two bolts = earn two energy. Fill up the energy meter to win normal levels. Hitting mines costs -2 energy; losing a core word into a wormhole costs you -1 energy. Match two words with one throw for an extra energy point."
+    },
+    {
+      "name": "Wormholes",
+      "iconName": "wormholes",
+      "text": "On the third match of any core word, after you earn the 2 energy, the word becomes a wormhole, and it will absorb any other words you throw into it. Target words will keep orbiting until they hit the sun, or get dematerialized in a wormhole."
+    },
+    {
+      "name": "Candy",
+      "iconName": "candy",
+      "text": "In bonus levels, match the core word to spawn candy. Collect candy, filling up the candy gauge to complete the level, earn your sidekick a gift, and ask a question of the Great Space Whale. Misses cost you -5 candy, so try not to miss in the bonus level."
+    },
+    {
+      "name": "Bonus Stars",
+      "iconName": "bonusStars",
+      "text": "In most levels (not tutorial or candy levels), you can earn up to three bonus stars. See the available bonus stars at the start of a level. Your bonus stars are remembered, so replay the level to get all the stars! Tap the sidekick to see the current status."
+    },
+    {
+      "name": "Literary Examples",
+      "iconName": "literaryExamples",
+      "text": "Tyto would love for you to check out how the words look in literature, so be sure to tap “See words in use” as often as you like. There are examples drawn from 1,000 Pulitzer Prize-winning books, bestselling novels, and other great literary works."
+    },
+    {
+      "name": "Game Center",
+      "iconName": "gameCenter",
+      "text": "There are lots of achievements to earn, you’ll see them as you play. Or go to the INFO section to see them now."
+    },
+    {
+      "name": "Powerups",
+      "iconName": "powerups",
+      "text": "There are six powerups to discover and enjoy as you progress. Each gives you a boost towards completing a level, but they all cost a little energy as well, so you need to balance and plan your strategy."
+    }
+  ],
+  "newFriends": [
+    {
+      "name": "Tyto",
+      "iconName": "char01_tyto",
+      "text": "This bookish owl will happily show you how things work in Alphazoid Prime."
+    },
+    {
+      "name": "Jaleen",
+      "iconName": "char03_jaleen",
+      "text": "As a robot and a junk collector for the Steelios Robotics Company, Jaleen knows a lot about old Lexiborg technology."
+    },
+    {
+      "name": "Barabell",
+      "iconName": "char02_barabell",
+      "text": "Florax’s dignified princess makes a habit of studying everything that passes through Alphazoid Prime’s night sky, natural or otherwise."
+    },
+    {
+      "name": "Murka",
+      "iconName": "char08_murka",
+      "text": "Murka has a major sweet tooth, which he puts to use making cookies for all his friends."
+    },
+    {
+      "name": "Hemdar",
+      "iconName": "char04_hemdar",
+      "text": "Freshly refurbished, Hemdar is a Galacton with a gift for hacking words. No message remains encrypted under his gaze."
+    },
+    {
+      "name": "Glooper",
+      "iconName": "char07_glooper",
+      "text": "A space slug from the artists' colony, Znot. Her elegant slime patterns are praised as masterpieces."
+    },
+    {
+      "name": "Thorsaren",
+      "iconName": "char09_thorsaren",
+      "text": "Thorsaren defends Alphazoid Prime with his mighty hammer. He holds great respect for the legacy of the Lexiborgs."
+    },
+    {
+      "name": "Sindert",
+      "iconName": "char05_sindert",
+      "text": "An astro-surfer from planet Radiex, Sindert keeps her friends close and her astro-board closer."
+    },
+    {
+      "name": "Gillim",
+      "iconName": "char11_gillim",
+      "text": "This Radarbot model Q is equipped with a scanner that can reveal the true meaning of any word in Alphazoid Prime."
+    },
+    {
+      "name": "Rejka",
+      "iconName": "char10_rejka",
+      "text": "One can have no better friend than Rejka. This lunar bear sees the best in everyone."
+    },
+    {
+      "name": "Tasha",
+      "iconName": "char06_tasha",
+      "text": "This cool kid likes it hot. Catch them nailing tricks and stunts with their motorized fireboard."
+    },
+    {
+      "name": "Jozi",
+      "iconName": "char14_jozi",
+      "text": "Sindert’s younger brother. He can work powerful space magic easily, but healthy communication is a little tougher."
+    },
+    {
+      "name": "Gege",
+      "iconName": "char13_gege",
+      "text": "Everything’s a game to Gege, the fittest ruby hexapus in all of Alphazoid Prime."
+    },
+    {
+      "name": "Vasta",
+      "iconName": "char12_vasta",
+      "text": "Vasta’s peaceful days relaxing in space blossom fields have been disturbed by the current crisis."
+    },
+    {
+      "name": "Astra",
+      "iconName": "char15_astra",
+      "text": "A unicorn of Theson, tasked with recording the story of the galaxy. How will your story end?"
+    },
+    {
+      "name": "Great Space Whales",
+      "iconName": "greatSpaceWhales",
+      "text": "Mysterious beings with seemingly infinite knowledge. What do they know about the long lost Lexiborgs?"
+    }
+  ]
+}

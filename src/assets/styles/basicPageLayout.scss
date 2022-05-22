@@ -1,0 +1,83 @@
+// Basic page layout
+@mixin basic-page-layout {
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+// Basic header blocks
+@mixin page-header-generic {
+  width: 1.0rem;
+  height: 1.0rem;
+  display: flex;
+  position: absolute;
+  top: 1.3rem;
+  z-index: 999;
+  //outline: 1px rgba(255,0,0,.3) solid;
+}
+@mixin page-header-left {
+  @include page-header-generic;
+
+  justify-content: flex-start;
+  left: 6.0rem;
+}
+@mixin page-header-center {
+  @include page-header-generic;
+
+  justify-content: center;
+  left: calc(50vw - .5rem);
+}
+@mixin page-header-right {
+  @include page-header-generic;
+
+  justify-content: flex-end;
+  right: 6.0rem;
+}
+
+// Basic footer blocks
+@mixin page-footer-generic {
+  width: 1.0rem;
+  height: 1.0rem;
+  display: flex;
+  align-items: flex-end;
+  align-content: flex-end;
+  position: absolute;
+  bottom: 1.2rem;
+  z-index: 999;
+  //outline: 1px rgba(255,0,0,.3) solid;
+}
+@mixin page-footer-left {
+  @include page-footer-generic;
+
+  justify-content: flex-start;
+  left: 6.0rem;
+}
+@mixin page-footer-center {
+  @include page-footer-generic;
+
+  justify-content: center;
+  left: calc(50vw - .5rem);
+}
+@mixin page-footer-right {
+  @include page-footer-generic;
+
+  justify-content: flex-end;
+  right: 6.0rem;
+}
+
+// Basic content block
+@mixin page-content {
+  width: 1.0rem;
+  height: 1.0rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  position: absolute;
+  inset: calc(50vh - .5rem) auto auto calc(50vw - .5rem);
+  z-index: 1;
+  //outline: 1px rgba(255,0,0,.3) solid;
+}

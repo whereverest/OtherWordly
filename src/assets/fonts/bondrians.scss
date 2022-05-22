@@ -1,0 +1,9 @@
+@font-face {
+  font-family: 'Bondrians';
+  src: local('☺︎'), url("./bondrians/Bondrians.otf") format("opentype");
+}
+@media screen and (max-device-width: 480px) {
+  @font-face {
+    font-family: "Bondrians";
+    src: url("./bondrians/Bondrians.otf") format("opentype");
+  }}

@@ -1,0 +1,9 @@
+@font-face {
+  font-family: 'RetrofunkScriptPersonalUse';
+  src: local('☺︎'), url("./retrofunk/Retrofunk Script Personal Use.otf") format("opentype");
+}
+@media screen and (max-device-width: 480px) {
+  @font-face {
+    font-family: "RetrofunkScriptPersonalUse";
+    src: url("./retrofunk/Retrofunk Script Personal Use.otf") format("opentype");
+  }}
