@@ -1,9 +1,9 @@
-﻿<div 
-  class={ `single-card 
+﻿<div
+  class={ `single-card
             ${isCardInFocus && 'single-card--wide'}
             ${isSlowerTransition && 'single-card--slower-transition'}
             ${mixClass}` }
-  style="height: {isCardInFocus ? '26.4rem' : '21.6rem'}; 
+  style="height: {isCardInFocus ? '26.4rem' : '21.6rem'};
           left: {isCardInFocus ? 0 : ((positionCoeff > 0 ? 1.96 : -1.96) + 'rem') }; top: .5rem;"
 >
 <!--  ${isClicked && 'single-card&#45;&#45;active-clicked'}-->
@@ -19,13 +19,13 @@
                 ${isOnlyFaceNChapterVisible && 'single-card__in-wrap--transparent-bg'}` }>
   <!--              ${isClicked && 'single-card__in-wrap&#45;&#45;active-clicked'}` }>-->
 
-  <div 
-    class={ `single-card__progress-bar-wrapper 
-              ${(isBlurred || isOnlyFaceNChapterVisible) 
+  <div
+    class={ `single-card__progress-bar-wrapper
+              ${(isBlurred || isOnlyFaceNChapterVisible)
                                           && 'single-card__progress-bar-wrapper--invisible'}` }
     style="opacity: {1 - (Math.abs(positionCoeff) > .6 ? 1 : (Math.abs(positionCoeff) * 3))}"
   >
-    <ProgressBar 
+    <ProgressBar
       class="single-card__progress-bar"
       type={ ['single','double','triple'][card?.progressBarNames?.length - 1] }
       progress={card?.progress}
@@ -34,7 +34,7 @@
     />
   </div>
 
-  
+
   <!--<img-->
   <!--  class={ `single-card__lock-icon-overlay -->
   <!--            ${isCardCloseToTheCenter && 'single-card__lock-icon-overlay&#45;&#45;bigger'}-->
@@ -45,9 +45,9 @@
   <!--  src={ card?.isUnlockable ? 'src/assets/images/lock_icon_orange.integrated.png' : 'src/assets/images/lock_icon_grey.integrated.png' }-->
   <!--  alt="Lock"-->
   <!--/>-->
-  
+
   <LockIcon
-    class={ `single-card__lock-icon-overlay 
+    class={ `single-card__lock-icon-overlay
               ${isCardCloseToTheCenter && 'single-card__lock-icon-overlay--smaller-top-indent'}
               ${isCardCloseToTheCenter && 'single-card__lock-icon-overlay--bigger'}
               ${isLockIconShaking && 'single-card__lock-icon-overlay--shaking'}` }
@@ -56,17 +56,17 @@
     bodyColor={ card?.lockBodyColor }
     cardId={ card?.chapterNum }
   />
-  
-  
+
+
   <div class="{ `faces-icons
                   ${isCardCloseToTheCenter && 'faces-icons--bigger'}
                   ${isBlurred && 'faces-icons--40-percent-transparent'}
                   ${isBlurred && 'faces-icons--blurred'}
                   single-card__faces-icons` }">
-    
+
     {#if card?.faceIcons?.length === 1}
         <img
-          class="faces-icons__icon 
+          class="faces-icons__icon
                   faces-icons__icon--big
                   faces-icons__icon--main"
           src={ charactersImages[card.faceIcons[0]] }
@@ -74,14 +74,14 @@
         />
       {:else if card?.faceIcons?.length === 2}
         <img
-          class="faces-icons__icon 
+          class="faces-icons__icon
                   faces-icons__icon--one-of-the-two
                   faces-icons__icon--big"
           src={ charactersImages[card.faceIcons[0]] }
           alt="face"
         />
         <img
-          class="faces-icons__icon 
+          class="faces-icons__icon
                   faces-icons__icon--one-of-the-two
                   faces-icons__icon--big"
           src={ charactersImages[card.faceIcons[1]] }
@@ -94,7 +94,7 @@
           alt="face"
         />
         <img
-          class="faces-icons__icon 
+          class="faces-icons__icon
                   faces-icons__icon--big
                   faces-icons__icon--main"
           src={ charactersImages[card.faceIcons[0]] }
@@ -110,13 +110,13 @@
 
 
   {#if !isEmpty}
-    <div class="{ `chapter-number 
-                    single-card__chapter-number 
+    <div class="{ `chapter-number
+                    single-card__chapter-number
                     ${isCardCloseToTheCenter && 'single-card__chapter-number--bigger-bottom-margin'}` }">
-      <div class="{ `chapter-number__small-label 
+      <div class="{ `chapter-number__small-label
                       ${!isCardCloseToTheCenter && 'chapter-number__small-label--visible'} `}">
         <ArcText
-          class="chapter-number__arc-text 
+          class="chapter-number__arc-text
                   chapter-number__arc-text--small"
           debugMode={false}
           roundness="4.6"
@@ -125,9 +125,9 @@
         >
           Chapter{generateNbspString(7)}
         </ArcText>
-        
+
         <ArcText
-          class="chapter-number__arc-text 
+          class="chapter-number__arc-text
                   chapter-number__arc-text--small
                   chapter-number__arc-text--digit"
           debugMode={false}
@@ -137,9 +137,9 @@
         >
           {generateNbspString(15) + card.chapterNum}
         </ArcText>
-        
+
       </div>
-      <div class="{ `chapter-number__big-label 
+      <div class="{ `chapter-number__big-label
                       ${isCardCloseToTheCenter && 'chapter-number__big-label--visible'}` }">
         <ArcText
           class="chapter-number__arc-text"
@@ -150,9 +150,9 @@
         >
           Chapter{generateNbspString(7)}
         </ArcText>
-        
+
         <ArcText
-          class="chapter-number__arc-text 
+          class="chapter-number__arc-text
                   chapter-number__arc-text--digit"
           debugMode={false}
           roundness="5"
@@ -167,11 +167,11 @@
           <path style="fill-rule: evenodd; fill: {'#' + card?.stripeColors?.[1]}" id="Layer_2_copy_3" data-name="Layer 2 copy 3" d="M218.5,102.326l78.373,345.433s232,31.174,368.356,64.251c-0.033-.033-41.636-361.908-41.636-361.908Zm1828.322,0-78.37,345.433s-232,31.174-368.36,64.251c0.03-.033,41.64-361.908,41.64-361.908Z"/>
           <path style="fill-rule: evenodd; fill: #fff" d="M1132.5-.158C1423.19-.107,1728.17,31.124,2047,101.679c0.02,0.008-77.99,346.28-78.07,346.233C1695.61,385.185,1410.97,356,1132.5,356.284c-278.477-.283-563.116,28.9-836.441,91.628-0.08.047-78.085-346.225-78.066-346.233C536.821,31.124,841.8-.107,1132.49-0.158h0.01Z"/>
         </svg>
-        
+
       </div>
     </div>
-      
-      
+
+
     <div class="{ `single-card__title
                     ${isCardCloseToTheCenter && 'single-card__title--bigger-bottom-margin'}
                     ${isCardCloseToTheCenter && 'single-card__title--bigger'}
@@ -187,47 +187,47 @@
         <!-- For some unknown fucking reason desktop Edge browser refuse to update properly topShift and few  CSS properties of this component. And it only works fine when we change the text value along with "tweened"-related changes of the $chapterTitleTopShift value. -->
         { $chapterTitleTopShift.toString().split('').includes('6') ? card?.title : ' ' + card?.title + ' ' }
       </ArcText>
-      
+
       <!-- [0, -4.4] -->
-      
+
     </div>
-    
-    
-    <div class={ `single-card__achiev-n-descript 
+
+
+    <div class={ `single-card__achiev-n-descript
                   ${isOnlyFaceNChapterVisible && 'single-card__achiev-n-descript--invisible'}` }>
-      
+
       {#if isDescriptionShowed && !isLocked}
-        <div 
+        <div
           in:fade="{{ duration: 800 }}"
           out:fade="{{ duration: 800 }}"
           class="single-card__level-description-wrapper"
         >
-          <LevelDescription 
-            class={ `single-card__level-description 
+          <LevelDescription
+            class={ `single-card__level-description
                       ${isLocked && 'single-card__level-description--darkened'}` }
             text={card?.description}
             on:scrollEnd={handleScrollEnd}
           />
         </div>
       {/if}
-      
+
       {#if !isDescriptionShowed || isLocked}
         <ChapterAchievements
-          class={ `single-card__achievements 
-                    ${isBlurred && 'single-card__achievements--blurred'} 
+          class={ `single-card__achievements
+                    ${isBlurred && 'single-card__achievements--blurred'}
                     ${isBlurred && 'single-card__achievements--40-percent-transparent'} ` }
           chapterDetails={ card }
           isReducedVersion={ !isCardCloseToTheCenter }
         />
       {/if}
-      
+
     </div>
-  
-    
+
+
     {#if isBlurred}
       <ButtonInCircle
-        class={ `single-card__action-button 
-                  ${isCardCloseToTheCenter && !isOnlyFaceNChapterVisible 
+        class={ `single-card__action-button
+                  ${isCardCloseToTheCenter && !isOnlyFaceNChapterVisible
                                             && 'single-card__action-button--visible'}` }
         iconName="star"
         backwardsGradient={true}
@@ -242,8 +242,8 @@
       />
       {:else}
       <ButtonInCircle
-        class={ `single-card__action-button 
-                  ${isCardCloseToTheCenter && !isOnlyFaceNChapterVisible 
+        class={ `single-card__action-button
+                  ${isCardCloseToTheCenter && !isOnlyFaceNChapterVisible
                                             && 'single-card__action-button--visible'}
                   single-card__action-button--with-animation` }
         iconName="arrowRight"
@@ -253,9 +253,9 @@
         isActive={ isClicked }
       />
     {/if}
-    
+
   {/if}
-  
+
 </div>
 </div>
 
@@ -290,15 +290,15 @@ import LevelDescription from './LevelDescription.svelte';
 import LockIcon from './LockIcon.svelte';
 
 import { transitionTo } from '@stores-m/transitions.js';
-import { 
-  selectedChapterId, 
-  chapterTitleCurvature, 
-  chapterTitleTopShift, 
-  isChapterTitleHuge 
+import {
+  selectedChapterId,
+  chapterTitleCurvature,
+  chapterTitleTopShift,
+  isChapterTitleHuge
 } from '@stores-m/chapters.js';
 
 
-$: positionCoeffAbs = Math.abs(positionCoeff); // absolute value of the position coefficient 
+$: positionCoeffAbs = Math.abs(positionCoeff); // absolute value of the position coefficient
 $: isCardInFocus = positionCoeffAbs <= .5;
 $: isCardCloseToTheCenter = positionCoeffAbs <= .25;
 
@@ -450,7 +450,7 @@ function generateNbspString(numberOfChars = 1) {
 
 // Card description -----------------------------------------------------------
 .card-description {
-  
+
 }
 
 
@@ -466,11 +466,11 @@ function generateNbspString(numberOfChars = 1) {
   &--bigger {
     transform: scale(1.05);
   }
-  
+
   &--40-percent-transparent {
     opacity: .4;
   }
-  
+
   &--blurred {
     filter: blur(.3rem);
   }
@@ -479,7 +479,7 @@ function generateNbspString(numberOfChars = 1) {
     width: 7.5rem;
     height: 7.5rem;
     position: relative;
-    
+
     &:first-child {
       z-index: 1;
     }
@@ -487,7 +487,7 @@ function generateNbspString(numberOfChars = 1) {
     &--one-of-the-two {
       margin: -.4rem -2.0rem 0;
     }
-    
+
     &--big {
       width: 10.7rem;
       height: 10.7rem;
@@ -522,11 +522,11 @@ function generateNbspString(numberOfChars = 1) {
   //  position: relative;
   //  top: -.1rem;
   //}
-  
+
   &--locked {
     opacity: .3;
   }
-  
+
   :global(.chapter-number__arc-text) {
     width: 8.0rem;
     height: 2.4rem;
@@ -600,7 +600,7 @@ function generateNbspString(numberOfChars = 1) {
   &__number {
     font-size: 1.2rem;
   }
-  
+
     &__svg-stripe-background {
       width: 100%;
       height: 100%;
@@ -654,7 +654,7 @@ function generateNbspString(numberOfChars = 1) {
       opacity .35s ease
   ;
   }
-  
+
   &__in-wrap {
     width: 100%;
     height: 100%;
@@ -672,7 +672,7 @@ function generateNbspString(numberOfChars = 1) {
     opacity: 1;
     transition: height .2s ease, width .2s ease, min-width .2s ease, padding-top .2s ease, left .2s ease, transform .2s linear, opacity .5s ease;
     //outline: 1px rgba(0,255,0,.2) solid;
-    
+
     &--flip-animation-step1 { transform-origin: center center; transform: translateZ(0) scale(.7) rotateY(-180deg); opacity: .5; }
     &--flip-animation-step2 { transform-origin: center center; transform: translateZ(0) scale(.7) rotateY(-360deg); opacity: .5; }
     &--flip-animation-step3 { transform-origin: center center; transform: translateZ(0) scale(.7) rotateY(-540deg); opacity: .5; }
@@ -721,22 +721,22 @@ function generateNbspString(numberOfChars = 1) {
       }
     }
   }
-  
+
   &--invisible {
     opacity: 0;
   }
-  
+
   //&--active-clicked {
   //  transition: transform .03s ease, opacity .03s ease;
   //  transform: scale(.95) translateZ(0);
   //  opacity: .7;
   //}
-  
+
   &--wide {
     width: 24.8rem;
     min-width: 24.8rem;
   }
-  
+
   &__progress-bar-wrapper {
     width: 100%;
     display: flex;
@@ -745,13 +745,13 @@ function generateNbspString(numberOfChars = 1) {
     inset: -2.9rem auto auto 0;
     opacity: 1;
     transition: opacity .1s ease;
-    
+
     &--invisible {
       transition: opacity .5s ease;
       opacity: 0 !important;
     }
   }
-  
+
     :global(.single-card__progress-bar) {
     }
 
@@ -767,7 +767,7 @@ function generateNbspString(numberOfChars = 1) {
     :global(.single-card__lock-icon-overlay--smaller-top-indent) {
       top: -1.2rem;
     }
-  
+
     :global(.single-card__lock-icon-overlay--bigger) {
       transform: scale(1.5);
     }
@@ -791,7 +791,7 @@ function generateNbspString(numberOfChars = 1) {
     //:global(.single-card__lock-icon-overlay--invisible) {
     //  opacity: 0;
     //}
-  
+
   //&__lock-icon-overlay {
   //  width: 6.0rem;
   //  height: 6.0rem;
@@ -802,16 +802,16 @@ function generateNbspString(numberOfChars = 1) {
   //  transform: scale(1);
   //  transform-origin: top center;
   //  transition: top .4s ease, transform .15s ease, opacity .4s ease;
-  //  
+  //
   //  &--invisible {
   //    opacity: 0;
   //  }
-  //  
+  //
   //  &--on-the-top {
   //    top: -10.0rem !important;
   //    animation: none !important;
   //  }
-  //  
+  //
   //  &--bigger {
   //    transform: scale(1.5) translateY(-19%) rotate(0deg);
   //  }
@@ -854,7 +854,7 @@ function generateNbspString(numberOfChars = 1) {
     transform: scale(1) translateZ(0);
     opacity: 1;
     transition: margin .2s ease, transform .2s ease, opacity .5s ease;
-    
+
     &--invisible {
       opacity: 0;
     }
@@ -888,19 +888,19 @@ function generateNbspString(numberOfChars = 1) {
       inset: .4rem auto auto calc(50% - 9.6rem);
       transform: translateZ(0);
     }
-  
+
   &__achiev-n-descript {
     width: 100%;
     height: 3.1rem;
     position: relative;
     opacity: 1;
     transition: opacity .9s ease;
-    
+
     &--invisible {
       opacity: 0;
     }
   }
-  
+
     :global(.single-card__achievements) {
       width: 100%;
       height: 100%;
@@ -914,21 +914,21 @@ function generateNbspString(numberOfChars = 1) {
       :global(.single-card__achievements--invisible) {
         opacity: 0;
       }
-    
+
       :global(.single-card__achievements--blurred) {
         filter: blur(.3rem);
       }
-    
+
       :global(.single-card__achievements--40-percent-transparent) {
         opacity: .4;
       }
-  
+
     .single-card__level-description-wrapper {
       width: 100%;
       height: 100%;
       position: absolute;
     }
-    
+
       :global(.single-card__level-description) {
         width: calc(100% - 6.0rem);
         height: 100%;
@@ -938,7 +938,7 @@ function generateNbspString(numberOfChars = 1) {
         transform: scale(1);
         transition: transform .35s ease, opacity .35s ease;
       }
-      
+
         :global(.single-card__level-description--darkened) {
           opacity: .5;
         }
@@ -958,7 +958,7 @@ function generateNbspString(numberOfChars = 1) {
       animation-timing-function: ease-in-out;
       animation-iteration-count: infinite;
     }
-  
+
     @keyframes buttonThrobbing {
       from {transform: scale(1.3);}
       7% {transform: scale(1.45);}
@@ -966,7 +966,7 @@ function generateNbspString(numberOfChars = 1) {
       50% {transform: scale(1.3);}
       to {transform: scale(1.3);}
     }
-  
+
     :global(.single-card__action-button--visible) {
       transform: scale(1.2);
       opacity: 1;

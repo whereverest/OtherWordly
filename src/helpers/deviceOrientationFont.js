@@ -16,12 +16,14 @@ function calcFontSize(isDeviceIpad, isPortraitMode) {
   let coefficient = 1.5;
 
   if (isDeviceIpad) {
-    coefficient = .8;
+    coefficient = .6;
   } else if (isPortraitMode) {
-    coefficient = .25;
+    coefficient = 0.25;
   }
 
-  return (window?.innerHeight + window?.innerHeight * coefficient) / 100;
+  // let minSize = Math.min(window?.innerHeight,window?.innerWidth)
+  let minSize = window?.innerHeight
+  return (minSize + minSize * coefficient) / 100;
 }
 
 

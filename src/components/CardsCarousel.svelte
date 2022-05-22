@@ -1,22 +1,22 @@
 ﻿<section class={ `cards-carousel
                   ${mixClass}` }>
-  
+
   <!-- Cards revolver -->
   <!-- Transform rotate value should always be slightly bigger than 0 because otherwise first card will always move slightly to top after rotation starts. Maybe some kind of render glitch or something. -->
   <div
-    class={ `cards-revolver 
+    class={ `cards-revolver
               ${isTouchMoveInProgress && 'cards-revolver--slower-transition'}
               ${isNoRotationTransition && 'cards-revolver--no-rotation-transition'}
               cards-carousel__cards-revolver` }
     style="transform: {`rotate(${lodashRound((revolverRotationPosition + $revolverRotationShift), 2) || .1}deg) translateZ(0)`}"
   >
     <ul class="cards-revolver__cards-containers-list">
-      
+
       <li
         class="cards-revolver__card-container"
         style="transform: {`rotate(${Math.round(-1 * 12.95 * 100) / 100}deg)`}"
       >
-        <div class={ `cards-revolver__card-container-inner 
+        <div class={ `cards-revolver__card-container-inner
                       ${'///isCardsOnTopOutsideViewport' && false
                                         && 'cards-revolver__card-container-inner--on-top-outside-viewport'}` }>
           <ChapterCard
@@ -28,13 +28,13 @@
           />
         </div>
       </li>
-      
+
       {#each $chaptersList as card,index (card.chapterNum)}
-        <li 
+        <li
           class="cards-revolver__card-container"
           style="transform: {`rotate(${Math.round(index * 12.95 * 100) / 100}deg)`}"
         >
-          <div class={ `cards-revolver__card-container-inner 
+          <div class={ `cards-revolver__card-container-inner
                         ${'///isCardsOnTopOutsideViewport' && false
                                         && 'cards-revolver__card-container-inner--on-top-outside-viewport'}` }>
             <ChapterCard
@@ -54,7 +54,7 @@
         class="cards-revolver__card-container"
         style="transform: {`rotate(${Math.round(($chaptersList.length) * 12.95 * 100) / 100}deg)`}"
       >
-        <div class={ `cards-revolver__card-container-inner 
+        <div class={ `cards-revolver__card-container-inner
                       ${'///isCardsOnTopOutsideViewport' && false
                                         && 'cards-revolver__card-container-inner--on-top-outside-viewport'}` }>
           <ChapterCard
@@ -66,30 +66,30 @@
           />
         </div>
       </li>
-      
+
     </ul>
   </div><!-- / Cards revolver -->
-  
-  
-  <div 
-    class="touch-registering-area 
+
+
+  <div
+    class="touch-registering-area
             cards-carousel__touch-registering-area"
     on:touchstart={ handleTouchStart }
     on:touchend={ handleTouchEnd }
     on:touchmove={ handleTouchMove }
   >
-    <div 
-      class="touch-registering-area__clickable-area 
+    <div
+      class="touch-registering-area__clickable-area
               touch-registering-area__clickable-area--left"
       on:click={ () => handleClick('left') }
     ></div>
-    <div 
-      class="touch-registering-area__clickable-area 
+    <div
+      class="touch-registering-area__clickable-area
               touch-registering-area__clickable-area--center"
       on:click={ handleCardClick }
     ></div>
-    <div 
-      class="touch-registering-area__clickable-area 
+    <div
+      class="touch-registering-area__clickable-area
               touch-registering-area__clickable-area--right"
       on:click={ () => handleClick('right') }
     ></div>
@@ -101,7 +101,7 @@
     class="cards-carousel__single-card-placeholder"
     bind:this={ refCardPlaceholder }
   ></div>
-  
+
 </section>
 
 
@@ -355,7 +355,7 @@ function setSelectedChapterId() {
 <style lang="scss">
 
 
-  
+
 // Cards revolver -------------------------------------------------------------
 .cards-revolver {
   width: 218.4rem;
@@ -376,7 +376,7 @@ function setSelectedChapterId() {
   &--no-rotation-transition {
     transition: top .9s ease;
   }
-  
+
   &__cards-containers-list {
     width: 2.4rem;
     height: 2.4rem;
@@ -386,14 +386,14 @@ function setSelectedChapterId() {
     position: absolute;
     inset: calc(50% - 1.2rem) auto auto calc(50% - 1.2rem);
   }
-  
+
     &__card-container {
       width: 1.0rem;
       height: 218.4rem;
       position: absolute;
-      inset: calc(50% - 109.2rem) auto auto calc(50% - .5rem);
+      inset: calc(50% - 109.2rem) auto auto calc(50% - 0.6rem);
     }
-  
+
       &__card-container-inner {
         width: 1.0rem;
         height: 32.0rem;
@@ -402,13 +402,13 @@ function setSelectedChapterId() {
         transform: translateY(0);
         opacity: 1;
         transition: transform .9s ease, opacity .5s ease;
-        
+
         &--on-top-outside-viewport {
           transform: translateY(-35.0rem);
           opacity: 0;
         }
       }
-  
+
         :global(.cards-revolver__single-card) {
         }
 }
@@ -423,7 +423,7 @@ function setSelectedChapterId() {
   align-content: flex-start;
   align-items: flex-start;
   position: relative;
-  
+
   &__touch-registering-area {
     position: absolute;
     inset: 3.5rem auto auto 50%;
@@ -438,11 +438,11 @@ function setSelectedChapterId() {
     justify-content: space-between;
     flex-wrap: nowrap;
     touch-action: none;
-    
+
     &__clickable-area {
       width: 33.3%;
       height: 100%;
-      
+
       &--left {
         touch-action: none;
       }
@@ -458,7 +458,7 @@ function setSelectedChapterId() {
       }
     }
   }
-  
+
     // This block is needed as a card width reference
     // it helps to calculate scrolling position
     &__single-card-placeholder {
@@ -467,12 +467,12 @@ function setSelectedChapterId() {
       max-width: 22.0rem;
       pointer-events: none;
     }
-  
+
   &__cards-revolver {
     position: absolute;
     inset: .7rem auto auto calc(50% - 109.2rem);
   }
 }
-  
-  
+
+
 </style>

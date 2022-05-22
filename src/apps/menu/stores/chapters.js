@@ -49,7 +49,7 @@ const selectAMissionTitle = writable('_____________');
 
 const selectedChapterId = writable(1);
 
-const chapterPageState = writable('minimized');
+const chapterPageState = writable('full');
 
 // Increase and straighten chapter title on transition from "All Chapters" to "Chapter" page
 const chapterTitleCurvature = tweened(3, {
@@ -62,7 +62,7 @@ const chapterTitleTopShift = tweened(-3.7, {
 });
 const isChapterTitleHuge = writable(false);
 
-export { 
+export {
   chaptersList,
   selectAMissionTitle,
   selectedChapterId,

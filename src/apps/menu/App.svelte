@@ -1,6 +1,5 @@
 <svelte:window
   on:resize={ setBasicDeviceParams }
-  on:orientationchange={ setBasicDeviceParams }
 />
 
 <svelte:head>
@@ -9,7 +8,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
 </svelte:head>
 
-<Router 
+<Router
   routes={{
     '/': AllChapters,
     '/weekly-challenge': WeekChallenge,
@@ -39,7 +38,7 @@
 <div
   style="
     width: 100vw;
-    height: 100vh;
+    height: var(--app-height);
     position: absolute;
     inset: 0 auto auto 0;
     z-index: 99999;
@@ -70,7 +69,7 @@ const _IS_DEV_ENV = IS_DEV_ENV,
       _IS_PROD_ENV = IS_PROD_ENV;
 
 import Router from 'svelte-spa-router';
-import { onMount, tick } from 'svelte';
+import { onMount } from 'svelte';
 import { push } from 'svelte-spa-router';
 import { scale } from 'svelte/transition'
 
@@ -93,7 +92,8 @@ import { isErrorsOverlayVisible, errorsList } from '@stores/errors.js';
 
 
 
-onMount(async () => {
+onMount(() => {
+  setBasicDeviceParams();
   fillStoresWithData(window.dataSource || [], storesToImport);
   document.body.style.backgroundColor = _IS_DEV_ENV ? 'black' : 'none';
 
@@ -104,12 +104,6 @@ onMount(async () => {
     if ($startPage === 'challenge') { push('/weekly-challenge') }
     if ($startPage === 'options')   { push('/settings') }
   }
-
-  setBasicDeviceParams();
-  await tick();
-  setTimeout(setBasicDeviceParams, 200);
-  setTimeout(setBasicDeviceParams, 400);
-  setTimeout(setBasicDeviceParams, 600);
 });
 
 
@@ -118,12 +112,19 @@ import { defineIsDeviceIPad, defineIsPortraitMode, calcFontSize } from '@helpers
 
 function setBasicDeviceParams() {
   isDeviceIpad.update(defineIsDeviceIPad);
-  
+
   isPortraitMode.update(defineIsPortraitMode);
   // hack by Michael Douma
   //isPortraitMode.update(false);
   basicFontSize.update(() => calcFontSize($isDeviceIpad, $isPortraitMode));
   document.querySelector('html').style.fontSize = $basicFontSize + 'px';
+  const appHeight = () => {
+    const doc = document.documentElement
+    doc.style.setProperty('--app-height', `${window.innerHeight}px`)
+  }
+  window.addEventListener('resize', appHeight)
+  appHeight()
+
 }
 
 </script>
@@ -134,11 +135,14 @@ function setBasicDeviceParams() {
 
 
 // App root -------------------------------------------------------------------
+:global(:root){
+  --app-height: 100%;
+}
 .app-root {
 
   &__errors-overlay-wrap {
     width: 50vw;
-    height: calc(100vh - 6.0rem);
+    height: calc(var(--app-height) - 6.0rem);
     display: flex;
     position: absolute;
     inset: 3.0rem auto auto calc(50% - 25vw);

@@ -1,43 +1,43 @@
 ﻿<div
-  class={ `single-nav-button
-              ${isActive && 'single-nav-button--active'}
+  class={ `round-nav-button
+              ${isActive && 'round-nav-button--active'}
               ${mixClass}` }
   {id}
   on:click
 >
 
-  <div class={ `single-nav-button__icon-container
-                ${backwardsGradient && 'single-nav-button__icon-container--backwards-gradient'}
-                ${isThickBorder && 'single-nav-button__icon-container--thick-border'}
-                ${prominent && 'single-nav-button__icon-container--prominent'}` }>
+  <div class={ `round-nav-button__icon-container
+                ${backwardsGradient && 'round-nav-button__icon-container--backwards-gradient'}
+                ${isThickBorder && 'round-nav-button__icon-container--thick-border'}
+                ${prominent && 'round-nav-button__icon-container--prominent'}` }>
 
     {#if textInCircle && typeof textInCircle === 'string'}
-        <span class={ `single-nav-button__text-in-circle
-                        ${isTextInCircleSmall && 'single-nav-button__text-in-circle--small'}` }>
+        <span class={ `round-nav-button__text-in-circle
+                        ${isTextInCircleSmall && 'round-nav-button__text-in-circle--small'}` }>
           { textInCircle }
         </span>
       {:else if textInCircle && Array.isArray(textInCircle) }
-        <span class={ `single-nav-button__text-in-circle
-                        ${isTextInCircleSmall && 'single-nav-button__text-in-circle--small'}` }>
-          <span class="single-nav-button__text-in-circle-line1">{ textInCircle[0] }</span>
-          <span class="single-nav-button__text-in-circle-line2">{ textInCircle[1] }</span>
+        <span class={ `round-nav-button__text-in-circle
+                        ${isTextInCircleSmall && 'round-nav-button__text-in-circle--small'}` }>
+          <span class="round-nav-button__text-in-circle-line1">{ textInCircle[0] }</span>
+          <span class="round-nav-button__text-in-circle-line2">{ textInCircle[1] }</span>
         </span>
     {/if}
 
     {#if icons[iconName]?.type === 'svg'}
         <Icon
-          class={ `single-nav-button__svg-icon
-                    ${textInCircle && 'single-nav-button__svg-icon--small'}
-                    ${isWithBounceAnimation && 'single-nav-button__svg-icon--with-bounce-animation'}
-                    ${isTextInCircleSmall && 'single-nav-button__svg-icon--tiny'}` }
+          class={ `round-nav-button__svg-icon
+                    ${textInCircle && 'round-nav-button__svg-icon--small'}
+                    ${isWithBounceAnimation && 'round-nav-button__svg-icon--with-bounce-animation'}
+                    ${isTextInCircleSmall && 'round-nav-button__svg-icon--tiny'}` }
           data={ icons[iconName].import }
         />
       {:else if icons[iconName]?.type === 'img'}
         <img
-          class={ `single-nav-button__png-icon
-                    ${textInCircle && 'single-nav-button__png-icon--small'}
-                    ${isWithBounceAnimation && 'single-nav-button__png-icon--with-bounce-animation'}
-                    ${isTextInCircleSmall && 'single-nav-button__png-icon--tiny'}` }
+          class={ `round-nav-button__png-icon
+                    ${textInCircle && 'round-nav-button__png-icon--small'}
+                    ${isWithBounceAnimation && 'round-nav-button__png-icon--with-bounce-animation'}
+                    ${isTextInCircleSmall && 'round-nav-button__png-icon--tiny'}` }
           alt="Forward"
           src={ icons[iconName].import }
         />
@@ -47,16 +47,16 @@
 
   {#if text && !isTextArc}
       <div
-        class={ `single-nav-button__text
-                  ${isTextOnTop && 'single-nav-button__text--on-top'}` }
+        class={ `round-nav-button__text
+                  ${isTextOnTop && 'round-nav-button__text--on-top'}` }
         contenteditable="true"
         bind:innerHTML={ text }
       >
       </div>
     {:else if isTextArc}
       <ArcText
-        class={ `single-nav-button__arc-text
-                  ${isTextOnTop && 'single-nav-button__arc-text--on-top'}` }
+        class={ `round-nav-button__arc-text
+                  ${isTextOnTop && 'round-nav-button__arc-text--on-top'}` }
         debugMode={false}
         roundness="22"
         fontSize="33"
@@ -144,13 +144,14 @@ const icons = {
 <style lang="scss">
 
 
-// Single nav button ----------------------------------------------------------
-.single-nav-button {
-  width: 4.0rem;
-  min-width: 4.0rem;
-  height: 4.0rem;
-  min-height: 4.0rem;
+// round nav button ----------------------------------------------------------
+.round-nav-button {
+  width: 8rem;
+  min-width: 8rem;
+  height: 8rem;
+  min-height: 8rem;
   display: flex;
+  z-index: 3;
   flex-direction: column;
   align-content: center;
   align-items: center;
@@ -180,9 +181,9 @@ const icons = {
   }
 
   &__icon-container {
-    width: 3.8rem;
-    height: 3.8rem;
-    min-height: 3.8rem;
+    width: 8rem;
+    height: 8rem;
+    min-height: 8rem;
     padding-bottom: .2rem;
     margin-bottom: -.5rem;
     box-sizing: border-box;
@@ -192,14 +193,16 @@ const icons = {
     align-items: center;
     position: relative;
     z-index: 0;
-    font-size: 1.3rem;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
 
     &::before {
       content: '';
       width: 100%;
       height: 100%;
       box-sizing: border-box;
-      border: .15rem rgba(255,255,255,.3) solid;
+      border: .5rem rgba(255,255,255,.9) solid;
       border-radius: 40.0rem;
       display: flex;
       justify-content: center;
@@ -208,8 +211,8 @@ const icons = {
       position: absolute;
       inset: 0 auto auto 0;
       z-index: -1;
-      background: rgba(0,0,0,.25);
-      mask-image: linear-gradient(0deg, rgba(0,0,0,0) 20%, rgba(0,0,0,1) 90%);
+      background: rgba(0,0,0,.1);
+      //mask-image: linear-gradient(0deg, rgba(255,255,255,0) 20%, rgba(0,0,0,1) 90%);
       transition: transform .1s ease;
     }
 
@@ -238,52 +241,52 @@ const icons = {
 
     &:active,
     &--active {
-      .single-nav-button__icon-container::before {
-        transform: scale(1.3);
+      .round-nav-button__icon-container::before {
+        transform: scale(1.2);
       }
     }
 
-    :global(.single-nav-button__svg-icon) {
-      width: 50%;
-      height: 50%;
+    :global(.round-nav-button__svg-icon) {
+      width: 57%;
+      height: 57%;
       position: relative;
       fill: #fff;
     }
 
-      :global(.single-nav-button__svg-icon--small) {
+      :global(.round-nav-button__svg-icon--small) {
         width: 35%;
         height: 35%;
       }
 
-      :global(.single-nav-button__svg-icon--tiny) {
+      :global(.round-nav-button__svg-icon--tiny) {
         width: 23%;
         height: 23%;
         top: .2rem;
       }
 
-      :global(.single-nav-button__svg-icon--with-bounce-animation) {
+      :global(.round-nav-button__svg-icon--with-bounce-animation) {
         animation-duration: 6s;
         animation-name: bounce-spin;
         animation-iteration-count: infinite;
       }
 
-    :global(.single-nav-button__png-icon) {
-      width: 56%;
+    :global(.round-nav-button__png-icon) {
+      width: 63%;
       position: relative;
     }
 
-      :global(.single-nav-button__png-icon--small) {
+      :global(.round-nav-button__png-icon--small) {
         width: 35%;
         height: 35%;
       }
 
-      :global(.single-nav-button__png-icon--tiny) {
+      :global(.round-nav-button__png-icon--tiny) {
         width: 23%;
         height: 23%;
         top: .2rem;
       }
 
-      :global(.single-nav-button__png-icon--with-bounce-animation) {
+      :global(.round-nav-button__png-icon--with-bounce-animation) {
         animation-duration: 6s;
         animation-name: bounce-spin;
         animation-iteration-count: infinite;
@@ -309,7 +312,7 @@ const icons = {
     }
   }
 
-  :global(.single-nav-button__arc-text) {
+  :global(.round-nav-button__arc-text) {
     width: 1.8rem;
     height: 4.8rem;
     position: absolute;
@@ -322,7 +325,7 @@ const icons = {
     text-transform: uppercase;
   }
 
-    :global(.single-nav-button__arc-text--on-top) {
+    :global(.round-nav-button__arc-text--on-top) {
     }
 
     &__text-in-circle {
@@ -352,7 +355,7 @@ const icons = {
 @keyframes bounce-spin {
   from {transform-origin: center center; transform: scale(1);animation-timing-function: ease-out;}
   50% {transform-origin: center center; transform: scale(1);animation-timing-function: ease-out;}
-  52% {transform-origin: center center; transform: scale(1.3) rotateZ(30deg);animation-timing-function: ease-in-out;}
+  52% {transform-origin: center center; transform: scale(1.2) rotateZ(30deg);animation-timing-function: ease-in-out;}
   57% {transform-origin: center center; transform: scale(1) rotateZ(-10deg);animation-timing-function: ease-in-out;}
   60% {transform-origin: center center; transform: scale(1) rotateZ(0deg);}
   to {transform-origin: center center; transform: scale(1) rotateZ(0deg);}
