@@ -49,8 +49,8 @@ import fillStoresWithData from '@helpers/fillStoresWithData.js';
 // Components
 import ErrorsOverlay from '@components/ErrorsOverlay.svelte';
   // pages
-import Challenges from '@pages-lp/Challenges.svelte';
-import Welcome from '@pages-lp/Welcome.svelte';
+import Challenges from '@pages-lp/Landscape.svelte';
+import Welcome from '@pages-lp/Portrait.svelte';
 
 // Stores
 import { basicFontSize, isDeviceIpad, isPortraitMode } from '@stores/miscellaneous.js';
