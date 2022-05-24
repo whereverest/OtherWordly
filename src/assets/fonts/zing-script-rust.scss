@@ -1,0 +1,20 @@
+@font-face {
+  font-family: 'ZingScriptRustR-Base';
+  src: local('☺︎'), url("./zing-script-rust/zingscriptrustr-base.otf") format("opentype");
+}
+@media screen and (max-device-width: 480px) {
+  @font-face {
+    font-family: "ZingScriptRustR-Base";
+    src: url("./zing-script-rust/zingscriptrustr-base.otf") format("opentype");
+}}
+
+
+@font-face {
+  font-family: 'ZingScriptRustB-Base';
+  src: local('☺︎'), url("./zing-script-rust/zingscriptrustb-base.otf") format("opentype");
+}
+@media screen and (max-device-width: 480px) {
+  @font-face {
+    font-family: "ZingScriptRustB-Base";
+    src: url("./zing-script-rust/zingscriptrustb-base.otf") format("opentype");
+  }}

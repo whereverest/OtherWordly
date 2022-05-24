@@ -1,0 +1,107 @@
+[
+  {
+    "term": "term",
+    "matched": true,
+    "ammo": "geriatric",
+    "example": "Between the three days in Shelley's home each week and the pieces of a life Lou put together the rest of the week—the assisted living home's...",
+    "citation": "Being Mortal, Atul Gawande, 2013"
+  },
+  {
+    "term": "assisted living",
+    "matched": true,
+    "ammo": "geriatric",
+    "example": "Between the three days in Shelley's home each week and the pieces of a life Lou put together the rest of the week—the assisted living home's...",
+    "citation": "Being Mortal, Atul Gawande, 2013"
+  },
+  {
+    "term": "retirement",
+    "matched": true,
+    "ammo": "geriatric",
+    "example": "...for all but the length of time into which we must nowadays squeeze the whole of our lives from birth until professional <em>retirement</em>....",
+    "citation": "D'arcy Thompson And Growth And Form, Peter Medawar, 1960"
+  },
+  {
+    "term": "pensioner",
+    "matched": true,
+    "ammo": "geriatric",
+    "example": "...and had in reality been a <em>pensioner</em> of Pilkington for years past.",
+    "citation": "Animal Farm, George Orwell, 1945"
+  },
+  {
+    "term": "flog",
+    "matched": false,
+    "ammo": "thicken",
+    "example": "Before long, John Brown was invited to join the Klavaliers, the Klan's secret police and “<em>flog</em> squad.”...",
+    "citation": "Freakonomics, Steven D. Levitt & Stephen J. Dubner, 2009"
+  },
+  {
+    "term": "Ground Zero",
+    "matched": true,
+    "ammo": "9/11",
+    "example": "(null)",
+    "citation": "(null)"
+  },
+  {
+    "term": "bash",
+    "matched": true,
+    "ammo": "clobber",
+    "example": "...There's the abs of being kind It's not enough to <em>bash</em> in headsYou've got to bash in...",
+    "citation": "Dr. Horrible’s Sing-Along Blog, Joss Whedon, 2010"
+  },
+  {
+    "term": "Pentagon",
+    "matched": true,
+    "ammo": "9/11",
+    "example": "He's the man responsible for The Selling of the <em>Pentagon</em>.&quot;",
+    "citation": "Fear and loathing in Las Vegas, Hunter S. Thompson, 1971"
+  },
+  {
+    "term": "punch",
+    "matched": true,
+    "ammo": "clobber",
+    "example": "I wanted to <em>punch</em> him and understand him at the same time.",
+    "citation": "Take Me Tomorrow, Shannon A. Thompson, 2014"
+  },
+  {
+    "term": "pound",
+    "matched": true,
+    "ammo": "clobber",
+    "example": "It may make its legs short and thick, like the rhinoceros, so that every <em>pound</em> of weight has still about the same area of bone to support it....",
+    "citation": "On Being The Right Size, J. B. S. Haldane, 1926"
+  },
+  {
+    "term": "Afghanistan",
+    "matched": true,
+    "ammo": "9/11",
+    "example": "...the Vietnam and <em>Afghanistan</em> wars - a few entries from a long and dolorous list....",
+    "citation": "Cosmos, Carl Sagan, 1980"
+  },
+  {
+    "term": "monarch",
+    "matched": true,
+    "ammo": "sovereign",
+    "example": "Somewhat incidentally, another <em>monarch</em>, George III, may have carried a different mutation....",
+    "citation": "The Language of the Genes, Steve Jones, 1993"
+  },
+  {
+    "term": "empress",
+    "matched": true,
+    "ammo": "sovereign",
+    "example": "The <em>empress</em>'s apartment on fire by an accident; the author instrumental in saving the rest of the palace.",
+    "citation": "Gulliver's Travels, Jonathan Swift, 1739"
+  },
+  {
+    "term": "buggy",
+    "matched": true,
+    "ammo": "wheeled",
+    "example": "Those <em>buggy</em> eyes and the way his lips twitched and that silly excuse he had for a mustache....",
+    "citation": "The Things They Carried, Tim O'Brien, 1990"
+  },
+  {
+    "term": "potentate",
+    "matched": true,
+    "ammo": "sovereign",
+    "example": "There were influential and corruptible people like his friend Max, onetime singer for the Pink Buttons, now a wind-power <em>potentate</em> who...",
+    "citation": "A Visit from the Goon Squad, Jennifer Egan, 2010"
+  }
+]
