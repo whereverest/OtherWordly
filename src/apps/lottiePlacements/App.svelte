@@ -11,8 +11,8 @@
 
 <Router
   routes={{
-    '/': Welcome,
-    '/challenges': Challenges
+    '/': Landscape,
+    '/portrait': Portrait
   }}
 />
 
@@ -49,8 +49,8 @@ import fillStoresWithData from '@helpers/fillStoresWithData.js';
 // Components
 import ErrorsOverlay from '@components/ErrorsOverlay.svelte';
   // pages
-import Challenges from '@pages-lp/Landscape.svelte';
-import Welcome from '@pages-lp/Portrait.svelte';
+import Landscape from '@pages-lp/Landscape.svelte';
+import Portrait from '@pages-lp/Portrait.svelte';
 
 // Stores
 import { basicFontSize, isDeviceIpad, isPortraitMode } from '@stores/miscellaneous.js';
