@@ -83,7 +83,7 @@ import Icon from 'svelte-icon';
 
 // Stores
 // import { basicFontSize } from '@stores/miscellaneous.js';
-import { transitionFrom, transitionTo } from '@stores-lp/transitions.js';
+import { transitionFrom, transitionTo } from '@stores-fp/transitions.js';
 
 // Images
 import randomAvatar from '@images/characters/char15_astra.png';

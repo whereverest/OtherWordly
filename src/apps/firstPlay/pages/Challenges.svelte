@@ -74,7 +74,7 @@ import { onMount } from 'svelte';
 import TwoColorsTitle from '@components/TwoColorsTitle';
 
 // Stores
-import { transitionFrom, transitionTo } from '@stores-lp/transitions.js';
+import { transitionFrom, transitionTo } from '@stores-fp/transitions.js';
 import { difficultyLevel } from '@stores/options.js';
 
 
