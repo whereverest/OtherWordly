@@ -224,6 +224,7 @@ module.exports = {
   
   devServer: {
     hot: true,
+    host: '192.168.6.217',
     writeToDisk: true,
     disableHostCheck: true
   }

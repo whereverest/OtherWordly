@@ -1,12 +1,12 @@
-﻿<div
-  class={ `single-nav-button
+﻿<div 
+  class={ `single-nav-button 
               ${isActive && 'single-nav-button--active'}
               ${mixClass}` }
   {id}
   on:click
 >
-
-  <div class={ `single-nav-button__icon-container
+  
+  <div class={ `single-nav-button__icon-container 
                 ${backwardsGradient && 'single-nav-button__icon-container--backwards-gradient'}
                 ${isThickBorder && 'single-nav-button__icon-container--thick-border'}
                 ${prominent && 'single-nav-button__icon-container--prominent'}` }>
@@ -23,7 +23,7 @@
           <span class="single-nav-button__text-in-circle-line2">{ textInCircle[1] }</span>
         </span>
     {/if}
-
+    
     {#if icons[iconName]?.type === 'svg'}
         <Icon
           class={ `single-nav-button__svg-icon
@@ -34,7 +34,7 @@
         />
       {:else if icons[iconName]?.type === 'img'}
         <img
-          class={ `single-nav-button__png-icon
+          class={ `single-nav-button__png-icon 
                     ${textInCircle && 'single-nav-button__png-icon--small'}
                     ${isWithBounceAnimation && 'single-nav-button__png-icon--with-bounce-animation'}
                     ${isTextInCircleSmall && 'single-nav-button__png-icon--tiny'}` }
@@ -55,7 +55,7 @@
       </div>
     {:else if isTextArc}
       <ArcText
-        class={ `single-nav-button__arc-text
+        class={ `single-nav-button__arc-text 
                   ${isTextOnTop && 'single-nav-button__arc-text--on-top'}` }
         debugMode={false}
         roundness="22"
@@ -67,7 +67,7 @@
         {text}
       </ArcText>
   {/if}
-
+  
 </div>
 
 
@@ -142,8 +142,8 @@ const icons = {
 
 
 <style lang="scss">
-
-
+  
+  
 // Single nav button ----------------------------------------------------------
 .single-nav-button {
   width: 4.0rem;
@@ -161,11 +161,11 @@ const icons = {
   transition: transform .05s ease, opacity .05s ease;
   touch-action: none;
   -webkit-tap-highlight-color: transparent;
-
+  
   * {
     pointer-events: none;
   }
-
+  
   &::before {
     content: '';
     width: calc(100% + 3.0rem);
@@ -212,12 +212,12 @@ const icons = {
       mask-image: linear-gradient(0deg, rgba(0,0,0,0) 20%, rgba(0,0,0,1) 90%);
       transition: transform .1s ease;
     }
-
+    
     &--backwards-gradient {
       &::before {
         mask-image: linear-gradient(0deg, rgba(0,0,0,1) 10%, rgba(0,0,0,0) 80%);
       }
-
+      
       :global(svg),
       :global(img) {
         top: .1rem;
@@ -242,7 +242,7 @@ const icons = {
         transform: scale(1.3);
       }
     }
-
+  
     :global(.single-nav-button__svg-icon) {
       width: 50%;
       height: 50%;
@@ -300,7 +300,7 @@ const icons = {
     pointer-events: none;
     touch-action: none;
     user-select: none;
-
+    
     &--on-top {
       width: 100%;
       position: absolute;
@@ -324,7 +324,7 @@ const icons = {
 
     :global(.single-nav-button__arc-text--on-top) {
     }
-
+  
     &__text-in-circle {
       display: flex;
       flex-direction: column;
@@ -333,7 +333,7 @@ const icons = {
       position: relative;
       top: .2rem;
       line-height: 1.0rem;
-
+      
       &--small {
         font-size: 1.0rem;
       }
@@ -357,5 +357,5 @@ const icons = {
   60% {transform-origin: center center; transform: scale(1) rotateZ(0deg);}
   to {transform-origin: center center; transform: scale(1) rotateZ(0deg);}
 }
-
+  
 </style>

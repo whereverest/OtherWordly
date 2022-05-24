@@ -30,7 +30,6 @@
   justify-content: center;
   left: calc(50vw - .5rem);
 }
-
 @mixin page-header-right {
   @include page-header-generic;
 
@@ -68,6 +67,7 @@
   justify-content: flex-end;
   right: 6.0rem;
 }
+
 // Basic content block
 @mixin page-content {
   width: 1.0rem;

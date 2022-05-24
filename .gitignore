@@ -3,3 +3,8 @@ node_modules
 dist
 dist-dev
 .idea
+/build
+package-lock.json
+simplewiktionary-newlines.txt
+simplewiktionary.mostSenses.tab.txt
+simplewiktionary.mostSenses.txt

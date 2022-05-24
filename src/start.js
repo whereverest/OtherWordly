@@ -62,7 +62,7 @@ const dataSource = [
   // Chapter page state -------------------------------------------------------
   {
     storeName: 'chapterPageState',
-    data: 'full' // minimized, full
+    data: 'minimized' // minimized, full
   },
 
   // Challenge mode -----------------------------------------------------------
@@ -497,9 +497,9 @@ const dataSource = [
       { word: 'visual art3', color: '#2d7f91'}
     ]
   }
-
-
-
+  
+  
+  
 ];
 
 if (!window.dataSource) {

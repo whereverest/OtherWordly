@@ -1,5 +1,6 @@
 <svelte:window
   on:resize={ setBasicDeviceParams }
+  on:orientationchange={ setBasicDeviceParams }
 />
 
 <svelte:head>
@@ -69,7 +70,7 @@ const _IS_DEV_ENV = IS_DEV_ENV,
       _IS_PROD_ENV = IS_PROD_ENV;
 
 import Router from 'svelte-spa-router';
-import { onMount } from 'svelte';
+import { onMount, tick } from 'svelte';
 import { push } from 'svelte-spa-router';
 import { scale } from 'svelte/transition'
 
