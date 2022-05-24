@@ -25,13 +25,13 @@
 
   onMount(async () => {
     fillStoresWithData(window.dataSource || [], storesToImport);
-    document.body.style.backgroundColor = _IS_DEV_ENV ? "black" : "none";
+    //document.body.style.backgroundColor = _IS_DEV_ENV ? "black" : "none";
 
-    setBasicDeviceParams();
-    await tick();
-    setTimeout(setBasicDeviceParams, 200);
-    setTimeout(setBasicDeviceParams, 400);
-    setTimeout(setBasicDeviceParams, 600);
+    //setBasicDeviceParams();
+    //await tick();
+    // setTimeout(setBasicDeviceParams, 200);
+    // setTimeout(setBasicDeviceParams, 400);
+    // setTimeout(setBasicDeviceParams, 600);
   });
 
   // Set basic device params ----------------------------------------------------
@@ -582,22 +582,3 @@
     </div>
   {/if}
 </div>
-
-<style lang="scss">
-  // App root -------------------------------------------------------------------
-  .app-root {
-    &__errors-overlay-wrap {
-      width: 100vw;
-      height: calc(100vh - 6rem);
-      display: flex;
-      position: absolute;
-      inset: 3rem auto auto calc(50% - 25vw);
-      z-index: 999999;
-    }
-
-    :global(.app-root__errors-overlay) {
-      width: 100%;
-      height: 100%;
-    }
-  }
-</style>
