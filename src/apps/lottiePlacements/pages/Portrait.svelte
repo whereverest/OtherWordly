@@ -1,180 +1,315 @@
-<div class={ `challenges-page
-              ${_IS_DEV_ENV && 'challenges-page--with-bg-image'}` }>
-
-
-  <BasicPageLayout class="challenges-page__basic-layout-container">
-
-    <!-- slot: content -->
-    <svelte:fragment slot="content">
-      <div class={ `challenges-page__page-content
-                    ${!isAllPageElementsVisible && 'challenges-page__page-content--invisible'}
-                    ${$transitionFrom === 'Welcome' && !isAllPageElementsVisible
-                                            && 'challenges-page__page-content--moved-to-right'}` }>
-
-        <!-- Main title -->
-        <div class="main-title
-                    challenges-page__main-title">
-
-          <TwoColorsTitle
-            class="main-title__first-line"
-            text="Choose Your Challenge"
-            isNoWrap={ true }
-          />
-
-          <div class="main-title__second-line">
-            What kinds of <b>words</b> do you want to play with?
+<div id="body" style="overflow: hidden">
+  <div id="content-win" class="content-common" style="visibility: visible">
+    <div class="content-common-interior">
+      <div class="row">
+        <div class="col-33 fullheight"></div>
+        <div class="col-33 fullheight">
+          <div class="v-center">
+            <div
+              id="SidekickPlaceholder-normal"
+              class="sidekick-placeholder-normal h-center"
+            ></div>
           </div>
-
-        </div><!-- / Main title -->
-
-
-        <ul class="challenges-page__challenges-menu">
-
-          {#each levelsList as level,index (level.complexity)}
-            <DifficultyLevelSnippet
-              class="challenges-page__option-snippet"
-              levelName={ level.name }
-              levelComplexity={ level.complexity }
-              levelDescription={ level.description }
-              isActive={ level.id === $difficultyLevel }
-              isWithDivider={ !(index === levelsList.length - 1
-                                            || index === selectedLevelIndex
-                                            || index === selectedLevelIndex - 1 ) }
-              on:click={ () => {
-                difficultyLevel.update(() => level.id);
-                dispatchIosEvent({'tapped':'OWJSMsgPlayClickSound'});
-              }}
-              on:deactivate={ () => setTimeout( () => difficultyLevel.update(() => ''), 100) }
-            />
-          {/each}
-
-        </ul>
-
+        </div>
+        <div class="col-33 fullheight h-alignleft-content"></div>
       </div>
-    </svelte:fragment><!-- / slot: content -->
+    </div>
+  </div>
 
-  </BasicPageLayout>
+  <div id="content-lose" class="content-common" style="visibility: visible">
+    <div class="content-common-interior">
+      <div class="row">
+        <div class="col-33 fullheight"></div>
+        <div class="col-33 fullheight">
+          <div class="v-center">
+            <div
+              id="SidekickPlaceholder-normal-lose"
+              class="sidekick-placeholder-normal-lose h-center"
+            ></div>
+          </div>
+        </div>
+        <div class="col-33 fullheight"></div>
+      </div>
+    </div>
+  </div>
 
-</div>
+  <div
+    id="content-readytoplay"
+    class="content-common"
+    style="visibility: visible"
+  >
+    <div class="content-common-interior">
+      <div class="row">
+        <div class="col-33 fullheight">
+          <div
+            id="SidekickPlaceholder-readytoplay"
+            class="sidekick-placeholder-readytoplay hv-center"
+            style="
+              border-color: rgb(255, 100, 100);
+              --darkreader-inline-border-top: #950000;
+              --darkreader-inline-border-right: #950000;
+              --darkreader-inline-border-bottom: #950000;
+              --darkreader-inline-border-left: #950000;
+            "
+            data-darkreader-inline-border-top=""
+            data-darkreader-inline-border-right=""
+            data-darkreader-inline-border-bottom=""
+            data-darkreader-inline-border-left=""
+          ></div>
+        </div>
+        <div class="col-66 fullheight"></div>
+      </div>
+    </div>
+  </div>
 
+  <div
+    id="content-readytoplay-dialogue"
+    class="content-common"
+    style="visibility: visible"
+  >
+    <div class="content-common-interior">
+      <div class="row">
+        <div class="col-25 fullheight">
+          <div
+            id="SidekickPlaceholder-readytoplay-dialogue"
+            class="sidekick-placeholder-readytoplay-dialogue hv-center"
+            style="
+              border-color: rgb(255, 100, 100);
+              --darkreader-inline-border-top: #950000;
+              --darkreader-inline-border-right: #950000;
+              --darkreader-inline-border-bottom: #950000;
+              --darkreader-inline-border-left: #950000;
+            "
+            data-darkreader-inline-border-top=""
+            data-darkreader-inline-border-right=""
+            data-darkreader-inline-border-bottom=""
+            data-darkreader-inline-border-left=""
+          ></div>
+        </div>
+        <div class="col-50 fullheight"></div>
+        <div class="col-25 fullheight">
+          <div
+            id="SidekickPlaceholder-readytoplay-dialogue-B"
+            class="sidekick-placeholder-readytoplay-dialogue hv-center"
+            style="
+              border-color: rgb(255, 100, 100);
+              --darkreader-inline-border-top: #950000;
+              --darkreader-inline-border-right: #950000;
+              --darkreader-inline-border-bottom: #950000;
+              --darkreader-inline-border-left: #950000;
+            "
+            data-darkreader-inline-border-top=""
+            data-darkreader-inline-border-right=""
+            data-darkreader-inline-border-bottom=""
+            data-darkreader-inline-border-left=""
+          ></div>
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <div
+    id="content-tutorial"
+    class="content-common"
+    style="visibility: visible"
+  >
+    <div class="content-common-interior">
+      <div class="row">
+        <div class="col-33 fullheight"></div>
+        <div class="col-33 fullheight">
+          <div
+            id="SidekickPlaceholder-tutorial"
+            class="sidekick-placeholder-tutorial hv-center"
+          ></div>
+        </div>
+        <div class="col-33 fullheight"></div>
+      </div>
+    </div>
+  </div>
 
-<script>
-const _IS_DEV_ENV = IS_DEV_ENV,
-      _IS_PROD_ENV = IS_PROD_ENV;
+  <div id="content-bonus" class="content-common" style="visibility: visible">
+    <div class="content-common-interior">
+      <div class="row">
+        <div class="col-25 fullheight">
+          <div
+            id="SidekickPlaceholder-bonus"
+            class="sidekick-placeholder-bonus hv-center"
+          ></div>
+        </div>
+        <div class="col-50 fullheight"></div>
+        <div class="col-25 fullheight">
+          <div
+            id="SidekickPlaceholder-bonus-B"
+            class="sidekick-placeholder-bonus hv-center"
+          ></div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-import { dispatchIosEvent } from '@helpers/iosEvents.js';
+  <div
+    id="content-bonus-lose"
+    class="content-common"
+    style="visibility: visible"
+  >
+    <div class="content-common-interior">
+      <div class="row">
+        <div class="col-25 fullheight">
+          <div
+            id="SidekickPlaceholder-bonus-lose"
+            class="sidekick-placeholder-bonus-lose hv-center"
+          ></div>
+        </div>
+        <div class="col-50 fullheight"></div>
+        <div class="col-25 fullheight">
+          <div
+            id="SidekickPlaceholder-bonus-lose-B"
+            class="sidekick-placeholder-bonus-lose hv-center"
+          ></div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-// Components
-import BasicPageLayout from '@components/BasicPageLayout.svelte';
-import ButtonInCircle from '@components/ButtonInCircle.svelte';
-import CircleProgressBar from '@components/CircleProgressBar.svelte';
-import DifficultyLevelSnippet from '@components/DifficultyLevelSnippet';
-import { onMount } from 'svelte';
-import TwoColorsTitle from '@components/TwoColorsTitle';
+  <div
+    id="content-chapterend"
+    class="content-common"
+    style="visibility: visible"
+  >
+    <div class="content-common-interior">
+      <div class="row">
+        <div class="col-50 fullheight"></div>
+        <div class="col-50 fullheight">
+          <div
+            id="SidekickPlaceholder-bonus-B-transformed"
+            class="sidekick-placeholder-bonus-b-transformed hv-center"
+          ></div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-// Stores
-import { transitionFrom, transitionTo } from '@stores-lp/transitions.js';
-import { difficultyLevel } from '@stores/options.js';
+  <div
+    id="content-firstplay"
+    class="content-common"
+    style="visibility: visible"
+  >
+    <div class="content-common-interior">
+      <div class="row">
+        <div class="col-33 fullheight">
+          <div class="v-center">
+            <div
+              id="SidekickPlaceholder-firstPlay"
+              class="sidekick-placeholder-firstplay h-center"
+            ></div>
+          </div>
+        </div>
+        <div class="col-50 fullheight"></div>
+        <div class="col-16 fullheight"></div>
+      </div>
+    </div>
+  </div>
 
+  <div
+    id="content-premium"
+    class="content-common"
+    style="visibility: visible"
+  >
+    <div class="content-common-interior">
+      <div class="row">
+        <div class="col-25 fullheight">
+          <div class="v-center">
+            <div
+              id="SidekickPlaceholder-premium"
+              class="sidekick-placeholder-premium h-center"
+            ></div>
+          </div>
+        </div>
+        <div class="col-75 fullheight"></div>
+      </div>
+    </div>
+  </div>
 
+  <!-- Chapter details page elements -->
+  <div class="chapter-details-page-elements">
+    <div
+      class="chapter-details-page-elements__level-select-carousel-container"
+    >
+      <div
+        class="chapter-details-page-elements__level-select-carousel"
+        id="MenuLevelsScrollPlaceholder"
+      ></div>
+    </div>
 
-// Show elements on page opening ----------------------------------------------
-let isAllPageElementsVisible = false;
-onMount(() => {
-  setTimeout(() => isAllPageElementsVisible = true, 10);
-});
+    <div
+      class="chapter-details-page-elements__play-button"
+      id="MenuLevelsPlayPlaceholder"
+    ></div>
+  </div>
+  <!-- / Chapter details page elements -->
 
-
-// Levels list & selection ----------------------------------------------------
-const levelsList = [
-  { id: 'X', complexity: 'Easy', name: 'Pioneer', description: ['Kid-','friendly'] },
-  { id: 'Y', complexity: 'Adaptive', name: 'Wayfinder', description: ['Adapts to your','vocab level'] },
-  { id: 'Z', complexity: 'Challenge', name: 'Voyager', description: ['Varied words','+ missing letters'] }
-];
-
-$: selectedLevelIndex = levelsList.findIndex(item => item.id === $difficultyLevel);
-
-
-// Dispatch iOS events --------------------------------------------------------
-// without block it will dispatch iOS events on page load
-let isIOSMessagesBlocked = true;
-
-onMount(() => {
-  setTimeout(() => {
-    isIOSMessagesBlocked = false;
-  }, 300);
-});
-
-function dispatchIOSEventWrapper(iOSvent) {
-  if (!isIOSMessagesBlocked) {
-    dispatchIosEvent(iOSvent);
-  }
-}
-
-$: { if ($difficultyLevel !== undefined) {
-  dispatchIOSEventWrapper({'tapped':'OWJSMsgDifficultyLevelChange','value': $difficultyLevel}); }}
-
-</script>
-
-
-
-<style lang="scss">
-
-
-// Main title -----------------------------------------------------------------
-.main-title {
-
-  :global(.main-title__first-line) {
-    margin-bottom: 1.9rem;
-  }
-
-  &__second-line {
-    white-space: nowrap;
-    font: 2.06rem/2.5rem 'ZingScriptRustR-Base',serif;
-  }
-}
-
-
-// Challenges page ------------------------------------------------------------
-.challenges-page {
-
-  &--with-bg-image {
-    background: 50% 50%/cover url(../../../assets/images/menu_bg2.jpg) no-repeat;
-  }
-
-  &__basic-layout-container {}
-
-    &__page-content {
+  <!-- -------------------------------------------------------------------------- -->
+  <!-- Chapter details page elements -->
+  <style>
+    .chapter-details-page-elements {
+      width: 10px;
+      height: 10px;
       display: flex;
-      flex-direction: column;
-      align-items: center;
       justify-content: center;
-      opacity: 1;
-      transition: margin .5s ease-out, opacity .4s ease;
-
-      &--invisible {
-        opacity: 0;
-      }
-
-      &--moved-to-right {
-        position: relative;
-        margin-left: 25.0rem;
-      }
+      align-items: center;
+      align-content: center;
+      position: absolute;
+      top: calc(50vh + 0px);
+      left: calc(50vw - 5px);
+      z-index: 1;
+      font-size: calc((100vh + 100vh * 1.5) / 100);
     }
 
-      &__main-title {
-        margin: -4.5rem 0 3.5rem 0;
+    .chapter-details-page-elements__level-select-carousel-container {
+      /* aspect ratio is 30/13 */
+      width: 27em;
+      height: 11.7em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: calc(50% - 10em);
+      left: calc(25vw - 20.9em);
+    }
+
+    .chapter-details-page-elements__level-select-carousel {
+      width: 27vw;
+      height: 100%;
+      background: rgba(255, 0, 0, 0.5);
+    }
+
+    .chapter-details-page-elements__play-button {
+      width: 9em;
+      height: 9em;
+      position: absolute;
+      top: calc(50% - 6.6em);
+      left: calc(50vw - 12.3em);
+      background: rgba(0, 255, 0, 0.2);
+    }
+
+    @media (min-width: 927px) {
+      .chapter-details-page-elements {
+        font-size: calc((100vh + 100vh * 0.8) / 100);
       }
 
-      &__challenges-menu {
-        padding: 0;
-        margin: 0;
-        display: flex;
-        list-style: none;
+      .chapter-details-page-elements__level-select-carousel-container {
+        width: 25em;
+        height: 9.4em;
+        top: calc(50% - 9.5em);
+        left: calc(25vw - 14.9em);
       }
 
-        :global(.challenges-page__option-snippet) {}
-}
-
-</style>
+      .chapter-details-page-elements__play-button {
+        width: 7.6em;
+        height: 7.6em;
+        top: calc(50% + 18.6em);
+        left: calc(50% - 3.8em);
+      }
+    }
+  </style>
+</div>
