@@ -12,10 +12,11 @@
                     ${$transitionTo === 'Challenges' && 'welcome-page__page-content--moved-to-left'}` }>
 
         <!-- Greeting snippet -->
-        <div class="greeting-snippet
-                    welcome-page__greeting-snippet">
+        <div class={`greeting-snippet
+                    welcome-page__greeting-snippet 
+                    ${$isPortraitMode && 'greeting-snippet__portrait-mode'}`}>
 
-          <div class="greeting-snippet__avatar-container">
+          <div class={`greeting-snippet__avatar-container ${$isPortraitMode && 'greeting-snippet__avatar-container__portrait-mode'}`}>
             <img
               class="greeting-snippet__avatar"
               src={ randomAvatar }
@@ -30,7 +31,7 @@
                         greeting-snippet__text">
 
               <Icon
-                class="greeting-text__chat-bubble-bg"
+                class={`greeting-text__chat-bubble-bg ${$isPortraitMode && 'chat-bubble-portrait-mode'}`}
                 data={ chatBubbleIcon }
               />
 
@@ -38,22 +39,22 @@
                 <em>Welcome</em>&nbsp; to Alphazoid Prime!
               </div>
 
-              <div class="greeting-text__paragraph">
+              <div class={`greeting-text__paragraph${$isPortraitMode && '__portrait-mode'}`}>
                 Join us on a journey by<br>
                 matching words.
               </div>
 
             </div><!-- / Greeting text -->
 
-            <div class="greeting-snippet__button-container">
-              <ButtonInCircle
-                class="greeting-snippet__button"
-                backwardsGradient={true}
-                prominent={true}
-                textInCircle={ ['LET\'S','GO'] }
-                on:click={ goToChallengesPage }
-                isWithBounceAnimation={ true }
-              />
+            <div class={`greeting-snippet__button-container ${$isPortraitMode && 'greeting-snippet__button-container__portrait-mode'}`}>
+              <div
+                class="tap-to-continue-but
+                        character-speech__tap-to-continue-but"
+                transition:fade={{ duration: 400 }}
+                on:click={goToChallengesPage}
+              >
+                Tap to Continue
+              </div><!-- / Tap to continue but -->
             </div>
 
           </div>
@@ -74,6 +75,7 @@ const _IS_DEV_ENV = IS_DEV_ENV,
       _IS_PROD_ENV = IS_PROD_ENV;
 
 import { push } from 'svelte-spa-router';
+import { fade } from 'svelte/transition';
 import { onMount } from 'svelte';
 
 // Components
@@ -90,6 +92,7 @@ import randomAvatar from '@images/characters/char15_astra.png';
 
 // Icons
 import chatBubbleIcon from '@icons/chat-bubble.svg';
+import {isPortraitMode} from '@stores/miscellaneous.js';
 
 
 
@@ -137,6 +140,10 @@ function goToChallengesPage() {
     mask-image: linear-gradient(24deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 43%);
   }
 
+  :global(.chat-bubble-portrait-mode) {
+    left: -2rem;
+  }
+
   &__title {
     margin-bottom: 1.0rem;
     text-align: left;
@@ -153,6 +160,22 @@ function goToChallengesPage() {
 
   &__paragraph {
     text-align: left;
+
+    animation-duration: 4s;
+    animation-name: scale-bounce;
+    animation-iteration-count: infinite;
+
+    @keyframes scale-bounce {
+      from {transform: scale(1);}
+      7% {transform: scale(1.1);}
+      25% {transform: scale(.95);}
+      50% {transform: scale(1);}
+      to {transform: scale(1);}
+    }
+
+    &__portrait-mode {
+      text-align: center;
+    }
   }
 }
 
@@ -163,6 +186,11 @@ function goToChallengesPage() {
   display: flex;
   justify-content: center;
 
+  &__portrait-mode {
+    display: block;
+    right: 0 !important;
+  }
+
   &__avatar-container {
     width: 13.0rem;
     height: 13.0rem;
@@ -170,6 +198,10 @@ function goToChallengesPage() {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    &__portrait-mode {
+      margin: auto;
+    }
   }
 
     &__avatar {
@@ -189,15 +221,20 @@ function goToChallengesPage() {
     }
 
     &__button-container {
-      width: 8.5rem;
+      width: auto;
       height: 8.5rem;
       display: flex;
       justify-content: center;
       align-items: center;
-      animation-duration: 2s;
+      animation-duration: 4s;
       animation-name: scale-bounce;
       animation-iteration-count: infinite;
       transform-origin: center center;
+      margin-left: 3rem;
+
+      &__portrait-mode {
+        margin: auto;
+      }
 
       @keyframes scale-bounce {
         from {transform: scale(1);}
