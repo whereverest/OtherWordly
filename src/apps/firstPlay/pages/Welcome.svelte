@@ -60,6 +60,15 @@
       tick: (t) => {
         const i = Math.trunc(text.length * t);
         node.textContent = text.slice(0, i);
+
+        var canvas = document.createElement("canvas");
+        var context = canvas.getContext("2d");
+        context.font = document.getElementById("fade-text-div-above").style.font;
+        var width = context.measureText(node.textContent).width;
+        var formattedWidth = Math.ceil(width);
+        var fullWidth = document.getElementById("greeting-text__title").offsetWidth;
+        document.getElementById('fade-text-div-above').style.marginLeft = (fullWidth - formattedWidth) / 5 + "px";
+        // console.log("formattedWidth", fullWidth - formattedWidth);
       },
     };
   }
@@ -83,6 +92,15 @@
       tick: (t) => {
         const i = Math.trunc(text.length * t);
         node.textContent = text.slice(0, i);
+
+        var canvas = document.createElement("canvas");
+        var context = canvas.getContext("2d");
+        context.font = document.getElementById("fade-text-div-below").style.font;
+        var width = context.measureText(node.textContent).width;
+        var formattedWidth = Math.ceil(width);
+        var fullWidth = document.getElementById("greeting-text__title").offsetWidth;
+        document.getElementById('fade-text-div-below').style.marginLeft = (fullWidth - formattedWidth) / 3 + "px";
+        console.log("formattedWidth", fullWidth - formattedWidth);
       },
     };
   }
@@ -146,7 +164,7 @@
                 data={chatBubbleIcon}
               />
 
-              <div class="greeting-text__title">
+              <div class="greeting-text__title" id="greeting-text__title">
                 <em>Welcome</em>&nbsp; to Alphazoid Prime!
               </div>
               <div
@@ -154,15 +172,29 @@
                   $isPortraitMode && "__portrait-mode"
                 }`}
               >
+                <div class="fade-text-div-above-invisible">
+                  <p>Join us on a journey by</p>
+                </div>
+                <div class="fade-text-div-below-invisible">
+                  <p>matching words</p>
+                </div>
                 {#if visibleAbove}
-                  <div class="fade-text-div-above" transition:fade={{ duration: 500 }}>
+                  <div
+                    id="fade-text-div-above"
+                    class="fade-text-div-above"
+                    transition:fade={{ duration: 500 }}
+                  >
                     <p transition:fadeInEffectTextAbove>
-                      Join us on a journey by.
+                      Join us on a journey by
                     </p>
                   </div>
                 {/if}
                 {#if visibleBelow}
-                  <div class="fade-text-div-below" transition:fade={{ duration: 500 }}>
+                  <div
+                    id="fade-text-div-below"
+                    class="fade-text-div-below"
+                    transition:fade={{ duration: 500 }}
+                  >
                     <p transition:fadeInEffectTextBelow>matching words</p>
                   </div>
                 {/if}
@@ -196,11 +228,21 @@
 
 <style lang="scss">
   // Greeting text --------------------------------------------------------------
+  .fade-text-div-above-invisible {
+    opacity: 0;
+    margin-bottom: -2rem;
+  }
+  .fade-text-div-below-invisible {
+    margin-bottom: -2rem;
+    opacity: 0;
+  }
   .fade-text-div-above {
-    margin-bottom: -1rem;
+    position: absolute;
+    margin-top: -8rem;
   }
   .fade-text-div-below {
-    margin-bottom: -1rem;
+    margin-top: -5rem;
+    position: absolute;
   }
   .greeting-text {
     position: relative;
