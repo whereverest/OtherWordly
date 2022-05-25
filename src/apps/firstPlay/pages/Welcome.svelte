@@ -30,15 +30,15 @@
   // Show elements on page opening ----------------------------------------------
   let isAllPageElementsVisible = false;
   let visibleAbove = false;
-  //let visibleBelow = false;
+  let visibleBelow = false;
   onMount(() => {
     setTimeout(() => (isAllPageElementsVisible = true), 300);
     setTimeout(() => {
       visibleAbove = true;
     }, 100);
-    // setTimeout(() => {
-    //   visibleBelow = true;
-    // }, 600);
+    setTimeout(() => {
+      visibleBelow = true;
+    }, 600);
   });
 
   function fadeInEffectTextAbove(node) {
@@ -157,15 +157,15 @@
                 {#if visibleAbove}
                   <div class="fade-text-div-above" transition:fade={{ duration: 500 }}>
                     <p transition:fadeInEffectTextAbove>
-                      Join us on a journey by matching the words.
+                      Join us on a journey by.
                     </p>
                   </div>
                 {/if}
-                <!-- {#if visibleBelow}
+                {#if visibleBelow}
                   <div class="fade-text-div-below" transition:fade={{ duration: 500 }}>
                     <p transition:fadeInEffectTextBelow>matching words</p>
                   </div>
-                {/if} -->
+                {/if}
               </div>
             </div>
             <!-- / Greeting text -->
@@ -204,8 +204,8 @@
   }
   .greeting-text {
     position: relative;
-    text-align: left;
-    font-size: 1.56rem;
+    text-align: center;
+    font-size: 2.05rem;
     line-height: 2.7rem;
 
     :global(.greeting-text__chat-bubble-bg) {
