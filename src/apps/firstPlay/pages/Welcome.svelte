@@ -14,6 +14,8 @@
   // Stores
   // import { basicFontSize } from '@stores/miscellaneous.js';
   import { transitionFrom, transitionTo } from "@stores-fp/transitions.js";
+  import { cubicInOut } from "svelte/easing";
+  import fadeScale from "./fadeScale";
 
   // Images
   import randomAvatar from "@images/characters/char15_astra.png";
@@ -63,11 +65,16 @@
 
         var canvas = document.createElement("canvas");
         var context = canvas.getContext("2d");
-        context.font = document.getElementById("fade-text-div-above").style.font;
+        context.font = document.getElementById(
+          "fade-text-div-above"
+        ).style.font;
         var width = context.measureText(node.textContent).width;
         var formattedWidth = Math.ceil(width);
-        var fullWidth = document.getElementById("greeting-text__title").offsetWidth;
-        document.getElementById('fade-text-div-above').style.marginLeft = (fullWidth - formattedWidth) / 5 + "px";
+        var fullWidth = document.getElementById(
+          "greeting-text__title"
+        ).offsetWidth;
+        document.getElementById("fade-text-div-above").style.marginLeft =
+          (fullWidth - formattedWidth) / 5 + "px";
         // console.log("formattedWidth", fullWidth - formattedWidth);
       },
     };
@@ -95,11 +102,16 @@
 
         var canvas = document.createElement("canvas");
         var context = canvas.getContext("2d");
-        context.font = document.getElementById("fade-text-div-below").style.font;
+        context.font = document.getElementById(
+          "fade-text-div-below"
+        ).style.font;
         var width = context.measureText(node.textContent).width;
         var formattedWidth = Math.ceil(width);
-        var fullWidth = document.getElementById("greeting-text__title").offsetWidth;
-        document.getElementById('fade-text-div-below').style.marginLeft = (fullWidth - formattedWidth) / 3 + "px";
+        var fullWidth = document.getElementById(
+          "greeting-text__title"
+        ).offsetWidth;
+        document.getElementById("fade-text-div-below").style.marginLeft =
+          (fullWidth - formattedWidth) / 3 + "px";
         console.log("formattedWidth", fullWidth - formattedWidth);
       },
     };
@@ -107,6 +119,13 @@
 
   // Go to Challenges page ------------------------------------------------------
   function goToChallengesPage() {
+    document.getElementById("transition-scale-button").classList.add("transition-scale-button");
+
+    setTimeout(() => document.getElementById("transition-scale-button").style.transform = 'scale(1.05, 1.05)', 150);
+    setTimeout(() => document.getElementById("transition-scale-button").style.transform = 'scale(1.1, 1.1)', 175);
+    setTimeout(() => document.getElementById("transition-scale-button").style.transform = 'scale(1.15, 1.15)', 190);
+    setTimeout(() => document.getElementById("transition-scale-button").style.transform = 'scale(1.2, 1.2)', 200);
+    
     setTimeout(() => transitionFrom.update(() => "Welcome"), 300);
     setTimeout(() => transitionTo.update(() => "Challenges"), 300);
     setTimeout(() => push("/challenges"), 600);
@@ -114,6 +133,7 @@
 </script>
 
 <div
+  on:click={goToChallengesPage}
   class={`welcome-page
               ${_IS_DEV_ENV && "welcome-page--with-bg-image"}`}
 >
@@ -209,10 +229,15 @@
               }`}
             >
               <div
+                id="transition-scale-button"
                 class="tap-to-continue-but
                         character-speech__tap-to-continue-but"
-                transition:fade={{ duration: 400 }}
-                on:click={goToChallengesPage}
+                transition:fadeScale={{
+                  delay: 0,
+                  duration: 500,
+                  easing: cubicInOut,
+                  baseScale: 0.5,
+                }}
               >
                 Tap to Continue
               </div>
@@ -243,6 +268,29 @@
   .fade-text-div-below {
     margin-top: -5rem;
     position: absolute;
+  }
+  .transition-scale-button {
+    animation-duration: 1s;
+      animation-name: scale-bounce;
+      animation-iteration-count: infinite;
+
+      @keyframes scale-bounce {
+        from {
+          transform: scale(1);
+        }
+        7% {
+          transform: scale(1.1);
+        }
+        25% {
+          transform: scale(0.95);
+        }
+        50% {
+          transform: scale(1);
+        }
+        to {
+          transform: scale(1);
+        }
+      }
   }
   .greeting-text {
     position: relative;

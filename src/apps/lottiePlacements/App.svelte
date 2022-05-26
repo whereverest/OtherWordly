@@ -25,11 +25,11 @@
 
   onMount(async () => {
     fillStoresWithData(window.dataSource || [], storesToImport);
-    //document.body.style.backgroundColor = _IS_DEV_ENV ? "black" : "none";
+    // document.body.style.backgroundColor = _IS_DEV_ENV ? "black" : "none";
 
-    //setBasicDeviceParams();
+    setBasicDeviceParams();
     //await tick();
-    // setTimeout(setBasicDeviceParams, 200);
+    setTimeout(setBasicDeviceParams, 200);
     // setTimeout(setBasicDeviceParams, 400);
     // setTimeout(setBasicDeviceParams, 600);
   });
@@ -565,7 +565,7 @@
 <Router
   routes={{
     "/": Portrait,
-    "/portrait": Portrait,
+    "/landscape": Portrait,
   }}
 />
 

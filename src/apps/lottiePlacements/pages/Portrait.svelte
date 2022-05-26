@@ -1,5 +1,9 @@
+<script>
+  import { isPortraitMode, isDeviceIpad } from "@stores/miscellaneous.js";
+</script>
+
 <div id="body" style="overflow: hidden">
-  <div id="content-win" class="content-common" style="visibility: visible">
+  <!-- <div id="content-win" class="content-common" style="visibility: visible">
     <div class="content-common-interior">
       <div class="row">
         <div class="col-33 fullheight"></div>
@@ -14,9 +18,9 @@
         <div class="col-33 fullheight h-alignleft-content"></div>
       </div>
     </div>
-  </div>
+  </div> -->
 
-  <div id="content-lose" class="content-common" style="visibility: visible">
+  <!-- <div id="content-lose" class="content-common" style="visibility: visible">
     <div class="content-common-interior">
       <div class="row">
         <div class="col-33 fullheight"></div>
@@ -31,7 +35,7 @@
         <div class="col-33 fullheight"></div>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <div
     id="content-readytoplay"
@@ -55,14 +59,14 @@
             data-darkreader-inline-border-right=""
             data-darkreader-inline-border-bottom=""
             data-darkreader-inline-border-left=""
-          ></div>
+          />
         </div>
-        <div class="col-66 fullheight"></div>
+        <div class="col-66 fullheight" />
       </div>
     </div>
   </div>
 
-  <div
+  <!-- <div
     id="content-readytoplay-dialogue"
     class="content-common"
     style="visibility: visible"
@@ -84,9 +88,9 @@
             data-darkreader-inline-border-right=""
             data-darkreader-inline-border-bottom=""
             data-darkreader-inline-border-left=""
-          ></div>
+          />
         </div>
-        <div class="col-50 fullheight"></div>
+        <div class="col-50 fullheight" />
         <div class="col-25 fullheight">
           <div
             id="SidekickPlaceholder-readytoplay-dialogue-B"
@@ -102,52 +106,48 @@
             data-darkreader-inline-border-right=""
             data-darkreader-inline-border-bottom=""
             data-darkreader-inline-border-left=""
-          ></div>
+          />
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
-  <div
-    id="content-tutorial"
-    class="content-common"
-    style="visibility: visible"
-  >
+  <div id="content-tutorial" class="content-common" style="visibility: visible">
     <div class="content-common-interior">
       <div class="row">
-        <div class="col-33 fullheight"></div>
+        <div class="col-33 fullheight" />
         <div class="col-33 fullheight">
           <div
             id="SidekickPlaceholder-tutorial"
             class="sidekick-placeholder-tutorial hv-center"
-          ></div>
+          />
         </div>
-        <div class="col-33 fullheight"></div>
+        <div class="col-33 fullheight" />
       </div>
     </div>
   </div>
 
-  <div id="content-bonus" class="content-common" style="visibility: visible">
+  <!-- <div id="content-bonus" class="content-common" style="visibility: visible">
     <div class="content-common-interior">
       <div class="row">
         <div class="col-25 fullheight">
           <div
             id="SidekickPlaceholder-bonus"
             class="sidekick-placeholder-bonus hv-center"
-          ></div>
+          />
         </div>
-        <div class="col-50 fullheight"></div>
+        <div class="col-50 fullheight" />
         <div class="col-25 fullheight">
           <div
             id="SidekickPlaceholder-bonus-B"
             class="sidekick-placeholder-bonus hv-center"
-          ></div>
+          />
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
-  <div
+  <!-- <div
     id="content-bonus-lose"
     class="content-common"
     style="visibility: visible"
@@ -158,18 +158,18 @@
           <div
             id="SidekickPlaceholder-bonus-lose"
             class="sidekick-placeholder-bonus-lose hv-center"
-          ></div>
+          />
         </div>
-        <div class="col-50 fullheight"></div>
+        <div class="col-50 fullheight" />
         <div class="col-25 fullheight">
           <div
             id="SidekickPlaceholder-bonus-lose-B"
             class="sidekick-placeholder-bonus-lose hv-center"
-          ></div>
+          />
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <div
     id="content-chapterend"
@@ -177,13 +177,13 @@
     style="visibility: visible"
   >
     <div class="content-common-interior">
-      <div class="row">
-        <div class="col-50 fullheight"></div>
-        <div class="col-50 fullheight">
+      <div class={`row ${$isPortraitMode && 'side-kick-above-center'}`}>
+        <div class={`col-50 fullheight ${$isPortraitMode && 'side-kick-height-controller'}`} />
+        <div class={`col-50 fullheight ${$isPortraitMode && 'side-kick-height-controller'}`}>
           <div
             id="SidekickPlaceholder-bonus-B-transformed"
             class="sidekick-placeholder-bonus-b-transformed hv-center"
-          ></div>
+          />
         </div>
       </div>
     </div>
@@ -195,37 +195,33 @@
     style="visibility: visible"
   >
     <div class="content-common-interior">
-      <div class="row">
-        <div class="col-33 fullheight">
+      <div class={`row ${$isPortraitMode && 'content-firstplay-above-center'}`}>
+        <div class={`col-33 fullheight ${$isPortraitMode && 'content-firstplay-height-controller'}`}>
           <div class="v-center">
             <div
               id="SidekickPlaceholder-firstPlay"
               class="sidekick-placeholder-firstplay h-center"
-            ></div>
+            />
           </div>
         </div>
-        <div class="col-50 fullheight"></div>
-        <div class="col-16 fullheight"></div>
+        <div class="col-50 fullheight" />
+        <div class="col-16 fullheight" />
       </div>
     </div>
   </div>
 
-  <div
-    id="content-premium"
-    class="content-common"
-    style="visibility: visible"
-  >
+  <div id="content-premium" class="content-common" style="visibility: visible">
     <div class="content-common-interior">
-      <div class="row">
-        <div class="col-25 fullheight">
+      <div class={`row ${$isPortraitMode && 'common-iterator-above-center'}`}>
+        <div class={`col-25 fullheight ${$isPortraitMode && 'common-iterator-height-controller'}`}>
           <div class="v-center">
             <div
               id="SidekickPlaceholder-premium"
               class="sidekick-placeholder-premium h-center"
-            ></div>
+            />
           </div>
         </div>
-        <div class="col-75 fullheight"></div>
+        <div class="col-75 fullheight" />
       </div>
     </div>
   </div>
@@ -233,24 +229,60 @@
   <!-- Chapter details page elements -->
   <div class="chapter-details-page-elements">
     <div
-      class="chapter-details-page-elements__level-select-carousel-container"
+      class={`chapter-details-page-elements__level-select-carousel-container 
+      ${
+        $isPortraitMode &&
+        "chapter-details-page-elements__level-select-carousel-container--portrait-mode"
+      }`}
     >
       <div
-        class="chapter-details-page-elements__level-select-carousel"
+        class={`chapter-details-page-elements__level-select-carousel 
+        ${
+          $isPortraitMode &&
+          "chapter-details-page-elements__level-select-carousel--portrait-mode"
+        }`}
         id="MenuLevelsScrollPlaceholder"
-      ></div>
+      />
     </div>
 
     <div
-      class="chapter-details-page-elements__play-button"
+      class={`chapter-details-page-elements__play-button 
+      ${
+        $isPortraitMode &&
+        "chapter-details-page-elements__play-button--portrait-mode"
+      }`}
       id="MenuLevelsPlayPlaceholder"
-    ></div>
+    />
   </div>
   <!-- / Chapter details page elements -->
 
   <!-- -------------------------------------------------------------------------- -->
   <!-- Chapter details page elements -->
-  <style>
+  <style lang="scss">
+    .side-kick-above-center {
+      margin: 0;
+      margin-top: 60%;
+      display: block;
+    }
+    .side-kick-height-controller {
+      height: auto;
+    }
+    .content-firstplay-height-controller {
+      height: auto;
+    }
+    .content-firstplay-above-center {
+      margin: 0;
+      margin-top: 40%;
+      display: block;
+    }
+    .common-iterator-height-controller {
+      height: auto;
+    }
+    .common-iterator-above-center {
+      margin: 0;
+      margin-top: 40%;
+      display: block;
+    }
     .chapter-details-page-elements {
       width: 10px;
       height: 10px;
@@ -275,12 +307,22 @@
       position: absolute;
       top: calc(50% - 10em);
       left: calc(25vw - 20.9em);
+
+      &--portrait-mode {
+        left: auto;
+        top: calc(50% - 0rem);
+        height: 8rem;
+      }
     }
 
     .chapter-details-page-elements__level-select-carousel {
       width: 27vw;
       height: 100%;
       background: rgba(255, 0, 0, 0.5);
+
+      &--portrait-mode {
+        width: 20rem;
+      }
     }
 
     .chapter-details-page-elements__play-button {
@@ -290,6 +332,11 @@
       top: calc(50% - 6.6em);
       left: calc(50vw - 12.3em);
       background: rgba(0, 255, 0, 0.2);
+
+      &--portrait-mode {
+        top: calc(80% + 8rem);
+        left: auto;
+      }
     }
 
     @media (min-width: 927px) {
