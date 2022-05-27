@@ -52,6 +52,9 @@
     };
     window.addEventListener("resize", appHeight);
     appHeight();
+    if ($isPortraitMode)
+      push('/landscape');
+    else push('/');
   }
 </script>
 
@@ -565,7 +568,7 @@
 <Router
   routes={{
     "/": Portrait,
-    "/landscape": Portrait,
+    "/landscape": Landscape,
   }}
 />
 

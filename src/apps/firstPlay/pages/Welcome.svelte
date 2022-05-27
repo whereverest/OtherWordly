@@ -21,7 +21,8 @@
   import randomAvatar from "@images/characters/char15_astra.png";
 
   // Icons
-  import chatBubbleIcon from "@icons/chat-bubble.svg";
+  import chatBubbleIconVertical from "@icons/chat-bubble-vertical.svg";
+  import chatBubbleIconLeft from "@icons/chat-bubble.svg";
   import { isPortraitMode } from "@stores/miscellaneous.js";
 
   onMount(() => {
@@ -181,7 +182,7 @@
                 class={`greeting-text__chat-bubble-bg ${
                   $isPortraitMode && "chat-bubble-portrait-mode"
                 }`}
-                data={chatBubbleIcon}
+                data={$isPortraitMode ? chatBubbleIconVertical : chatBubbleIconLeft}
               />
 
               <div class="greeting-text__title" id="greeting-text__title">
@@ -301,9 +302,9 @@
     :global(.greeting-text__chat-bubble-bg) {
       width: 17rem;
       height: 9.5rem;
-      left: 0.5rem !important;
+      left: 0.4rem !important;
       position: absolute;
-      inset: auto auto -2.2rem -5.5rem;
+      inset: auto auto -1.2rem -5.5rem;
       fill: transparent;
       stroke: rgba(255, 255, 255, 0.2);
       stroke-width: 0.5rem;
@@ -316,6 +317,13 @@
 
     :global(.chat-bubble-portrait-mode) {
       left: -2rem;
+      mask-image: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 0) 43%
+      );
+      top: 15rem !important;
+      position: relative;
     }
 
     &__title {
@@ -403,6 +411,7 @@
 
       &--portrait-mode {
         width: auto !important;
+        margin-top: -10rem;
       }
     }
 
@@ -424,7 +433,7 @@
 
       &__portrait-mode {
         margin: auto;
-        margin-top: 10rem;
+        margin-top: 12rem;
       }
 
       @keyframes scale-bounce {
