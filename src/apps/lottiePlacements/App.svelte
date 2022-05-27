@@ -12,8 +12,7 @@
   // Components
   import ErrorsOverlay from "@components/ErrorsOverlay.svelte";
   // pages
-  import Landscape from "@pages-lp/Landscape.svelte";
-  import Portrait from "@pages-lp/Portrait.svelte";
+  import Lottie from "@pages-lp/Lottie.svelte";
 
   // Stores
   import {
@@ -52,9 +51,6 @@
     };
     window.addEventListener("resize", appHeight);
     appHeight();
-    if ($isPortraitMode)
-      push('/landscape');
-    else push('/');
   }
 </script>
 
@@ -567,8 +563,7 @@
 
 <Router
   routes={{
-    "/": Portrait,
-    "/landscape": Landscape,
+    "/": Lottie,
   }}
 />
 
