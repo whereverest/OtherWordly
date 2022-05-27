@@ -171,7 +171,7 @@
             />
           </div>
 
-          <div class="greeting-snippet__text-n-button">
+          <div class={`greeting-snippet__text-n-button ${$isPortraitMode && 'greeting-snippet__text-n-button--portrait-mode'}`}>
             <!-- Greeting text -->
             <div
               class="greeting-text
@@ -301,6 +301,7 @@
     :global(.greeting-text__chat-bubble-bg) {
       width: 17rem;
       height: 9.5rem;
+      left: 0.5rem !important;
       position: absolute;
       inset: auto auto -2.2rem -5.5rem;
       fill: transparent;
@@ -369,20 +370,22 @@
     justify-content: center;
 
     &__portrait-mode {
-      display: block;
+      display: flex;
+      flex-direction: column-reverse;
       right: 0 !important;
     }
 
     &__avatar-container {
       width: 13rem;
       height: 13rem;
-      margin: 4rem 8.6rem 0 0;
+      margin: 4rem 6.6rem 0 0;
       display: flex;
       justify-content: center;
       align-items: center;
 
       &__portrait-mode {
         margin: auto;
+        margin-top: -20rem;
       }
     }
 
@@ -396,6 +399,11 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
+      width: 100%;
+
+      &--portrait-mode {
+        width: auto !important;
+      }
     }
 
     &__text {
@@ -412,10 +420,11 @@
       animation-name: scale-bounce;
       animation-iteration-count: infinite;
       transform-origin: center center;
-      margin-left: 3rem;
+      margin-left: 7rem;
 
       &__portrait-mode {
         margin: auto;
+        margin-top: 10rem;
       }
 
       @keyframes scale-bounce {

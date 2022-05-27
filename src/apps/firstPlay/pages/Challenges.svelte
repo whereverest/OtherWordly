@@ -173,7 +173,7 @@
       font: 2.06rem/2.5rem "ZingScriptRustR-Base", serif;
 
       &__portrait-mode {
-        font: 1.36rem/2.5rem "ZingScriptRustR-Base", serif;
+        font: 1.2rem/2.5rem "ZingScriptRustR-Base", serif;
       }
     }
   }

@@ -3,7 +3,7 @@
 </script>
 
 <div id="body" style="overflow: hidden">
-  <!-- <div id="content-win" class="content-common" style="visibility: visible">
+  <div id="content-win" class="content-common" style="visibility: visible">
     <div class="content-common-interior">
       <div class="row">
         <div class="col-33 fullheight"></div>
@@ -18,9 +18,9 @@
         <div class="col-33 fullheight h-alignleft-content"></div>
       </div>
     </div>
-  </div> -->
+  </div>
 
-  <!-- <div id="content-lose" class="content-common" style="visibility: visible">
+  <div id="content-lose" class="content-common" style="visibility: visible">
     <div class="content-common-interior">
       <div class="row">
         <div class="col-33 fullheight"></div>
@@ -35,7 +35,7 @@
         <div class="col-33 fullheight"></div>
       </div>
     </div>
-  </div> -->
+  </div>
 
   <div
     id="content-readytoplay"
@@ -43,8 +43,8 @@
     style="visibility: visible"
   >
     <div class="content-common-interior">
-      <div class="row">
-        <div class="col-33 fullheight">
+      <div class={`row ${$isPortraitMode && 'content-readytoplay-above-center'}`}>
+        <div class={`col-33 fullheight ${$isPortraitMode && 'content-readytoplay-height-controller'}`}>
           <div
             id="SidekickPlaceholder-readytoplay"
             class="sidekick-placeholder-readytoplay hv-center"
@@ -66,14 +66,14 @@
     </div>
   </div>
 
-  <!-- <div
+  <div
     id="content-readytoplay-dialogue"
     class="content-common"
     style="visibility: visible"
   >
     <div class="content-common-interior">
-      <div class="row">
-        <div class="col-25 fullheight">
+      <div class={`row ${$isPortraitMode && 'readytoplay-height-controller'}`}>
+        <div class={`col-25 fullheight ${$isPortraitMode && 'readytoplay-above-center'}`}>
           <div
             id="SidekickPlaceholder-readytoplay-dialogue"
             class="sidekick-placeholder-readytoplay-dialogue hv-center"
@@ -90,8 +90,8 @@
             data-darkreader-inline-border-left=""
           />
         </div>
-        <div class="col-50 fullheight" />
-        <div class="col-25 fullheight">
+        <div class={`col-50 fullheight ${$isPortraitMode && 'readytoplay-above-center'}`} />
+        <div class={`col-25 fullheight ${$isPortraitMode && 'readytoplay-below-center'}`}>
           <div
             id="SidekickPlaceholder-readytoplay-dialogue-B"
             class="sidekick-placeholder-readytoplay-dialogue hv-center"
@@ -110,7 +110,7 @@
         </div>
       </div>
     </div>
-  </div> -->
+  </div>
 
   <div id="content-tutorial" class="content-common" style="visibility: visible">
     <div class="content-common-interior">
@@ -127,17 +127,17 @@
     </div>
   </div>
 
-  <!-- <div id="content-bonus" class="content-common" style="visibility: visible">
+  <div id="content-bonus" class="content-common" style="visibility: visible">
     <div class="content-common-interior">
-      <div class="row">
-        <div class="col-25 fullheight">
+      <div class={`row ${$isPortraitMode && 'bonus-height-controller'}`}>
+        <div class={`col-25 fullheight ${$isPortraitMode && 'bonus-above-center'}`}>
           <div
             id="SidekickPlaceholder-bonus"
             class="sidekick-placeholder-bonus hv-center"
           />
         </div>
-        <div class="col-50 fullheight" />
-        <div class="col-25 fullheight">
+        <div class={`col-25 fullheight ${$isPortraitMode && 'bonus-above-center'}`} />
+        <div class={`col-25 fullheight ${$isPortraitMode && 'bonus-below-center'}`}>
           <div
             id="SidekickPlaceholder-bonus-B"
             class="sidekick-placeholder-bonus hv-center"
@@ -145,23 +145,23 @@
         </div>
       </div>
     </div>
-  </div> -->
+  </div>
 
-  <!-- <div
+  <div
     id="content-bonus-lose"
     class="content-common"
     style="visibility: visible"
   >
     <div class="content-common-interior">
-      <div class="row">
-        <div class="col-25 fullheight">
+      <div class={`row ${$isPortraitMode && 'bonus-lose-height-controller'}`}>
+        <div class={`col-25 fullheight ${$isPortraitMode && 'bonus-lose-above-center'}`}>
           <div
             id="SidekickPlaceholder-bonus-lose"
             class="sidekick-placeholder-bonus-lose hv-center"
           />
         </div>
-        <div class="col-50 fullheight" />
-        <div class="col-25 fullheight">
+        <div class={`col-50 fullheight ${$isPortraitMode && 'bonus-lose-above-center'}`} />
+        <div class={`col-25 fullheight ${$isPortraitMode && 'bonus-lose-below-center'}`}>
           <div
             id="SidekickPlaceholder-bonus-lose-B"
             class="sidekick-placeholder-bonus-lose hv-center"
@@ -169,7 +169,7 @@
         </div>
       </div>
     </div>
-  </div> -->
+  </div>
 
   <div
     id="content-chapterend"
@@ -259,6 +259,47 @@
   <!-- -------------------------------------------------------------------------- -->
   <!-- Chapter details page elements -->
   <style lang="scss">
+    .content-readytoplay-above-center {
+      margin: 0;
+      margin-top: 40%;
+      display: block;
+    }
+    .content-readytoplay-height-controller {
+      height: auto;
+    }
+    .bonus-height-controller {
+      margin: 0;
+      margin-top: 40%;
+      display: block;
+    }
+    .bonus-below-center {
+      margin-top: -50%;
+    }
+    .bonus-above-center {
+      height: auto;
+    }
+    .bonus-lose-height-controller {
+      margin: 0;
+      margin-top: 40%;
+      display: block;
+    }
+    .bonus-lose-below-center {
+      margin-top: -50%;
+    }
+    .bonus-lose-above-center {
+      height: auto;
+    }
+    .readytoplay-height-controller {
+      margin: 0;
+      margin-top: 40%;
+      display: block;
+    }
+    .readytoplay-below-center {
+      margin-top: -50%;
+    }
+    .readytoplay-above-center {
+      height: auto;
+    }
     .side-kick-above-center {
       margin: 0;
       margin-top: 60%;
@@ -299,7 +340,7 @@
 
     .chapter-details-page-elements__level-select-carousel-container {
       /* aspect ratio is 30/13 */
-      width: 27em;
+      // width: 27em;
       height: 11.7em;
       display: flex;
       justify-content: center;
@@ -345,7 +386,7 @@
       }
 
       .chapter-details-page-elements__level-select-carousel-container {
-        width: 25em;
+        // width: 25em;
         height: 9.4em;
         top: calc(50% - 9.5em);
         left: calc(25vw - 14.9em);

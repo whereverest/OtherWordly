@@ -440,7 +440,7 @@
       font-size: 1rem;
       overflow: auto;
       overflow-x: hidden;
-      overflow-y: scroll;
+      overflow-y: hidden;
       -webkit-overflow-scrolling: touch;
       top: 0px;
       padding: 0 0 0 0;
