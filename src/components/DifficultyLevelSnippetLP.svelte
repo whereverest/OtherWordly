@@ -1,10 +1,18 @@
 <div
-  class={ `${isMiniFontMode && 'challenge-li-mini-font-mode '} option-snippet
-              ${(!isWithDivider || isActive) && 'option-snippet--without-divider'}
-              ${isActive && !isSimplified && 'option-snippet--active'}
-              ${isActive && isSimplified && 'option-snippet--active-small'}
-              ${isSimplified && 'option-snippet--small'}
-              ${mixClass}` }
+  class={ `${isMiniFontMode && 'challenge-li-mini-font-mode '}
+              option-snippet
+              ${isMiniFontMode && 'option-snippet--portrait-mode'}
+              ${isMiniFontMode && (!isWithDivider || isActive) && 'option-snippet--portrait-mode--without-divider'}
+              ${isMiniFontMode && isActive && !isSimplified && 'option-snippet--portrait-mode--active'}
+              ${isMiniFontMode && isActive && isSimplified && 'option-snippet--portrait-mode--active-small'}
+              ${isMiniFontMode && isSimplified && 'option-snippet--portrait-mode--small'}
+              ${isMiniFontMode && mixClass}
+
+              ${!isMiniFontMode && (!isWithDivider || isActive) && 'option-snippet--without-divider'}
+              ${!isMiniFontMode && isActive && !isSimplified && 'option-snippet--active'}
+              ${!isMiniFontMode && isActive && isSimplified && 'option-snippet--active-small'}
+              ${!isMiniFontMode && isSimplified && 'option-snippet--small'}
+              ${!isMiniFontMode && mixClass}` }
   on:click={ () => dispatch('click') }
 >
 
@@ -13,20 +21,33 @@
               option-snippet__decorative-parentheses">
     {#each [0,1,2] as parenthesis,index (parenthesis)}
       <div class={ `decorative-parentheses__single-parenthesis
-                    ${isSimplified && 'decorative-parentheses__single-parenthesis--higher'}
-                    ${index === 1 && 'decorative-parentheses__single-parenthesis--small'}
-                    ${index === 1 && isSimplified
+                    ${isMiniFontMode && 'decorative-parentheses__single-parenthesis--portrait-mode'}
+                    ${isMiniFontMode && isSimplified && 'decorative-parentheses__single-parenthesis--portrait-mode--higher'}
+                    ${isMiniFontMode && index === 1 && 'decorative-parentheses__single-parenthesis--portrait-mode--small'}
+                    ${isMiniFontMode && index === 1 && isSimplified
+                                  && 'decorative-parentheses__single-parenthesis--portrait-mode--small-simplified'}
+                    ${isMiniFontMode && index === 2 && 'decorative-parentheses__single-parenthesis--portrait-mode--tiny'}
+                    ${isMiniFontMode && index === 2 && isSimplified
+                                  && 'decorative-parentheses__single-parenthesis--portrait-mode--tiny-simplified'}
+                    ${isMiniFontMode && !isActive && 'decorative-parentheses__single-parenthesis--portrait-mode--inactive'}
+
+                    ${!isMiniFontMode && isSimplified && 'decorative-parentheses__single-parenthesis--higher'}
+                    ${!isMiniFontMode && index === 1 && 'decorative-parentheses__single-parenthesis--small'}
+                    ${!isMiniFontMode && index === 1 && isSimplified
                                   && 'decorative-parentheses__single-parenthesis--small-simplified'}
-                    ${index === 2 && 'decorative-parentheses__single-parenthesis--tiny'}
-                    ${index === 2 && isSimplified
+                    ${!isMiniFontMode && index === 2 && 'decorative-parentheses__single-parenthesis--tiny'}
+                    ${!isMiniFontMode && index === 2 && isSimplified
                                   && 'decorative-parentheses__single-parenthesis--tiny-simplified'}
-                    ${!isActive && 'decorative-parentheses__single-parenthesis--inactive'}`} >
+                    ${!isMiniFontMode && !isActive && 'decorative-parentheses__single-parenthesis--inactive'}`}
+                    >
       </div>
     {/each}
   </div><!-- / Decorative parentheses -->
 
   <div class={ `option-snippet__complexity
-                ${isSimplified && 'option-snippet__complexity--small'}` }>
+                ${isMiniFontMode && 'option-snippet__complexity--portrait-mode'}
+                ${isMiniFontMode && isSimplified && 'option-snippet__complexity--portrait-mode--small'}
+                ${!isMiniFontMode && isSimplified && 'option-snippet__complexity--small'}` }>
     { levelComplexity }
   </div>
   <div class={ `${isMiniFontMode && 'snippet-name-mini-font-mode '} option-snippet__name
@@ -37,7 +58,10 @@
   </div>
   <div class={ `${isMiniFontMode && 'snippet-description-mini-font-mode '} option-snippet__description
                 ${isSimplified && 'option-snippet__description--small'}` }>
-    { levelDescription[0] }<br>
+    { levelDescription[0] }
+      {#if !isMiniFontMode}
+        <br/>
+      {/if}
     { levelDescription[1] }
   </div>
 
@@ -139,7 +163,7 @@ onMount(() => {
 
   &__single-parenthesis {
     width: calc(120% - 4.0rem);
-    height: 160%;
+    height: 140%;
     box-sizing: border-box;
     border: .2rem rgba(255,255,174,.6) solid;
     border-radius: 50%;
@@ -150,6 +174,44 @@ onMount(() => {
     opacity: 1;
     transition: width .25s ease, opacity .25s ease;
     transition-delay: .3s;
+
+    &--portrait-mode {
+      margin-top: -3rem;
+      width: calc(140% - 4.0rem);
+      height: 180%;
+      &--higher {
+        height: 190%;
+        top: calc(50% - 1.0rem);
+      }
+
+      &--small {
+        width: calc(140% - 3.2rem);
+        mask-image: linear-gradient(0deg, rgba(0,0,0,0) 30%, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 70%);
+        transition-delay: .33s;
+        opacity: .7;
+      }
+
+        &--small-simplified {
+          width: calc(140% - 3.3rem);
+        }
+
+      &--tiny {
+        width: calc(140% - 2.4rem);
+        mask-image: linear-gradient(0deg, rgba(0,0,0,0) 35%, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 65%);
+        transition-delay: .36s;
+        opacity: .4;
+      }
+
+        &--tiny-simplified {
+          width: calc(140% - 2.6rem);
+        }
+
+      &--inactive {
+        opacity: 0;
+        width: 85%;
+        transition-delay: .2s;
+      }
+    }
 
     &--higher {
       height: 190%;
@@ -198,6 +260,30 @@ onMount(() => {
   line-height: 1.6rem;
   text-align: center;
   transition: transform .5s ease, opacity .2s ease;
+
+  &--portrait-mode {
+    &::after {
+      content: '';
+      width: 19rem !important;
+      height: 0.3rem !important;
+      inset: calc(100% - 1.7rem) 0 auto auto !important;
+      mask-image: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%) !important;
+      left: 3rem !important;
+    }
+
+    &--small {
+      &::after {
+        height: 9.0rem !important;
+        right: .7rem !important;
+      }
+    }
+
+    &--without-divider {
+      &::after {
+        opacity: 0 !important;
+      }
+    }
+  }
 
   &--small {
     width: 17.2rem;
@@ -251,6 +337,10 @@ onMount(() => {
     font-size: 1.2rem;
     color: rgba(255,255,255,.35);
     text-transform: uppercase;
+
+    &--portrait-mode {
+      padding-bottom: .5rem;
+    }
 
     &--small {
       font-size: 1.0rem;
@@ -338,17 +428,18 @@ onMount(() => {
 }
 
 .snippet-name-mini-font-mode {
-  font-size: 2rem;
+  font-size: 3rem;
   line-height: 2rem;
 }
 
 .snippet-description-mini-font-mode {
   font-size: 1.4rem;
   margin-bottom: .5rem;
+  margin-top: 1.5rem;
 }
 
 .challenge-li-mini-font-mode {
-  margin-bottom: .9vh;
+  margin-bottom: 1.7vh;
 }
 
 </style>

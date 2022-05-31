@@ -5,7 +5,7 @@
   import { dispatchIosEvent } from "@helpers/iosEvents.js";
 
   // Components
-  import BasicPageLayout from "@components/BasicPageLayout.svelte";
+  import BasicPageLayoutLP from "@components/BasicPageLayoutLP.svelte";
   import ButtonInCircle from "@components/ButtonInCircle.svelte";
   import CircleProgressBar from "@components/CircleProgressBar.svelte";
   import DifficultyLevelSnippetLP from "@components/DifficultyLevelSnippetLP";
@@ -79,7 +79,7 @@
   class={`challenges-page
   ${_IS_DEV_ENV && "challenges-page--with-bg-image"}`}
 >
-  <BasicPageLayout class="challenges-page__basic-layout-container">
+  <BasicPageLayoutLP class="challenges-page__basic-layout-container">
     <!-- slot: content -->
     <svelte:fragment slot="content">
       <div
@@ -124,7 +124,11 @@
               $isPortraitMode && "__portrait-mode"
             }`}
           >
-            What kinds of <b>words</b> do you want to play with?
+            {#if $isPortraitMode}
+              What kinds of <b>words</b> do <br/>you want to play with?
+            {:else}
+              What kinds of <b>words</b> do you want to play with?
+            {/if}
           </div>
         </div>
         <!-- / Main title -->
@@ -158,7 +162,7 @@
         </ul>
       </div>
     </svelte:fragment><!-- / slot: content -->
-  </BasicPageLayout>
+  </BasicPageLayoutLP>
 </div>
 
 <style lang="scss">
@@ -173,7 +177,8 @@
       font: 2.06rem/2.5rem "ZingScriptRustR-Base", serif;
 
       &__portrait-mode {
-        font: 1.2rem/2.5rem "ZingScriptRustR-Base", serif;
+        font: 1.8rem/3.5rem "ZingScriptRustR-Base", serif;
+        padding-top: .5rem;
       }
     }
   }

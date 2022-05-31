@@ -7,7 +7,7 @@
   import { onMount } from "svelte";
 
   // Components
-  import BasicPageLayout from "@components/BasicPageLayout.svelte";
+  import BasicPageLayoutLP from "@components/BasicPageLayoutLP.svelte";
   import ButtonInCircle from "@components/ButtonInCircle.svelte";
   import Icon from "svelte-icon";
 
@@ -138,7 +138,7 @@
   class={`welcome-page
               ${_IS_DEV_ENV && "welcome-page--with-bg-image"}`}
 >
-  <BasicPageLayout class="welcome-page__basic-layout-container">
+  <BasicPageLayoutLP class="welcome-page__basic-layout-container">
     <!-- slot: content -->
     <svelte:fragment slot="content">
       <div
@@ -249,7 +249,7 @@
         <!-- / Greeting snippet -->
       </div>
     </svelte:fragment><!-- / slot: content -->
-  </BasicPageLayout>
+  </BasicPageLayoutLP>
 </div>
 
 <style lang="scss">
