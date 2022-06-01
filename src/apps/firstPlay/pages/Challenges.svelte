@@ -35,13 +35,13 @@
       id: "Y",
       complexity: "Adaptive",
       name: "Wayfinder",
-      description: ["Adapts to your", "vocab level"],
+      description: ["Adapts to your ", "vocab level"],
     },
     {
       id: "Z",
-      complexity: "Challenge",
+      complexity: "Hard",
       name: "Voyager",
-      description: ["Varied words", "+ missing letters"],
+      description: ["A motley ", "challenge"],
     },
   ];
 
@@ -177,8 +177,8 @@
       font: 2.06rem/2.5rem "ZingScriptRustR-Base", serif;
 
       &__portrait-mode {
-        font: 1.8rem/3.5rem "ZingScriptRustR-Base", serif;
-        padding-top: .5rem;
+        font: 1.8rem/2.5rem "ZingScriptRustR-Base", serif;
+        padding-top: 1rem;
       }
     }
   }

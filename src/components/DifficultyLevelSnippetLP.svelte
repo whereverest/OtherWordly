@@ -58,11 +58,11 @@
   </div>
   <div class={ `${isMiniFontMode && 'snippet-description-mini-font-mode '} option-snippet__description
                 ${isSimplified && 'option-snippet__description--small'}` }>
-    { levelDescription[0] }
-      {#if !isMiniFontMode}
-        <br/>
-      {/if}
-    { levelDescription[1] }
+    {#if isMiniFontMode}
+      {levelDescription[0]}{levelDescription[1]}
+    {:else}
+      {levelDescription[0]}<br/>{levelDescription[1]}
+    {/if}
   </div>
 
   {#if !isSimplified}

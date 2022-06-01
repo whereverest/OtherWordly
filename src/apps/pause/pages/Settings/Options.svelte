@@ -120,8 +120,8 @@ $: { if ($difficultyLevel !== undefined) {
 // Levels list ----------------------------------------------------------------
 const levelsList = [
   { id: 'X', complexity: 'Easy', name: 'Pioneer', description: ['Kid-','friendly'] },
-  { id: 'Y', complexity: 'Adaptive', name: 'Wayfinder', description: ['Adapts to your','vocab level'] },
-  { id: 'Z', complexity: 'Challenge', name: 'Voyager', description: ['Varied words','+ missing letters'] }
+  { id: 'Y', complexity: 'Adaptive', name: 'Wayfinder', description: ['Adapts to your ','vocab level'] },
+  { id: 'Z', complexity: 'Hard', name: 'Voyager', description: ['A motley ','challenge'] }
 ];
 $: selectedLevelIndex = levelsList.findIndex(item => item.id === $difficultyLevel);
 
