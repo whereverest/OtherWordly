@@ -105,7 +105,7 @@ import {
   multiHitCombos,
   minesShattered,
   blocksRemoved,
-  wormHolesCreated
+  coreWordsCompleted
 } from '@stores/stats.js';
 import { isPortraitMode } from '@stores/miscellaneous.js';
 
@@ -118,7 +118,7 @@ $: allStatsStores = {
   multiHitCombos: $multiHitCombos,
   minesShattered: $minesShattered,
   blocksRemoved: $blocksRemoved,
-  wormHolesCreated: $wormHolesCreated
+  coreWordsCompleted: $coreWordsCompleted
 };
 
 

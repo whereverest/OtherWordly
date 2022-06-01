@@ -9,7 +9,7 @@ const wordsMatched = writable(15);
 const multiHitCombos = writable(16);
 const minesShattered = writable(119);
 const blocksRemoved = writable(115);
-const wormHolesCreated = writable(2);
+const coreWordsCompleted = writable(2);
 const currentMission = writable(21);
 
 
@@ -23,6 +23,6 @@ export {
   multiHitCombos,
   minesShattered,
   blocksRemoved,
-  wormHolesCreated,
+  coreWordsCompleted,
   currentMission
 };

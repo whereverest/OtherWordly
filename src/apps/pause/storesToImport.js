@@ -30,7 +30,7 @@ import {
   multiHitCombos,
   minesShattered,
   blocksRemoved,
-  wormHolesCreated
+  coreWordsCompleted
 } from '@stores/stats.js';
 
 // miscellaneous.js
@@ -70,7 +70,7 @@ const stores = {
   multiHitCombos,
   minesShattered,
   blocksRemoved,
-  wormHolesCreated,
+  coreWordsCompleted,
 
   // miscellaneous.js
   isInGameMode,

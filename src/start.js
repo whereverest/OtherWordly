@@ -13,7 +13,7 @@ const dataSource = [
   { storeName: 'multiHitCombos',    data: 16 },
   { storeName: 'minesShattered',    data: 119 },
   { storeName: 'blocksRemoved',     data: 115 },
-  { storeName: 'wormHolesCreated',  data: 2 },
+  { storeName: 'coreWordsCompleted',  data: 2 },
 
   // Level after specific values ----------------------------------------------
   { storeName: 'levelNumber', data: 18 }, //Math.round(1 + (levelData.length - 1) * Math.random());
