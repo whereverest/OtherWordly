@@ -9,11 +9,11 @@
     { "name": "Blocks removed" },
     { "name": "Time elapsed" },
     { "name": "Words Matched" },
-    { "name": "Worm Holes Created" },
+    { "name": "Core Words Completed" },
     { "name": "Mines shattered" },
     { "name": "Time elapsed" },
     { "name": "Words matched" },
-    { "name": "Worm Holes Created" },
+    { "name": "Core Words Completed" },
     { "name": "Mines Shattered" }
   ],
 
@@ -21,7 +21,7 @@
     { "name": "Blocks removed" },
     { "name": "Time elapsed" },
     { "name": "Words Matched" },
-    { "name": "Worm Holes Created" },
+    { "name": "Core Words Completed" },
     { "name": "Mines shattered" },
     { "name": "Time elapsed" },
     { "name": "Words matched" }
