@@ -120,6 +120,7 @@
           <div class="credits-container__quaternary-title">Emily Moline</div>
           <div class="credits-container__quaternary-title">Hannah Williams</div>
           <div class="credits-container__quaternary-title">James Grama</div>
+        </div>
         <div class="columns-container__separate-column
                     columns-container__separate-column--33-percent-width">
 
