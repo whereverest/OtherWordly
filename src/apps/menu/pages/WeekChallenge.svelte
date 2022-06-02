@@ -2,7 +2,7 @@
               ${_IS_DEV_ENV && 'weekly-challenge-page--with-bg-image'}` }>
 
 
-  <BasicPageLayout class="weekly-challenge-page__basic-layout-container">
+  <BasicPageLayoutLP class="weekly-challenge-page__basic-layout-container">
 
     <div
       class="test-button"
@@ -82,7 +82,7 @@
       </div>
     </svelte:fragment><!-- / slot: footer right -->
 
-  </BasicPageLayout>
+  </BasicPageLayoutLP>
 </div>
 
 
@@ -96,7 +96,7 @@ import { onMount, onDestroy } from 'svelte';
 import { dispatchIosEvent } from '@helpers/iosEvents.js';
 
 // Components -----------------------------------------------------------------
-import BasicPageLayout from '@components/BasicPageLayout.svelte';
+import BasicPageLayoutLP from '@components/BasicPageLayoutLP.svelte';
 import ButtonInCircle from '@components/ButtonInCircle.svelte';
 import ChallengeBadgesList from '@components/ChallengeBadgesList.svelte';
 import ChallengeDetailsHexagon from '@components/ChallengeDetailsHexagon/index.svelte';

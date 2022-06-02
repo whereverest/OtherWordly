@@ -1,5 +1,5 @@
 <div class={ `music-info-container
-              ${mixClass}` }>
+              ${mixClass} ${$isPortraitMode && 'music-info-container--portrait-mode'}` }>
 
   <div class="music-info-container__icon-side">
     <Icon
@@ -8,7 +8,7 @@
     />
   </div>
 
-  <div class="music-info-container__divider-vertical">
+  <div class={`music-info-container__divider-vertical ${$isPortraitMode && 'music-info-container__divider-vertical--portrait-mode'}`}>
   </div>
 
   <div class="music-info-container__text-side">
@@ -45,6 +45,7 @@ export { mixClass as class };
 import Icon from 'svelte-icon';
 import OuterLinkIcon from '@icons/outer-link-icon.svg';
 import TwoColorsTitle from '@components/TwoColorsTitle.svelte';
+import { isPortraitMode } from "@stores/miscellaneous.js";
 
 // Icons
   // singles
@@ -62,6 +63,10 @@ import tromboneIcon from '@icons/trombone.svg';
   display: flex;
   justify-content: center;
   align-items: center;
+
+  &--portrait-mode {
+    flex-direction: column;
+  }
 
   &__icon-side {
     display: flex;
@@ -82,6 +87,13 @@ import tromboneIcon from '@icons/trombone.svg';
     margin-right: 3.0rem;
     background-image: linear-gradient(to bottom, rgba(222, 222, 222, 0), rgba(222, 222, 222, 0.25), rgba(222, 222, 222, 0));
     //outline: 3px #f00 solid;
+
+    &--portrait-mode {
+      width: 100%;
+      height: .15rem;
+      margin: 5rem;
+      background-image: linear-gradient(to left, rgba(222, 222, 222, 0), rgba(222, 222, 222, 0.25), rgba(222, 222, 222, 0));
+    }
   }
 
   &__text-side {

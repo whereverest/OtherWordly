@@ -4,7 +4,7 @@
     <!-- Switches row -->
     <ul class="switches-row
                 options-container__switches-row">
-      <li class="switches-row__switch-container">
+      <li class={`switches-row__switch-container ${$isPortraitMode && 'switches-row__switch-container--portrait-mode'}`}>
         <div class="switches-row__title">Music</div>
         <Switch
           class="switches-row__switch"
@@ -12,15 +12,15 @@
           on:click={ () => dispatchIosEvent({'tapped':'OWJSMsgPlayClickSound'}) }
         />
       </li>
-      <li class="switches-row__switch-container">
-        <div class="switches-row__title">Sound FX</div>
+      <li class={`switches-row__switch-container ${$isPortraitMode && 'switches-row__switch-container--portrait-mode'}`}>
+        <div class="switches-row__title--long">Sound FX</div>
         <Switch
           class="switches-row__switch"
           bind:isChecked={ $isSoundFx }
           on:click={ () => dispatchIosEvent({'tapped':'OWJSMsgPlayClickSound'}) }
         />
       </li>
-      <li class="switches-row__switch-container">
+      <li class={`switches-row__switch-container ${$isPortraitMode && 'switches-row__switch-container--portrait-mode'}`}>
         <div class="switches-row__title">Haptic</div>
         <Switch
           class="switches-row__switch"
@@ -78,6 +78,8 @@ import {
 import DifficultyLevelSnippet from "@components/DifficultyLevelSnippet";
 import Switch from '@components/formElements/Switch.svelte';
 import TwoColorsTitle from '@components/TwoColorsTitle.svelte';
+import { isPortraitMode } from '@stores/miscellaneous.js';
+
 
 // Icons
 import flingNoTraceIcon from '@icons/features/flingNoTrace.integrated.svg';
@@ -120,8 +122,8 @@ $: { if ($difficultyLevel !== undefined) {
 // Levels list ----------------------------------------------------------------
 const levelsList = [
   { id: 'X', complexity: 'Easy', name: 'Pioneer', description: ['Kid-','friendly'] },
-  { id: 'Y', complexity: 'Adaptive', name: 'Wayfinder', description: ['Adapts to your','vocab level'] },
-  { id: 'Z', complexity: 'Challenge', name: 'Voyager', description: ['Varied words','+ missing letters'] }
+  { id: 'Y', complexity: 'Adaptive', name: 'Wayfinder', description: ['Adapts to your ','vocab level'] },
+  { id: 'Z', complexity: 'Hard', name: 'Voyager', description: ['A motley ','challenge'] }
 ];
 $: selectedLevelIndex = levelsList.findIndex(item => item.id === $difficultyLevel);
 
@@ -149,6 +151,10 @@ function handleChallengeDeactivation() {
     display: flex;
     align-items: center;
 
+    &--portrait-mode {
+      flex-direction: column-reverse;
+    }
+
     &:last-child {
       margin-right: 0;
     }
@@ -157,6 +163,12 @@ function handleChallengeDeactivation() {
     &__title {
       margin-right: 1.0rem;
       text-transform: uppercase;
+      min-width: 96px;
+
+      &--long {
+        margin-right: 1.0rem;
+        min-width: 96px;
+      }
     }
 
     &__switch {}

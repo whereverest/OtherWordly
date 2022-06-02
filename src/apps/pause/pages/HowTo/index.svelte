@@ -29,7 +29,7 @@
     <!-- slot: content -->
     <svelte:fragment slot="content">
 
-      <ScrollableBlock class="how-to-page__scrollable-block">
+      <ScrollableBlock class={`how-to-page__scrollable-block ${$isPortraitMode && 'how-to-page__scrollable-block__portrait-mode'}`}>
 
         <!-- How to manual -->
         <div class="how-to-manual
@@ -42,20 +42,29 @@
           />
 
           <section class="how-to-manual__section">
-            <div
-              class="how-to-manual__section-column
-                      how-to-manual__section-column--left"
-              contenteditable="true"
-              bind:innerHTML={ data.howToPlay[0] }
-            >
-            </div>
-            <div
-              class="how-to-manual__section-column
-                      how-to-manual__section-column--right"
-              contenteditable="true"
-              bind:innerHTML={ data.howToPlay[1] }
-            >
-            </div>
+            {#if !$isPortraitMode}
+              <div
+                class="how-to-manual__section-column
+                        how-to-manual__section-column--left"
+                contenteditable="true"
+                bind:innerHTML={ data.howToPlay[0] }
+              >
+              </div>
+              <div
+                class="how-to-manual__section-column
+                        how-to-manual__section-column--right"
+                contenteditable="true"
+                bind:innerHTML={ data.howToPlay[1] }
+              >
+              </div>
+            {:else}
+              <div
+                class="how-to-manual__section-column--portrait-mode"
+                contenteditable="true"
+                bind:innerHTML={ oneColumnData }
+              >
+              </div>
+            {/if}
           </section>
 
           <div class="how-to-manual__divider-horizontal"></div>
@@ -64,27 +73,49 @@
             Here are core gameplay details...
           </div>
 
-          {#each gameplayDetailsSections as section,index (section[0].name + section[1].name)}
-            <section class="how-to-manual__section">
+          {#if !$isPortraitMode}
+            {#each gameplayDetailsSections as section,index (section[0].name + section[1].name)}
+              <section class="how-to-manual__section">
 
-              {#each section as column (column.name)}
-                <div class={ `how-to-manual__section-column
-                              ${index === 0 && 'how-to-manual__section-column--left' }
-                              ${index === 1 && 'how-to-manual__section-column--right' }` }>
-                  <!-- Manual snippet -->
-                  <ManualSnippet
-                    class="how-to-manual__manual-snippet"
-                    title={ column.name }
-                    inlineIcon={ featureIcons[column.iconName] }
-                    text={ column.text }
-                  />
-                </div>
-              {/each}
+                {#each section as column (column.name)}
+                  <div class={ `how-to-manual__section-column
+                                ${index === 0 && 'how-to-manual__section-column--left' }
+                                ${index === 1 && 'how-to-manual__section-column--right' }` }>
+                    <!-- Manual snippet -->
+                    <ManualSnippet
+                      class="how-to-manual__manual-snippet"
+                      title={ column.name }
+                      inlineIcon={ featureIcons[column.iconName] }
+                      text={ column.text }
+                    />
+                  </div>
+                {/each}
 
-            </section>
+              </section>
 
-            <div class="how-to-manual__divider-horizontal"></div>
-          {/each}
+              <div class="how-to-manual__divider-horizontal"></div>
+            {/each}
+          {:else}
+            {#each gameplayDetailsSections as section,index (section[0].name + section[1].name)}
+              <section class="how-to-manual__section--portrait-mode">
+
+                {#each section as column (column.name)}
+                  <div class={ `how-to-manual__section-column--portrait-mode` }>
+                    <!-- Manual snippet -->
+                    <ManualSnippet
+                      class="how-to-manual__manual-snippet"
+                      title={ column.name }
+                      inlineIcon={ featureIcons[column.iconName] }
+                      text={ column.text }
+                    />
+                  </div>
+                {/each}
+
+              </section>
+
+              <div class="how-to-manual__divider-horizontal"></div>
+            {/each}
+          {/if}
 
           <TwoColorsTitle
             class="how-to-manual__main-title"
@@ -93,21 +124,30 @@
           />
 
           <section class="how-to-manual__section">
-            <div
-              class="how-to-manual__section-column
-                      how-to-manual__section-column--left"
-              contenteditable="true"
-              bind:innerHTML={ data.theStory[0] }
-            >
-            </div>
-            <div
-              class="how-to-manual__section-column
-                      how-to-manual__section-column--right"
-              contenteditable="true"
-              bind:innerHTML={ data.theStory[1] }
-            >
-
-            </div>
+            {#if !$isPortraitMode}
+              <div
+                class="how-to-manual__section-column
+                        how-to-manual__section-column--left"
+                contenteditable="true"
+                bind:innerHTML={ data.theStory[0] }
+              >
+              </div>
+              <div
+                class="how-to-manual__section-column
+                        how-to-manual__section-column--right"
+                contenteditable="true"
+                bind:innerHTML={ data.theStory[1] }
+              >
+              </div>
+            {:else}
+              <div
+                class="how-to-manual__section-column
+                        how-to-manual__section-column--portrait-mode"
+                contenteditable="true"
+                bind:innerHTML={ oneDataStory }
+              >
+              </div>
+            {/if}
           </section>
 
           <div class="how-to-manual__divider-horizontal"></div>
@@ -119,29 +159,50 @@
             isNoWrap={ true }
           />
 
-          {#each newFriendsSections as section,index (section[0].name + section[1].name)}
-            <section class="how-to-manual__section">
+          {#if !$isPortraitMode}
+            {#each newFriendsSections as section,index (section[0].name + section[1].name)}
+              <section class="how-to-manual__section">
 
-              {#each section as column (column.name)}
-                <div class={ `how-to-manual__section-column
-                              ${index === 0 && 'how-to-manual__section-column--left' }
-                              ${index === 1 && 'how-to-manual__section-column--right' }` }>
-                  <!-- Manual snippet -->
-                  <ManualSnippet
-                    class="how-to-manual__manual-snippet"
-                    title={ column.name }
-                    inlineIcon={ characterImages[column.iconName] }
-                    text={ column.text }
-                  />
-                </div>
-              {/each}
+                {#each section as column (column.name)}
+                  <div class={ `how-to-manual__section-column
+                                ${index === 0 && 'how-to-manual__section-column--left' }
+                                ${index === 1 && 'how-to-manual__section-column--right' }` }>
+                    <!-- Manual snippet -->
+                    <ManualSnippet
+                      class="how-to-manual__manual-snippet"
+                      title={ column.name }
+                      inlineIcon={ characterImages[column.iconName] }
+                      text={ column.text }
+                    />
+                  </div>
+                {/each}
 
-            </section>
+              </section>
 
-            {#if index !== newFriendsSections.length - 1}
-              <div class="how-to-manual__divider-horizontal"></div>
-            {/if}
-          {/each}
+              {#if index !== newFriendsSections.length - 1}
+                <div class="how-to-manual__divider-horizontal"></div>
+              {/if}
+            {/each}
+          {:else}
+            {#each newFriendsSections as section,index (section[0].name + section[1].name)}
+              <section class="how-to-manual__section--portrait-mode">
+                {#each section as column (column.name)}
+                  <div class={ `how-to-manual__section-column--portrait-mode` }>
+                    <!-- Manual snippet -->
+                    <ManualSnippet
+                      class="how-to-manual__manual-snippet"
+                      title={ column.name }
+                      inlineIcon={ characterImages[column.iconName] }
+                      text={ column.text }
+                    />
+                  </div>
+                {/each}
+              </section>
+              {#if index !== newFriendsSections.length - 1}
+                <div class="how-to-manual__divider-horizontal"></div>
+              {/if}
+            {/each}
+          {/if}
 
         </div><!-- / How to manual -->
 
@@ -219,6 +280,7 @@
 
 <script>
 import {dispatchIosEvent} from "@helpers/iosEvents";
+import { isPortraitMode } from "@stores/miscellaneous.js";
 
 const _IS_DEV_ENV = IS_DEV_ENV,
       _IS_PROD_ENV = IS_PROD_ENV;
@@ -261,6 +323,9 @@ onMount(() => {
 
 // Convert Data into sections list --------------------------------------------
 import data from './data.json';
+
+let oneColumnData = data.howToPlay[0] + ' ' + data.howToPlay[1];
+let oneDataStory = data.theStory[0] + ' ' + data.theStory[1];
 
 $: gameplayDetailsSections = convertItemsListIntoPairsList(data.gameplayDetails);
 $: newFriendsSections = convertItemsListIntoPairsList(data.newFriends);
@@ -372,6 +437,10 @@ function handleGoToPage(pageToGoTo) {
     display: flex;
     justify-content: space-between;
 
+    &--portrait-mode {
+      display: block;
+    }
+
     &:last-child {
       margin-bottom: 0;
     }
@@ -380,6 +449,11 @@ function handleGoToPage(pageToGoTo) {
     &__section-column {
       width: calc(50% - 1.6rem);
       text-align: left;
+
+      &--portrait-mode {
+        text-align: justify;
+        width: 100%;
+      }
 
       &--left {}
       &--right {}
@@ -431,6 +505,11 @@ function handleGoToPage(pageToGoTo) {
       align-items: center;
       position: absolute;
       inset: calc(50% - (50vh - 5.0rem)) auto auto calc(50% - (50vw - 9.0rem));
+    }
+
+    :global(.how-to-page__scrollable-block__portrait-mode) {
+      width: calc(100vw - 10rem);
+      left: calc(50% - (50vw - 5rem));
     }
 
   // footer ---------------------------

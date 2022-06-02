@@ -2,7 +2,7 @@
               ${_IS_DEV_ENV && 'settings-page--with-bg-image'}` }>
 
 
-  <BasicPageLayout class="settings-page__basic-layout-container">
+  <BasicPageLayoutLP class="settings-page__basic-layout-container">
 
     <div
       class="test-button"
@@ -47,7 +47,7 @@
     </svelte:fragment><!-- / slot: header left -->
 
 
-  </BasicPageLayout>
+  </BasicPageLayoutLP>
 </div>
 
 
@@ -66,7 +66,7 @@ import { previousPage } from '@stores-m/pagesNavigation.js';
 import { selectedChapterId } from '@stores-m/chapters.js';
 
 // Components -----------------------------------------------------------------
-import BasicPageLayout from '@components/BasicPageLayout.svelte';
+import BasicPageLayoutLP from '@components/BasicPageLayoutLP.svelte';
 import ButtonInCircle from '@components/ButtonInCircle.svelte';
 
 

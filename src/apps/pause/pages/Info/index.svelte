@@ -34,16 +34,20 @@
       >
 
         <!-- Frames list -->
-        <div class="frames-list
-                    info-page__frames-list">
+        <div class={`frames-list
+                    info-page__frames-list
+                    ${$isPortraitMode && 'frames-list--portrait-mode'}
+                    `}>
 
           {#if activeSlide !== 0}
             <div
               transition:fade={{ duration: 120 }}
-              class="arrow-btn
+              class={`arrow-btn
                       arrow-btn--left
                       frames-list__arrow-btn
-                      frames-list__arrow-btn--left"
+                      frames-list__arrow-btn--left
+                      ${$isPortraitMode && 'arrow-btn--left--portrait-mode'}
+                      `}
               on:click={ () => activeSlide = activeSlide === 0 ? 0 : activeSlide - 1 }
             >
               <Icon
@@ -56,10 +60,12 @@
           {#if activeSlide !== 4}
             <div
               transition:fade={{ duration: 120 }}
-              class="arrow-btn
+              class={`arrow-btn
                       arrow-btn--right
                       frames-list__arrow-btn
-                      frames-list__arrow-btn--right"
+                      frames-list__arrow-btn--right
+                      ${$isPortraitMode && 'arrow-btn--right--portrait-mode'}
+                      `}
               on:click={ () => activeSlide = activeSlide === 4 ? 4 : activeSlide + 1 }
             >
               <Icon
@@ -185,6 +191,8 @@ const _IS_DEV_ENV = IS_DEV_ENV,
 import { push } from 'svelte-spa-router';
 import { onMount } from 'svelte';
 import { fade } from 'svelte/transition';
+import { isPortraitMode } from "@stores/miscellaneous.js";
+
 
 // Components
 import BasicPageLayout from '@components/BasicPageLayout.svelte';
@@ -424,8 +432,24 @@ function handleGoToPage(pageToGoTo) {
     transform: scale(1.25);
   }
 
-  &--left { padding-right: .4rem; }
-  &--right { padding-left: .4rem; }
+  &--left {
+    padding-right: .4rem;
+
+    &--portrait-mode {
+      width: 9rem;
+      height: 9rem;
+      left: calc(50% - 63vw + 4rem) !important;
+    }
+  }
+  &--right {
+    padding-left: .4rem;
+
+    &--portrait-mode {
+      width: 9rem;
+      height: 9rem;
+      right: calc(50% - 63vw + 4rem) !important;
+    }
+  }
 
   :global(.arrow-btn__icon-itself) {
     width: 2.2rem;
@@ -441,6 +465,11 @@ function handleGoToPage(pageToGoTo) {
   height: calc(100vh - 10.0rem);
   min-height: calc(100vh - 10.0rem);
   display: flex;
+
+  &--portrait-mode {
+    width: calc(100vw - 10rem);
+    left: calc(50% - (50vw - 5rem)) !important;
+  }
 
   &__arrow-btn {
     position: absolute !important;

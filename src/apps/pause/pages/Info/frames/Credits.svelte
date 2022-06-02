@@ -108,6 +108,9 @@
       <!-- Columns container -->
       <div class="columns-container
                   credits-container__columns-container">
+        {#if !$isPortraitMode}
+        <div class="columns-container__separate-column
+                    columns-container__separate-column--33-percent-width">
           <div class="credits-container__quaternary-title">Andrew Hursh</div>
           <div class="credits-container__quaternary-title">Brenda Darlene Hunter</div>
           <div class="credits-container__quaternary-title">Brinda Sousley</div>
@@ -147,6 +150,40 @@
           <div class="credits-container__quaternary-title">Sahana Pal</div>
           <div class="credits-container__quaternary-title">Thouria Bensaoula</div>
         </div>
+        {:else}
+        <div class="columns-container__separate-column
+                    columns-container__separate-column--50-percent-width">
+          <div class="credits-container__quaternary-title">Thouria Bensaoula</div>
+          <div class="credits-container__quaternary-title">Brinda Sousley</div>
+          <div class="credits-container__quaternary-title">Ronaldo Borja</div>
+          <div class="credits-container__quaternary-title">Jerry Carr-Brion</div>
+          <div class="credits-container__quaternary-title">Catherine Carnovale</div>
+          <div class="credits-container__quaternary-title">Mario Christiner</div>
+          <div class="credits-container__quaternary-title">Raluca Crisan</div>
+          <div class="credits-container__quaternary-title">Jamie Friel</div>
+          <div class="credits-container__quaternary-title">Nicole Gordiyenko</div>
+          <div class="credits-container__quaternary-title">James Grama</div>
+          <div class="credits-container__quaternary-title">Meredith Green</div>
+          <div class="credits-container__quaternary-title">David Hughes</div>
+          <div class="credits-container__quaternary-title">Brenda Darlene Hunter</div>
+        </div>
+
+        <div class="columns-container__separate-column
+                    columns-container__separate-column--50-percent-width">
+          <div class="credits-container__quaternary-title">Andrew Hursh</div>
+          <div class="credits-container__quaternary-title">Louisa Jordan</div>
+          <div class="credits-container__quaternary-title">Johan Josefsson</div>
+          <div class="credits-container__quaternary-title">Emily Moline</div>
+          <div class="credits-container__quaternary-title">Sahana Pal</div>
+          <div class="credits-container__quaternary-title">Miodrag Petrusevski</div>
+          <div class="credits-container__quaternary-title">Olga L. Rachello</div>
+          <div class="credits-container__quaternary-title">Melody Ann Ross</div>
+          <div class="credits-container__quaternary-title">Jason Sankovic</div>
+          <div class="credits-container__quaternary-title">Chitra Sundararajan</div>
+          <div class="credits-container__quaternary-title">Ljubomir Stevanovic</div>
+          <div class="credits-container__quaternary-title">Nick Williams</div>
+        </div>
+        {/if}
 
       </div><!-- / Columns container -->
 
@@ -193,6 +230,7 @@
       <div class="columns-container
                   credits-container__columns-container">
 
+        {#if !$isPortraitMode}
         <div class="columns-container__separate-column
                     columns-container__separate-column--33-percent-width">
           <div class="credits-container__quaternary-title">Djordje Mancic</div>
@@ -217,7 +255,28 @@
           <div class="credits-container__quaternary-title">Kale Lines</div>
           <div class="credits-container__quaternary-title">Peter Li</div>
         </div>
+        {:else}
+        <div class="columns-container__separate-column
+                    columns-container__separate-column--50-percent-width">
+          <div class="credits-container__quaternary-title">Djordje Mancic</div>
+          <div class="credits-container__quaternary-title">Nathan Worrall</div>
+          <div class="credits-container__quaternary-title">Luke Li</div>
+          <div class="credits-container__quaternary-title">Brandon Hee</div>
+          <div class="credits-container__quaternary-title">Eno Gjika</div>
+          <div class="credits-container__quaternary-title">Peter Duan</div>
+          <div class="credits-container__quaternary-title">Tom Shi</div>
+        </div>
 
+        <div class="columns-container__separate-column
+                    columns-container__separate-column--50-percent-width">
+          <div class="credits-container__quaternary-title">Holly Stewart</div>
+          <div class="credits-container__quaternary-title">Michelle Li</div>
+          <div class="credits-container__quaternary-title">Andre Johnson</div>
+          <div class="credits-container__quaternary-title">Elias Fisher</div>
+          <div class="credits-container__quaternary-title">Kale Lines</div>
+          <div class="credits-container__quaternary-title">Peter Li</div>
+        </div>
+        {/if}
       </div><!-- / Columns container -->
 
       <div class="credits-container__divider-horizontal"></div>
@@ -234,6 +293,7 @@
       <div class="columns-container
                   credits-container__columns-container">
 
+        {#if !$isPortraitMode}
         <div class="columns-container__separate-column
                     columns-container__separate-column--33-percent-width">
           <div class="credits-container__quaternary-title">Chris Davies</div>
@@ -248,6 +308,18 @@
                     columns-container__separate-column--33-percent-width">
           <div class="credits-container__quaternary-title">Kevin Meades</div>
         </div>
+        {:else}
+        <div class="columns-container__separate-column
+                    columns-container__separate-column--50-percent-width">
+          <div class="credits-container__quaternary-title">Chris Davies</div>
+          <div class="credits-container__quaternary-title">Kyle Hubbard</div>
+        </div>
+
+        <div class="columns-container__separate-column
+                    columns-container__separate-column--50-percent-width">
+          <div class="credits-container__quaternary-title">Kevin Meades</div>
+        </div>
+        {/if}
 
       </div><!-- / Columns container -->
 
@@ -497,6 +569,7 @@ import haiku from './haiku.json';
 // Components
 import ScrollableBlock from '@components/ScrollableBlock.svelte';
 import TwoColorsTitle from '@components/TwoColorsTitle.svelte';
+import { isPortraitMode } from '@stores/miscellaneous.js';
 
 </script>
 

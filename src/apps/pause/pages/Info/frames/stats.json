@@ -5,18 +5,15 @@
     { "name": "Your Sidekick" },
     { "name": "Time elapsed" },
     { "name": "Words matched" },
-    { "name": "Multi-Hit Combos" },
     { "name": "Mines shattered" },
     { "name": "Blocks removed" },
     { "name": "Time elapsed" },
     { "name": "Words Matched" },
-    { "name": "Multi-Hit Combos" },
-    { "name": "Worm Holes Created" },
+    { "name": "Core Words Completed" },
     { "name": "Mines shattered" },
     { "name": "Time elapsed" },
     { "name": "Words matched" },
-    { "name": "Multi-Hit Combos" },
-    { "name": "Worm Holes Created" },
+    { "name": "Core Words Completed" },
     { "name": "Mines Shattered" }
   ],
 
@@ -24,11 +21,9 @@
     { "name": "Blocks removed" },
     { "name": "Time elapsed" },
     { "name": "Words Matched" },
-    { "name": "Multi-Hit Combos" },
-    { "name": "Worm Holes Created" },
+    { "name": "Core Words Completed" },
     { "name": "Mines shattered" },
     { "name": "Time elapsed" },
-    { "name": "Words matched" },
-    { "name": "Multi-Hit Combos" }
+    { "name": "Words matched" }
   ]
 }
