@@ -2,7 +2,7 @@
   ${_IS_DEV_ENV && 'all-chapters-page--with-bg-image'}` }>
 
 
-<BasicPageLayout class="all-chapters-page__basic-layout-container">
+<BasicPageLayoutLP class="all-chapters-page__basic-layout-container">
 
 <div
     class="test-button"
@@ -27,7 +27,7 @@ z-index: 100000000;
       ${($transitionTo === 'WeekChallenge' || $transitionFrom === 'WeekChallenge')
                     && 'all-chapters-page__weekly-challenge-container--inside-viewport'}` }>
 
-<BasicPageLayout class="weekly-challenge-container__basic-layout-container">
+<BasicPageLayoutLP class="weekly-challenge-container__basic-layout-container">
 
     <!-- slot: header left -->
     <svelte:fragment slot="header-left">
@@ -59,7 +59,7 @@ z-index: 100000000;
         />
     </svelte:fragment><!-- slot: content -->
 
-</BasicPageLayout>
+</BasicPageLayoutLP>
 
 </div><!-- / Weekly challenge container -->
 
@@ -170,7 +170,7 @@ z-index: 100000000;
 </div>
 </svelte:fragment><!-- / slot: footer right -->
 
-</BasicPageLayout>
+</BasicPageLayoutLP>
 </div>
 
 <script>
@@ -184,7 +184,7 @@ import {isPortraitMode} from '@stores/miscellaneous.js';
 
 // TODO: remove unused imports
 // Components -----------------------------------------------------------------
-import BasicPageLayout from '@components/BasicPageLayout.svelte';
+import BasicPageLayoutLP from '@components/BasicPageLayoutLP.svelte';
 import ButtonInCircle from '@components/ButtonInCircle.svelte';
 import CardsCarousel from '@components/CardsCarousel.svelte';
 import ChallengeBadgesList from '@components/ChallengeBadgesList.svelte';
@@ -368,7 +368,7 @@ fill: #fff;
 margin-bottom: .2rem;
 font-size: .7rem;
 line-height: .7rem;
-text-transform: uppercase;
+// text-transform: uppercase;
 }
 
 &__number {

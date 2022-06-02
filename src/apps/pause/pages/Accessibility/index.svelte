@@ -40,10 +40,12 @@
         {#if activeSlide !== 0}
           <div
             transition:fade={{ duration: 120 }}
-            class="arrow-btn
+            class={`arrow-btn
                     arrow-btn--left
                     frames-list__arrow-btn
-                    frames-list__arrow-btn--left"
+                    frames-list__arrow-btn--left
+                    ${$isPortraitMode && 'arrow-btn--left--portrait-mode'}
+                    `}
             on:click={ () => activeSlide = activeSlide === 0 ? 0 : activeSlide - 1 }
           >
             <Icon
@@ -56,10 +58,12 @@
         {#if activeSlide !== 2}
           <div
             transition:fade={{ duration: 120 }}
-            class="arrow-btn
+            class={`arrow-btn
                     arrow-btn--right
                     frames-list__arrow-btn
-                    frames-list__arrow-btn--right"
+                    frames-list__arrow-btn--right
+                    ${$isPortraitMode && 'arrow-btn--right--portrait-mode'}
+                    `}
             on:click={ () => activeSlide = activeSlide === 2 ? 2 : activeSlide + 1 }
           >
             <Icon
@@ -189,6 +193,7 @@ import Icon from 'svelte-icon';
 import AccessibilityFrame from './frames/Accessibility.svelte';
 import PlayTestingFrame from './frames/PlayTesting.svelte';
 import PrivacyNDataFrame from './frames/PrivacyNData.svelte';
+import { isPortraitMode } from "@stores/miscellaneous.js";
 
 // Stores
 // import { basicFontSize } from '@stores/miscellaneous.js';
@@ -418,8 +423,24 @@ function handleGoToPage(pageToGoTo) {
     transform: scale(1.25);
   }
 
-  &--left { padding-right: .4rem; }
-  &--right { padding-left: .4rem; }
+  &--left {
+    padding-right: .4rem;
+
+    &--portrait-mode {
+      width: 9rem;
+      height: 9rem;
+      left: calc(50% - 63vw + 4rem) !important;
+    }
+  }
+  &--right {
+    padding-left: .4rem;
+
+    &--portrait-mode {
+      width: 9rem;
+      height: 9rem;
+      right: calc(50% - 63vw + 4rem) !important;
+    }
+  }
 
   :global(.arrow-btn__icon-itself) {
     width: 2.2rem;

@@ -12,7 +12,7 @@
             ${_IS_DEV_ENV && 'chapter-details-page--with-bg-image'}` }>
 
 
-  <BasicPageLayout class="chapter-details-page__basic-layout-container">
+  <BasicPageLayoutLP class="chapter-details-page__basic-layout-container">
 
       <div
               class="test-button"
@@ -158,7 +158,7 @@
       </svelte:fragment><!-- / slot: footer right -->
 
 
-  </BasicPageLayout>
+  </BasicPageLayoutLP>
 </div>
 
 
@@ -175,7 +175,7 @@
   export let params = {};
 
   // Components -----------------------------------------------------------------
-  import BasicPageLayout from '@components/BasicPageLayout.svelte';
+  import BasicPageLayoutLP from '@components/BasicPageLayoutLP.svelte';
   import ButtonInCircle from '@components/ButtonInCircle.svelte';
   import ChapterAchievements from '@components/ChapterCard/ChapterAchievements.svelte';
   import ChapterCard from '@components/ChapterCard/index.svelte';
