@@ -157,7 +157,7 @@
                 setTimeout(() => {
                   dispatchIosEvent({ tapped: "OWJSMsgGoToMenu" });
                   dispatchIosEvent({ tapped: "OWJSMsgFirstPlayHide" });
-                }, 2000);
+                }, 5000);
               }}
               on:deactivate={() =>
                 setTimeout(() => difficultyLevel.update(() => ""), 100)}
