@@ -79,7 +79,7 @@
           <div class="credits-container__tertiary-title
                       credits-container__tertiary-title--small-bottom-margin">Lexicographer</div>
           <div class="credits-container__secondary-title
-                      credits-container__secondary-title--big-bottom-margin">Oring Hargraves</div>
+                      credits-container__secondary-title--big-bottom-margin">Orin Hargraves</div>
 
         </div>
 
@@ -111,39 +111,44 @@
         {#if !$isPortraitMode}
         <div class="columns-container__separate-column
                     columns-container__separate-column--33-percent-width">
-          <div class="credits-container__quaternary-title">Thouria Bensaoula</div>
-          <div class="credits-container__quaternary-title">Brinda Sousley</div>
-          <div class="credits-container__quaternary-title">Ronaldo Borja</div>
-          <div class="credits-container__quaternary-title">Jerry Carr-Brion</div>
-          <div class="credits-container__quaternary-title">Catherine Carnovale</div>
-          <div class="credits-container__quaternary-title">Mario Christiner</div>
-          <div class="credits-container__quaternary-title">Raluca Crisan</div>
-          <div class="credits-container__quaternary-title">Jamie Friel</div>
-          <div class="credits-container__quaternary-title">Nicole Gordiyenko</div>
-        </div>
-
-        <div class="columns-container__separate-column
-                    columns-container__separate-column--33-percent-width">
-          <div class="credits-container__quaternary-title">James Grama</div>
-          <div class="credits-container__quaternary-title">Meredith Green</div>
-          <div class="credits-container__quaternary-title">David Hughes</div>
-          <div class="credits-container__quaternary-title">Brenda Darlene Hunter</div>
           <div class="credits-container__quaternary-title">Andrew Hursh</div>
-          <div class="credits-container__quaternary-title">Louisa Jordan</div>
-          <div class="credits-container__quaternary-title">Johan Josefsson</div>
+          <div class="credits-container__quaternary-title">Brenda Darlene Hunter</div>
+          <div class="credits-container__quaternary-title">Brinda Sousley</div>
+          <div class="credits-container__quaternary-title">Catherine Carnovale</div>
+          <div class="credits-container__quaternary-title">Chitra Sundararajan</div>
+          <div class="credits-container__quaternary-title">David Hughes</div>
           <div class="credits-container__quaternary-title">Emily Moline</div>
-          <div class="credits-container__quaternary-title">Sahana Pal</div>
+          <div class="credits-container__quaternary-title">Hannah Williams</div>
+          <div class="credits-container__quaternary-title">James Grama</div>
+        <div class="columns-container__separate-column
+                    columns-container__separate-column--33-percent-width">
+
         </div>
 
         <div class="columns-container__separate-column
                     columns-container__separate-column--33-percent-width">
-          <div class="credits-container__quaternary-title">Miodrag Petrusevski</div>
-          <div class="credits-container__quaternary-title">Olga L. Rachello</div>
-          <div class="credits-container__quaternary-title">Melody Ann Ross</div>
+          <div class="credits-container__quaternary-title">Jamie Friel</div>
           <div class="credits-container__quaternary-title">Jason Sankovic</div>
-          <div class="credits-container__quaternary-title">Chitra Sundararajan</div>
+          <div class="credits-container__quaternary-title">Jerry Carr-Brion</div>
+          <div class="credits-container__quaternary-title">Johan Josefsson</div>
+          <div class="credits-container__quaternary-title">Joshua Boisvert</div>
           <div class="credits-container__quaternary-title">Ljubomir Stevanovic</div>
+          <div class="credits-container__quaternary-title">Louisa Jordan</div>
+          <div class="credits-container__quaternary-title">Mario Christiner</div>
+          <div class="credits-container__quaternary-title">Melody Ann Ross</div>
+        </div>
+
+        <div class="columns-container__separate-column
+                    columns-container__separate-column--33-percent-width">
+          <div class="credits-container__quaternary-title">Meredith Green</div>
+          <div class="credits-container__quaternary-title">Miodrag Petrusevski</div>
           <div class="credits-container__quaternary-title">Nick Williams</div>
+          <div class="credits-container__quaternary-title">Nicole Gordiyenko</div>
+          <div class="credits-container__quaternary-title">Olga L. Rachello</div>
+          <div class="credits-container__quaternary-title">Raluca Crisan</div>
+          <div class="credits-container__quaternary-title">Ronaldo Borja</div>
+          <div class="credits-container__quaternary-title">Sahana Pal</div>
+          <div class="credits-container__quaternary-title">Thouria Bensaoula</div>
         </div>
         {:else}
         <div class="columns-container__separate-column
@@ -346,13 +351,15 @@
         <div class="columns-container__separate-column
                     columns-container__separate-column--50-percent-width">
           <div class="credits-container__tertiary-title">Educational strategy</div>
+          <div class="credits-container__quaternary-title">Whitney Spiehler</div>
           <div class="credits-container__quaternary-title">Joan Blanusa</div>
+          <div class="credits-container__quaternary-title">Steph Alkhatib</div>
         </div>
 
         <div class="columns-container__separate-column
                     columns-container__separate-column--50-percent-width">
-          <div class="credits-container__tertiary-title">Educator’s guide</div>
-          <div class="credits-container__quaternary-title">Whitney Spiehler</div>
+          <div class="credits-container__tertiary-title">Storyboarding intro</div>
+          <div class="credits-container__quaternary-title">Zdravko Jandric</div>
         </div>
 
       </div><!-- / Columns container -->
@@ -388,7 +395,7 @@
 
       <br>
 
-      <div class="credits-container__tertiary-title">Intern outreach</div>
+      <div class="credits-container__tertiary-title">Intern facilitators</div>
 
       <!-- Columns container -->
       <div class="columns-container
@@ -399,17 +406,25 @@
           <div class="credits-container__quaternary-title
                       credits-container__quaternary-title--small-bottom-margin">Andrew Maclean,</div>
           <div class="credits-container__tertiary-title" style="text-transform: none">HighTechU at University of Victoria</div>
-        </div>
 
-        <div class="columns-container__separate-column
-                    columns-container__separate-column--50-percent-width">
           <div class="credits-container__quaternary-title
                       credits-container__quaternary-title--small-bottom-margin">Aleya Adams,</div>
           <div class="credits-container__tertiary-title" style="text-transform: none">HighTechU at University of Victoria</div>
         </div>
 
+        <div class="columns-container__separate-column
+                    columns-container__separate-column--50-percent-width">
+          <div class="credits-container__quaternary-title
+                      credits-container__quaternary-title--small-bottom-margin">Lindsay Panis,</div>
+          <div class="credits-container__tertiary-title" style="text-transform: none">Experiential Network (XN) at Northeastern University</div>
+          <div class="credits-container__quaternary-title
+                      credits-container__quaternary-title--small-bottom-margin">Jennifer Reyes,</div>
+          <div class="credits-container__tertiary-title" style="text-transform: none">Experiential Network (XN) at Northeastern University</div>
+        </div>
+
       </div><!-- / Columns container -->
 
+      
       <br>
 
       <div class="credits-container__tertiary-title">Supercomputer processing</div>
@@ -420,9 +435,11 @@
 
         <div class="columns-container__separate-column
                     columns-container__separate-column--50-percent-width">
+
           <div class="credits-container__quaternary-title
                       credits-container__quaternary-title--small-bottom-margin">Robert Sinkovits,</div>
           <div class="credits-container__tertiary-title" style="text-transform: none">San Diego Supercomputer Center</div>
+
         </div>
 
         <div class="columns-container__separate-column
@@ -443,11 +460,17 @@
 
         <div class="columns-container__separate-column
                     columns-container__separate-column--50-percent-width">
+          
           <div class="credits-container__quaternary-title
                       credits-container__quaternary-title--small-bottom-margin">Kostya Safonov</div>
           <div class="credits-container__tertiary-title"
                style="text-transform: none">(Frontend)</div>
 
+          <div class="credits-container__quaternary-title
+                      credits-container__quaternary-title--small-bottom-margin">Liko Sonexarth</div>
+          <div class="credits-container__tertiary-title"
+               style="text-transform: none">(Frontend)</div>
+          
           <div class="credits-container__quaternary-title
                       credits-container__quaternary-title--small-bottom-margin">Evgeny Nikitenko</div>
           <div class="credits-container__tertiary-title"
@@ -470,6 +493,12 @@
                       credits-container__quaternary-title--small-bottom-margin">Vladimir Vodolazkiy</div>
           <div class="credits-container__tertiary-title"
                style="text-transform: none">(Text processing)</div>
+
+          <div class="credits-container__quaternary-title
+                      credits-container__quaternary-title--small-bottom-margin">Zainab Almutawa</div>
+          <div class="credits-container__tertiary-title"
+               style="text-transform: none">(Intern, Statistics)</div>
+
         </div>
 
       </div><!-- / Columns container -->
