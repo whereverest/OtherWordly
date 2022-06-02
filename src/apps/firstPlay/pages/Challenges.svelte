@@ -154,6 +154,10 @@
               on:click={() => {
                 difficultyLevel.update(() => level.id);
                 dispatchIosEvent({ tapped: "OWJSMsgPlayClickSound" });
+                setTimeout(() => {
+                  dispatchIosEvent({ tapped: "OWJSMsgGoToMenu" });
+                  dispatchIosEvent({ tapped: "OWJSMsgFirstPlayHide" });
+                }, 2000);
               }}
               on:deactivate={() =>
                 setTimeout(() => difficultyLevel.update(() => ""), 100)}

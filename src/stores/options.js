@@ -1,7 +1,7 @@
 import { writable } from 'svelte/store';
 
 
-const difficultyLevel = writable('X');
+const difficultyLevel = writable('N');
 const revealLettersLevel = writable('M');
 const isBottomHeavyFont = writable(false);
 const isReduceMotion = writable(true);
