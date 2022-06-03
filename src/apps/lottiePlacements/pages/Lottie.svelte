@@ -351,7 +351,7 @@
 
       &--portrait-mode {
         left: auto;
-        top: calc(50% - 0rem);
+        top: calc(50% - 3rem);
         height: 8rem;
       }
     }
@@ -375,7 +375,7 @@
       background: rgba(0, 255, 0, 0.2);
 
       &--portrait-mode {
-        top: calc(80% + 8rem);
+        top: calc(80% + 11rem);
         left: auto;
       }
     }
@@ -388,15 +388,15 @@
       .chapter-details-page-elements__level-select-carousel-container {
         // width: 25em;
         height: 9.4em;
-        top: calc(50% - 9.5em);
-        left: calc(25vw - 14.9em);
+        // top: calc(50% - 9.5em);
+        // left: calc(25vw - 14.9em);
       }
 
       .chapter-details-page-elements__play-button {
         width: 7.6em;
         height: 7.6em;
-        top: calc(50% + 18.6em);
-        left: calc(50% - 3.8em);
+        top: calc(50% - 3.8em);
+        // left: calc(50% - 3.8em);
       }
     }
   </style>

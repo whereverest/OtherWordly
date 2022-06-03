@@ -123,11 +123,6 @@
         </div>
         <div class="columns-container__separate-column
                     columns-container__separate-column--33-percent-width">
-
-        </div>
-
-        <div class="columns-container__separate-column
-                    columns-container__separate-column--33-percent-width">
           <div class="credits-container__quaternary-title">Jamie Friel</div>
           <div class="credits-container__quaternary-title">Jason Sankovic</div>
           <div class="credits-container__quaternary-title">Jerry Carr-Brion</div>

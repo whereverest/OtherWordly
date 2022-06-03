@@ -1,9 +1,10 @@
 <div class={ `options-container
+              ${$isPortraitMode && 'options-container--portrait-mode'}
               ${mixClass}` }>
 
     <!-- Switches row -->
-    <ul class="switches-row
-                options-container__switches-row">
+    <ul class={`switches-row
+                options-container__switches-row`}>
       <li class={`switches-row__switch-container ${$isPortraitMode && 'switches-row__switch-container--portrait-mode'}`}>
         <div class="switches-row__title">Music</div>
         <Switch
@@ -13,7 +14,7 @@
         />
       </li>
       <li class={`switches-row__switch-container ${$isPortraitMode && 'switches-row__switch-container--portrait-mode'}`}>
-        <div class="switches-row__title--long">Sound FX</div>
+        <div class="switches-row__title--long">SOUND FX</div>
         <Switch
           class="switches-row__switch"
           bind:isChecked={ $isSoundFx }
@@ -35,11 +36,14 @@
                 options-container__divider-horizontal--big-bot-margin"></div>
 
 
-    <div class="options-container__difficulty-level-list">
+    <div class={`options-container__difficulty-level-list ${$isPortraitMode && 'options-container__difficulty-level-list--portrait-mode'}`}>
       {#each levelsList as level,index (level.complexity)}
         <DifficultyLevelSnippet
           class={ `separate-section__difficulty-level-snippet
-                    ${index !== selectedLevelIndex && 'separate-section__difficulty-level-snippet--half-transparent'}` }
+                    ${$isPortraitMode && index === selectedLevelIndex && 'separate-section__difficulty-level-snippet--portrait-mode'}
+                    ${$isPortraitMode && index !== selectedLevelIndex && 'separate-section__difficulty-level-snippet--half-transparent--portrait-mode'}
+                    ${!$isPortraitMode && index !== selectedLevelIndex && 'separate-section__difficulty-level-snippet--half-transparent'}`
+                }
           levelName={ level.name }
           levelComplexity={ level.complexity }
           levelDescription={ level.description }
@@ -153,6 +157,7 @@ function handleChallengeDeactivation() {
 
     &--portrait-mode {
       flex-direction: column-reverse;
+      margin-right: 0;
     }
 
     &:last-child {
@@ -164,10 +169,12 @@ function handleChallengeDeactivation() {
       margin-right: 1.0rem;
       text-transform: uppercase;
       min-width: 96px;
+      padding-top: 1rem;
 
       &--long {
         margin-right: 1.0rem;
         min-width: 96px;
+        padding-top: 1rem;
       }
     }
 
@@ -181,6 +188,11 @@ function handleChallengeDeactivation() {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  &--portrait-mode {
+    justify-content: flex-start;
+    padding-top: 5rem;
+  }
 
   :global(.options-container__main-title) {
     margin-bottom: 4.0rem;
@@ -209,15 +221,27 @@ function handleChallengeDeactivation() {
     display: flex;
     transform-origin: center center;
     transform: scale(1.3);
+
+    &--portrait-mode {
+      flex-direction: column;
+    }
   }
 
     :global(.separate-section__difficulty-level-snippet) {
       opacity: 1;
     }
 
-      :global(.separate-section__difficulty-level-snippet--half-transparent) {
-        opacity: .75;
-      }
+    :global(.separate-section__difficulty-level-snippet--portrait-mode) {
+      padding-bottom: 1rem;
+    }
+
+    :global(.separate-section__difficulty-level-snippet--half-transparent) {
+      opacity: .75;
+    }
+
+    :global(.separate-section__difficulty-level-snippet--half-transparent--portrait-mode) {
+      padding-bottom: 1rem;
+    }
 }
 
 </style>

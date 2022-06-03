@@ -231,8 +231,10 @@
             >
               <div
                 id="transition-scale-button"
-                class="tap-to-continue-but
-                        character-speech__tap-to-continue-but"
+                class={`tap-to-continue-but
+                        character-speech__tap-to-continue-but
+                        ${$isPortraitMode && 'tap-to-continue-but--portrait-mode'}
+                        `}
                 transition:fadeScale={{
                   delay: 0,
                   duration: 500,
@@ -240,7 +242,13 @@
                   baseScale: 0.5,
                 }}
               >
-                Tap to Continue
+                <div class="tap-to-continue-transparent-background"></div>
+                <span class="tap-span">
+                  Tap
+                </span>
+                <span class="to-continue-span">
+                  to Continue 
+                </span>
               </div>
               <!-- / Tap to continue but -->
             </div>
@@ -369,6 +377,36 @@
         text-align: center;
       }
     }
+  }
+
+  .tap-to-continue-transparent-background {
+    background-image: url(../../../assets/images/WhiteLineWithGlowBelow.png);
+    background-size: cover;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    opacity: .2;
+    margin-top: -1.5rem;
+  }
+
+  .tap-to-continue-but {
+    padding: 1rem 8rem 1rem 8rem;
+    margin-left: -8rem;
+    position: relative !important;
+
+    &--portrait-mode {
+      margin-left: 0;
+    }
+  }
+
+  .tap-span {
+    font-family: 'MuseoSlabRounded-500' !important;
+    opacity: 1;
+  }
+
+  .to-continue-span {
+    font-family: 'MuseoSlabRounded-100' !important;
   }
 
   // Greeting snippet -----------------------------------------------------------

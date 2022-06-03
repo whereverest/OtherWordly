@@ -155,7 +155,6 @@
                 difficultyLevel.update(() => level.id);
                 dispatchIosEvent({ tapped: "OWJSMsgPlayClickSound" });
                 setTimeout(() => {
-                  dispatchIosEvent({ tapped: "OWJSMsgGoToMenu" });
                   dispatchIosEvent({ tapped: "OWJSMsgFirstPlayHide" });
                 }, 5000);
               }}

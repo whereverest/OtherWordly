@@ -92,6 +92,9 @@
           backwardsGradient={true}
           prominent={true}
           iconName="arrowRight"
+          on:click={() => {
+            dispatchIosEvent({ tapped: "OWJSMsgFirstPlayHide" });
+          }}
         />
       </div>
     </div>
@@ -105,6 +108,7 @@
 let mixClass;
 export { mixClass as class };
 
+import { dispatchIosEvent } from "@helpers/iosEvents.js";
 import { createEventDispatcher } from 'svelte';
 const dispatch = createEventDispatcher();
 
