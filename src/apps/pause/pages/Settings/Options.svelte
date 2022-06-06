@@ -44,6 +44,7 @@
                     ${$isPortraitMode && index !== selectedLevelIndex && 'separate-section__difficulty-level-snippet--half-transparent--portrait-mode'}
                     ${!$isPortraitMode && index !== selectedLevelIndex && 'separate-section__difficulty-level-snippet--half-transparent'}`
                 }
+          isMiniFontMode={$isPortraitMode}
           levelName={ level.name }
           levelComplexity={ level.complexity }
           levelDescription={ level.description }
@@ -199,7 +200,7 @@ function handleChallengeDeactivation() {
   }
 
   &__divider-horizontal {
-    width: calc(100% - 12.0rem);
+    width: calc(100% - 6.0rem);
     height: .15rem;
     margin-bottom: 3.0rem;
     background-image: linear-gradient(to right, rgba(222, 222, 222, 0), rgba(222, 222, 222, 0.25), rgba(222, 222, 222, 0));

@@ -393,6 +393,7 @@
   .tap-to-continue-but {
     padding: 1rem 8rem 1rem 8rem;
     margin-left: -8rem;
+    margin-top: 5rem;
     position: relative !important;
 
     &--portrait-mode {
@@ -431,7 +432,7 @@
 
       &__portrait-mode {
         margin: auto;
-        margin-top: -20rem;
+        margin-top: -25rem;
       }
     }
 
@@ -471,7 +472,7 @@
 
       &__portrait-mode {
         margin: auto;
-        margin-top: 12rem;
+        margin-top: 27rem;
       }
 
       @keyframes scale-bounce {

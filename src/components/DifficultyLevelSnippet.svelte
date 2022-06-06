@@ -1,10 +1,12 @@
 <div
   class={ `option-snippet
+              ${isMiniFontMode && 'portrait-mode-option-snippet'}
               ${(!isWithDivider || isActive) && 'option-snippet--without-divider'}
               ${isActive && !isSimplified && 'option-snippet--active'}
               ${isActive && isSimplified && 'option-snippet--active-small'}
               ${isSimplified && 'option-snippet--small'}
-              ${mixClass}` }
+              ${mixClass}`
+        }
   on:click={ () => dispatch('click') }
 >
 
@@ -91,6 +93,7 @@ export let levelComplexity = '';
 export let levelDescription = [];
 export let isActive = false;
 export let isWithDivider = false;
+export let isMiniFontMode = false;
 
 // Components
 import ButtonInCircle from '@components/ButtonInCircle.svelte';
@@ -187,6 +190,16 @@ onMount(() => {
 
 
 // Option snippet -------------------------------------------------------------
+
+.portrait-mode-option-snippet {
+  &::after {
+    width: 15rem !important;
+    height: 0.3em !important;
+    mask-image: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%) !important;
+    margin-top: 8rem !important;
+  }
+}
+
 .option-snippet {
   width: 24.2rem;
   min-width: 24.2rem;
