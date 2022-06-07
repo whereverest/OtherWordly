@@ -467,8 +467,8 @@ function handleGoToPage(pageToGoTo) {
   display: flex;
 
   &--portrait-mode {
-    width: calc(100vw - 10rem);
-    left: calc(50% - (50vw - 5rem)) !important;
+    width: calc(100vw - 6rem);
+    left: calc(50% - (50vw - 3rem)) !important;
   }
 
   &__arrow-btn {

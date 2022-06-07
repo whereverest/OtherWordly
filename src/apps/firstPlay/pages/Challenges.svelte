@@ -112,12 +112,22 @@
         }
         `}
         >
+          {#if $isPortraitMode}
+          <TwoColorsTitleLP
+            class={`main-title__first-line`}
+            isMiniMode={$isPortraitMode}
+            text="Choose Your"
+            secondText="Challenge"
+            isNoWrap={true}
+          />
+          {:else}
           <TwoColorsTitleLP
             class={`main-title__first-line`}
             isMiniMode={$isPortraitMode}
             text="Choose Your Challenge"
             isNoWrap={true}
           />
+          {/if}
 
           <div
             class={`main-title__second-line${
@@ -181,7 +191,7 @@
 
       &__portrait-mode {
         font: 1.8rem/2.5rem "ZingScriptRustR-Base", serif;
-        padding-top: 1rem;
+        padding-top: 3rem;
       }
     }
   }

@@ -8,12 +8,21 @@
   <div class={ `two-colors-title__overlay
                 two-colors-title__overlay--white
                 ${isLeftAlign && 'two-colors-title__overlay--left-aligned'}` }>
-    { text }
+
+      {#if !isMiniMode}
+        {text}
+      {:else}
+        {text}<br/>{secondText}
+      {/if}
   </div>
 
   <div class={ `two-colors-title__overlay
                 ${isLeftAlign && 'two-colors-title__overlay--left-aligned'}` }>
-    { text }
+    {#if !isMiniMode}
+      {text}
+    {:else}
+      {text}<br/>{secondText}
+    {/if}
   </div>
 
 
@@ -27,6 +36,7 @@ export { mixClass as class };
 
 // Props ----------------------------------------------------------------------
 export let text = '';
+export let secondText = '';
 export let isNoWrap = false;
 export let isLeftAlign = false;
 export let fontSize = 3.6;
@@ -46,8 +56,8 @@ export let isMiniMode = false;
   line-height: 3.6rem;
 
   &--mini-mode-font {
-    font-size: 2.6rem;
-    line-height: 2.6rem;
+    font-size: 3.6rem;
+    line-height: 3.6rem;
   }
 }
 .two-colors-title {
