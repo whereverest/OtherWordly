@@ -24,7 +24,7 @@
                       stats-container__stats-snippet">
             <div class={ `stats-snippet__value
                           ${isSmallerFont && 'stats-snippet__value--smaller-font'}
-                          ${$isPortraitMode && 'stats-snippet__value--narrow--portrait-mode'}` }>
+                          ${$isPortraitMode && 'stats-snippet__value--narrow'}` }>
               { allStatsStores[lodashCamelCase(stat.name)] }
             </div>
             <div class={ `stats-snippet__description
@@ -141,25 +141,21 @@ import TwoColorsTitle from '@components/TwoColorsTitle.svelte';
   text-transform: uppercase;
 
   &__value {
-    // width: calc(50% - .5rem);
-    // display: flex;
-    // align-items: center;
-    // justify-content: flex-end;
-    // font-size: 3.5rem;
-    // line-height: 2.0rem;
-    // font-weight: 100;
-    // color: #ffffae;
+    width: calc(50% - .5rem);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 3.5rem;
+    line-height: 2.0rem;
+    font-weight: 100;
+    color: #ffffae;
     // min-width: 10rem;
     // justify-content: flex-start;
     // padding-right: 3rem;
-    font-size: 3.5rem;
-    line-height: 6rem;
-    color: #ffffae;
-    padding-right: 3rem;
-    padding-left: 0rem;
+    // padding-left: 0rem;
 
     &--narrow {
-      // width: calc(50% - .7rem);
+      width: calc(50% - .7rem);
       
       &--portrait-mode {
       }
@@ -167,14 +163,14 @@ import TwoColorsTitle from '@components/TwoColorsTitle.svelte';
   }
 
   &__description {
-    // width: calc(50% - .5rem);
-    // display: flex;
-    // align-items: center;
-    // text-align: left;
+    width: calc(50% - .5rem);
+    display: flex;
+    align-items: center;
+    text-align: left;
 
-    font-size: 1.9rem;
-    line-height: 2.5rem;
-    text-align: right;
+    // font-size: 1.9rem;
+    // line-height: 2.5rem;
+    // text-align: right;
 
     &--narrow {
       width: calc(50% - .7rem);
@@ -255,7 +251,7 @@ import TwoColorsTitle from '@components/TwoColorsTitle.svelte';
       margin: 0;
       display: flex;
       flex-direction: column;
-      // align-items: center;
+      align-items: center;
       list-style: none;
     }
 
