@@ -5,7 +5,10 @@
     <!-- Switches row -->
     <ul class={`switches-row
                 options-container__switches-row`}>
-      <li class={`switches-row__switch-container ${$isPortraitMode && 'switches-row__switch-container--portrait-mode'}`}>
+      <li class={`switches-row__switch-container
+       ${$isPortraitMode && 'switches-row__switch-container--portrait-mode'}
+       ${$isPortraitMode && $isDeviceIpad && 'switches-row__switch-container--ipad-mode'}
+       `}>
         <div class="switches-row__title">Music</div>
         <Switch
           class="switches-row__switch"
@@ -13,7 +16,10 @@
           on:click={ () => dispatchIosEvent({'tapped':'OWJSMsgPlayClickSound'}) }
         />
       </li>
-      <li class={`switches-row__switch-container ${$isPortraitMode && 'switches-row__switch-container--portrait-mode'}`}>
+      <li class={`switches-row__switch-container 
+       ${$isPortraitMode && 'switches-row__switch-container--portrait-mode'}
+       ${$isPortraitMode && $isDeviceIpad && 'switches-row__switch-container--ipad-mode'}
+      `}>
         <div class="switches-row__title--long">SOUND FX</div>
         <Switch
           class="switches-row__switch"
@@ -21,7 +27,10 @@
           on:click={ () => dispatchIosEvent({'tapped':'OWJSMsgPlayClickSound'}) }
         />
       </li>
-      <li class={`switches-row__switch-container ${$isPortraitMode && 'switches-row__switch-container--portrait-mode'}`}>
+      <li class={`switches-row__switch-container 
+       ${$isPortraitMode && 'switches-row__switch-container--portrait-mode'}
+       ${$isPortraitMode && $isDeviceIpad && 'switches-row__switch-container--ipad-mode'}
+      `}>
         <div class="switches-row__title">Haptic</div>
         <Switch
           class="switches-row__switch"
@@ -32,8 +41,8 @@
     </ul><!-- / Switches row -->
 
 
-    <div class="options-container__divider-horizontal
-                options-container__divider-horizontal--big-bot-margin"></div>
+    <div class={`options-container__divider-horizontal
+                ${$isPortraitMode && 'options-container__divider-horizontal--big-bot-margin'}`}></div>
 
 
     <div class={`options-container__difficulty-level-list ${$isPortraitMode && 'options-container__difficulty-level-list--portrait-mode'}`}>
@@ -83,7 +92,7 @@ import {
 import DifficultyLevelSnippet from "@components/DifficultyLevelSnippet";
 import Switch from '@components/formElements/Switch.svelte';
 import TwoColorsTitle from '@components/TwoColorsTitle.svelte';
-import { isPortraitMode } from '@stores/miscellaneous.js';
+import { isPortraitMode, isDeviceIpad } from '@stores/miscellaneous.js';
 
 
 // Icons
@@ -161,6 +170,11 @@ function handleChallengeDeactivation() {
       margin-right: 0;
     }
 
+    &--ipad-mode {
+      flex-direction: column-reverse;
+      margin-right: 3rem;
+    }
+
     &:last-child {
       margin-right: 0;
     }
@@ -202,7 +216,7 @@ function handleChallengeDeactivation() {
   &__divider-horizontal {
     width: calc(100% - 6.0rem);
     height: .15rem;
-    margin-bottom: 3.0rem;
+    margin-bottom: 5.0rem;
     background-image: linear-gradient(to right, rgba(222, 222, 222, 0), rgba(222, 222, 222, 0.25), rgba(222, 222, 222, 0));
 
     &--small-bot-margin {
@@ -210,7 +224,7 @@ function handleChallengeDeactivation() {
     }
 
     &--big-bot-margin {
-      margin-bottom: 6.0rem;
+      margin-bottom: 8.0rem;
     }
   }
 
