@@ -277,11 +277,20 @@
 
       <div class="credits-container__divider-horizontal"></div>
 
-      <TwoColorsTitle
-        class="credits-container__main-title"
-        text="Additional Thanks"
-        isNoWrap={ true }
-      />
+      {#if $isPortraitMode}
+        <TwoColorsTitle
+          class="credits-container__main-title"
+          text="Additional Thanks"
+          fontSize={3}
+          isNoWrap={ true }
+        />
+      {:else}
+        <TwoColorsTitle
+          class="credits-container__main-title"
+          text="Additional Thanks"
+          isNoWrap={ true }
+        />
+      {/if}
 
       <div class="credits-container__tertiary-title">Narrative</div>
 
