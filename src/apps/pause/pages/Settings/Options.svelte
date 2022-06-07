@@ -216,8 +216,8 @@ function handleChallengeDeactivation() {
   }
 
   &__divider-horizontal {
-    width: calc(100% - 6.0rem);
-    height: .15rem;
+    width: calc(100% + 6.0rem);
+    height: .1rem;
     margin-bottom: 5.0rem;
     background-image: linear-gradient(to right, rgba(222, 222, 222, 0), rgba(222, 222, 222, 0.25), rgba(222, 222, 222, 0));
 
