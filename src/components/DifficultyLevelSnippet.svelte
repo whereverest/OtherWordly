@@ -16,22 +16,13 @@
     {#each [0,1,2] as parenthesis,index (parenthesis)}
       <div class={ `decorative-parentheses__single-parenthesis
                     ${isSimplified && 'decorative-parentheses__single-parenthesis--higher'}
-                    ${isMiniFontMode && isSimplified && 'decorative-parentheses__single-parenthesis--higher--portrait-mode'}
                     ${index === 1 && 'decorative-parentheses__single-parenthesis--small'}
-                    ${isMiniFontMode && index === 1 && 'decorative-parentheses__single-parenthesis--small--portrait-mode'}
                     ${index === 1 && isSimplified
                                   && 'decorative-parentheses__single-parenthesis--small-simplified'}
-                    ${isMiniFontMode && index === 1 && isSimplified
-                                  && 'decorative-parentheses__single-parenthesis--small-simplified--portrait-mode'}
                     ${index === 2 && 'decorative-parentheses__single-parenthesis--tiny'}
-                    ${isMiniFontMode && index === 2 && 'decorative-parentheses__single-parenthesis--tiny--portrait-mode'}
                     ${index === 2 && isSimplified
                                   && 'decorative-parentheses__single-parenthesis--tiny-simplified'}
-                    ${isMiniFontMode && index === 2 && isSimplified
-                                  && 'decorative-parentheses__single-parenthesis--tiny-simplified--portrait-mode'}
-                    ${!isActive && 'decorative-parentheses__single-parenthesis--inactive'}
-                    ${isMiniFontMode && !isActive && 'decorative-parentheses__single-parenthesis--inactive--portrait-mode'}
-                  `} >
+                    ${!isActive && 'decorative-parentheses__single-parenthesis--inactive'}`} >
       </div>
     {/each}
   </div><!-- / Decorative parentheses -->
@@ -201,7 +192,6 @@ onMount(() => {
 // Option snippet -------------------------------------------------------------
 
 .portrait-mode-option-snippet {
-  margin-bottom: 2rem;
   &::after {
     width: 15rem !important;
     height: 0.3em !important;
@@ -215,7 +205,7 @@ onMount(() => {
   min-width: 24.2rem;
   height: 15.0rem;
   position: relative;
-  transform: scale(1.2) translateZ(0);
+  transform: scale(1) translateZ(0);
   font-size: 1.0rem;
   line-height: 1.6rem;
   text-align: center;

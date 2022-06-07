@@ -369,7 +369,7 @@
         <div></div>
 
         <div class="columns-container__separate-column
-                    columns-container__separate-column--50-percent-width">
+                    columns-container__separate-column--33-percent-width">
           <div
             class="credits-container__tertiary-title"
             style="white-space: nowrap"

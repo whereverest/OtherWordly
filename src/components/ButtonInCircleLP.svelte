@@ -88,7 +88,6 @@ export let id = '';
 export let isTextOnTop = false;
 export let isTextArc = false;
 export let isThickBorder = false;
-export let isMiniFontMode = false;
 export let isActive = false;
 export let isWithBounceAnimation = false;
 

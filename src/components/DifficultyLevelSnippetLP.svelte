@@ -92,7 +92,6 @@
           backwardsGradient={true}
           prominent={true}
           iconName="arrowRight"
-          isMiniFontMode={isMiniFontMode}
           on:click={() => {
             dispatchIosEvent({ tapped: "OWJSMsgFirstPlayHide" });
           }}
@@ -288,16 +287,6 @@ onMount(() => {
         opacity: 0 !important;
       }
     }
-
-    &--active {
-      transform: scale(1.25) translateZ(0);
-      transition: transform .5s cubic-bezier(0.65, -1.8, 0.36, 3.5), opacity .2s ease;
-    }
-
-    &--active-small {
-      transform: scale(1.15) translateZ(0);
-      transition: transform .5s cubic-bezier(0.65, -1.8, 0.36, 3.5), opacity .2s ease;
-    }
   }
 
   &--small {
@@ -355,7 +344,6 @@ onMount(() => {
 
     &--portrait-mode {
       padding-bottom: .5rem;
-      font-size: 1.4rem;
     }
 
     &--small {
@@ -444,13 +432,13 @@ onMount(() => {
 }
 
 .snippet-name-mini-font-mode {
-  font-size: 3.2rem;
+  font-size: 3rem;
   line-height: 2rem;
 }
 
 .snippet-description-mini-font-mode {
-  font-size: 1.6rem;
-  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  margin-bottom: .5rem;
   margin-top: 1.5rem;
 }
 

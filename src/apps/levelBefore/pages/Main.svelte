@@ -90,44 +90,35 @@
               content={ currentStoryArray[storyIndex].speech }
               isVertical={ $isPortraitMode }
             />
+
+            {#if isTapToContinueVisible && !$isPortraitMode}
+              <!-- Tap to continue but -->
+              <div
+                class="tap-to-continue-but
+                        character-speech__tap-to-continue-but"
+                transition:fade={{ duration: 400 }}
+              >
+                Tap to Continue
+              </div><!-- / Tap to continue but -->
+            {/if}
           </div>
-        </div><!-- / Character speech -->
-        <div>
-          {#if isTapToContinueVisible}
+
+          {#if isTapToContinueVisible && $isPortraitMode}
             <!-- Tap to continue but -->
             <div
-              class={`greeting-snippet__button-container ${
-                $isPortraitMode &&
-                "greeting-snippet__button-container__portrait-mode"
-              }`}
+              class="tap-to-continue-but
+                      character-speech__tap-to-continue-but"
+              transition:fade={{ duration: 400 }}
             >
-              <div
-                id="transition-scale-button"
-                class={`tap-to-continue-button
-                        character-speech__tap-to-continue-button
-                        ${$isPortraitMode && 'tap-to-continue-button--portrait-mode'}
-                        `}
-                transition:fadeScale={{
-                  delay: 0,
-                  duration: 500,
-                  easing: cubicInOut,
-                  baseScale: 0.5,
-                }}
-              >
-                <div class="tap-to-continue-transparent-background"></div>
-                <span class="tap-span">
-                  Tap
-                </span>
-                <span class="to-continue-span">
-                  to Continue 
-                </span>
-              </div>
-              <!-- / Tap to continue but -->
+              Tap to Continue
             </div><!-- / Tap to continue but -->
           {/if}
-        </div>
+
+
+        </div><!-- / Character speech -->
       </div>
     </svelte:fragment><!-- / slot: content -->
+
 
     <!-- slot: footer left -->
     <svelte:fragment slot="footer-left">
@@ -189,8 +180,6 @@ const _IS_DEV_ENV = IS_DEV_ENV,
 import { onMount, onDestroy } from 'svelte';
 import { fade } from 'svelte/transition';
 import lodashRandom from 'lodash-es/random.js';
-import fadeScale from "./fadeScale";
-import { cubicInOut } from "svelte/easing";
 
 // Stores
 import { transitionFrom, transitionTo } from '@stores-fp/transitions.js';
@@ -300,253 +289,18 @@ function toggleIsTutorial() {
 
 
 // Tap to continue but --------------------------------------------------------
-.fade-text-div-above-invisible {
-    opacity: 0;
-    margin-bottom: -2rem;
-  }
-  .fade-text-div-below-invisible {
-    margin-bottom: -2rem;
-    opacity: 0;
-  }
-  .fade-text-div-above {
-    position: absolute;
-    margin-top: -8rem;
-  }
-  .fade-text-div-below {
-    margin-top: -5rem;
-    position: absolute;
-  }
-  .transition-scale-button {
-    animation-duration: 1s;
-      animation-name: scale-bounce;
-      animation-iteration-count: infinite;
-
-      @keyframes scale-bounce {
-        from {
-          transform: scale(1);
-        }
-        7% {
-          transform: scale(1.1);
-        }
-        25% {
-          transform: scale(0.95);
-        }
-        50% {
-          transform: scale(1);
-        }
-        to {
-          transform: scale(1);
-        }
-      }
-  }
-  .greeting-text {
-    position: relative;
-    text-align: center;
-    font-size: 2.05rem;
-    line-height: 2.7rem;
-
-    :global(.greeting-text__chat-bubble-bg) {
-      width: 17rem;
-      height: 9.5rem;
-      left: 0.4rem !important;
-      position: absolute;
-      inset: auto auto -1.2rem -5.5rem;
-      fill: transparent;
-      stroke: rgba(255, 255, 255, 0.2);
-      stroke-width: 0.5rem;
-      mask-image: linear-gradient(
-        24deg,
-        rgba(0, 0, 0, 1) 0%,
-        rgba(0, 0, 0, 0) 43%
-      );
-    }
-
-    :global(.chat-bubble-portrait-mode) {
-      left: -2rem;
-      mask-image: linear-gradient(
-        0deg,
-        rgba(0, 0, 0, 1) 0%,
-        rgba(0, 0, 0, 0) 43%
-      );
-      top: 15rem !important;
-      position: relative;
-    }
-
-    &__title {
-      margin-bottom: 1rem;
-      text-align: left;
-      white-space: nowrap;
-
-      em {
-        font-size: 2.9rem;
-        font-family: "ZingScriptRustR-Base", serif;
-        font-style: normal;
-        font-feature-settings: "swsh";
-        color: #fbfea6;
-      }
-    }
-
-    &__paragraph {
-      text-align: left;
-
-      animation-duration: 4s;
-      animation-name: scale-bounce;
-      animation-iteration-count: infinite;
-
-      @keyframes scale-bounce {
-        from {
-          transform: scale(1);
-        }
-        7% {
-          transform: scale(1.1);
-        }
-        25% {
-          transform: scale(0.95);
-        }
-        50% {
-          transform: scale(1);
-        }
-        to {
-          transform: scale(1);
-        }
-      }
-
-      &__portrait-mode {
-        text-align: center;
-      }
-    }
-  }
-
-  .tap-to-continue-transparent-background {
-    background-image: url(../../../assets/images/WhiteLineWithGlowBelow.png);
-    background-size: cover;
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 30px;
-    opacity: .2;
-    margin-top: -1.5rem;
-  }
-
-  .tap-to-continue-button {
-    padding: 1rem 8rem 1rem 8rem;
-    // margin-left: -8rem;
-    // margin-top: 5rem;
-    position: relative !important;
-
-    &--portrait-mode {
-      margin-left: 0;
-    }
-  }
-
-  .tap-span {
-    font-family: 'MuseoSlabRounded-500' !important;
-    opacity: 1;
-  }
-
-  .to-continue-span {
-    font-family: 'MuseoSlabRounded-100' !important;
-  }
-.greeting-snippet {
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-
-    &__portrait-mode {
-      display: flex;
-      flex-direction: column-reverse;
-      right: 0 !important;
-    }
-
-    &__avatar-container {
-      width: 13rem;
-      height: 13rem;
-      margin: 4rem 6.6rem 0 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      &__portrait-mode {
-        margin: auto;
-        margin-top: -25rem;
-      }
-    }
-
-    &__avatar {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-
-    &__text-n-button {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      width: 100%;
-
-      &--portrait-mode {
-        width: auto !important;
-        margin-top: -10rem;
-      }
-    }
-
-    &__text {
-      margin-bottom: 4rem;
-    }
-
-    &__button-container {
-      width: auto;
-      height: 8.5rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      animation-duration: 4s;
-      animation-name: scale-bounce;
-      animation-iteration-count: infinite;
-      transform-origin: center center;
-      // margin-left: 7rem;
-
-      &__portrait-mode {
-        // margin: auto;
-      }
-
-      @keyframes scale-bounce {
-        from {
-          transform: scale(1);
-        }
-        7% {
-          transform: scale(1.1);
-        }
-        25% {
-          transform: scale(0.95);
-        }
-        50% {
-          transform: scale(1);
-        }
-        to {
-          transform: scale(1);
-        }
-      }
-    }
-
-    :global(.greeting-snippet__button) {
-      transform: scale(2.3);
-      transform-origin: center center;
-    }
-  }
-
-.tap-to-continue-button {
+.tap-to-continue-but {
   width: 15.0rem;
   position: relative;
   font: 600 1.6rem/1.6rem monospace;
-  // text-align: left;
-  // text-transform: uppercase;
-  // text-shadow: 0 0 12px rgba(255,255,255,0), 0 0 22px rgba(255,255,255,0);
-  // transition: text-shadow .2s ease;
-  // animation: textGlowThrob;
-  // animation-duration: 4s;
-  // animation-timing-function: ease-in-out;
-  // animation-iteration-count: infinite;
+  text-align: left;
+  text-transform: uppercase;
+  text-shadow: 0 0 12px rgba(255,255,255,0), 0 0 22px rgba(255,255,255,0);
+  transition: text-shadow .2s ease;
+  animation: textGlowThrob;
+  animation-duration: 4s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
 
   @keyframes textGlowThrob {
     0% { text-shadow: 0 0 8px rgba(255,255,255,0), 0 0 22px rgba(255,255,255,0); }
@@ -611,7 +365,7 @@ function toggleIsTutorial() {
 
   &--vertical {
     width: 65vw;
-    // min-width: 65vw;
+    min-width: 65vw;
     max-width: 65vw;
     max-height: 70vh;
     box-sizing: border-box;
@@ -701,7 +455,7 @@ function toggleIsTutorial() {
         margin-bottom: 0;
       }
 
-    &__tap-to-continue-button {
+    &__tap-to-continue-but {
       order: -1
     }
 }
