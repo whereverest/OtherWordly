@@ -168,11 +168,13 @@ function handleChallengeDeactivation() {
 
     &__title {
       margin-right: 1.0rem;
+      margin-left: 1.0rem;
       text-transform: uppercase;
       min-width: 96px;
       padding-top: 1rem;
 
       &--long {
+        margin-left: 1.0rem;
         margin-right: 1.0rem;
         min-width: 96px;
         padding-top: 1rem;

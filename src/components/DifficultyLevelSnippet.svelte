@@ -194,7 +194,7 @@ onMount(() => {
 .portrait-mode-option-snippet {
   &::after {
     width: 15rem !important;
-    height: 0.3em !important;
+    height: 0.18rem !important;
     mask-image: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%) !important;
     margin-top: 8rem !important;
   }
