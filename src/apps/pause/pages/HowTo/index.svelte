@@ -451,7 +451,7 @@ function handleGoToPage(pageToGoTo) {
       text-align: left;
 
       &--portrait-mode {
-        text-align: justify;
+        text-align: left;
         width: 100%;
       }
 
