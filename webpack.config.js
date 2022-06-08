@@ -52,8 +52,8 @@ plugins = () => {
     }),
     new HTMLWebpackPlugin({
       template: './src/template.html',
-      filename: 'lottiePlacements.html',
-      chunks: ['lottiePlacements'],
+      filename: 'placements.html',
+      chunks: ['placements'],
       minify: false
     }),
     new HTMLWebpackPlugin({
@@ -94,7 +94,7 @@ module.exports = {
     'levelBefore': ['./src/apps/levelBefore/main.js'],
     'levelAfter': ['./src/apps/levelAfter/main.js'],
     'pause': ['./src/apps/pause/main.js'],
-    'lottiePlacements': ['./src/apps/lottiePlacements/main.js']
+    'placements': ['./src/apps/placements/main.js']
   },
 
   output: {
@@ -118,7 +118,7 @@ module.exports = {
       '@stores-fp': path.resolve(__dirname, './src/apps/firstPlay/stores'),
       '@stores-ps': path.resolve(__dirname, './src/apps/pause/stores'),
       '@stores-lb': path.resolve(__dirname, './src/apps/levelBefore/stores'),
-      '@stores-lp': path.resolve(__dirname, './src/apps/lottiePlacements/stores'),
+      '@stores-lp': path.resolve(__dirname, './src/apps/placements/stores'),
       '@stores-la': path.resolve(__dirname, './src/apps/levelAfter/stores'),
       '@helpers': path.resolve(__dirname, './src/helpers'),
       '@utils': path.resolve(__dirname, './src/utils'),
@@ -131,7 +131,7 @@ module.exports = {
       '@pages-ps': path.resolve(__dirname, './src/apps/pause/pages'),
       '@pages-lb': path.resolve(__dirname, './src/apps/levelBefore/pages'),
       '@pages-la': path.resolve(__dirname, './src/apps/levelAfter/pages'),
-      '@pages-lp': path.resolve(__dirname, './src/apps/lottiePlacements/pages'),
+      '@pages-lp': path.resolve(__dirname, './src/apps/placements/pages'),
     },
     extensions: ['.mjs', '.js', '.svelte'],
     mainFields: ['svelte', 'browser', 'module', 'main']

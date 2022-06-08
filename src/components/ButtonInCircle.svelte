@@ -6,10 +6,14 @@
   on:click
 >
   
-  <div class={ `single-nav-button__icon-container 
-                ${backwardsGradient && 'single-nav-button__icon-container--backwards-gradient'}
-                ${isThickBorder && 'single-nav-button__icon-container--thick-border'}
-                ${prominent && 'single-nav-button__icon-container--prominent'}` }>
+  <div class={ `single-nav-button__icon-container
+                ${isMiniFontMode && 'single-nav-button__icon-container--portrait-mode'} 
+                ${isMiniFontMode && backwardsGradient && 'single-nav-button__icon-container--portrait-mode--backwards-gradient'} 
+                ${isMiniFontMode && isThickBorder && 'single-nav-button__icon-container--portrait-mode--thick-border'} 
+                ${isMiniFontMode && prominent && 'single-nav-button__icon-container--portrait-mode--prominent'}
+                ${!isMiniFontMode && backwardsGradient && 'single-nav-button__icon-container--backwards-gradient'}
+                ${!isMiniFontMode && isThickBorder && 'single-nav-button__icon-container--thick-border'}
+                ${!isMiniFontMode && prominent && 'single-nav-button__icon-container--prominent'}` }>
 
     {#if textInCircle && typeof textInCircle === 'string'}
         <span class={ `single-nav-button__text-in-circle
@@ -90,6 +94,7 @@ export let isTextArc = false;
 export let isThickBorder = false;
 export let isActive = false;
 export let isWithBounceAnimation = false;
+export let isMiniFontMode = false;
 
 
 // Components -----------------------------------------------------------------
@@ -193,6 +198,34 @@ const icons = {
     position: relative;
     z-index: 0;
     font-size: 1.3rem;
+
+    &--portrait-mode {
+      &::before {
+        mask-image: linear-gradient(-45deg, rgba(0,0,0,0) 60%, rgba(0,0,0,1) 90%) !important;
+      }
+      
+      &--backwards-gradient {
+        &::before {
+          mask-image: linear-gradient(0deg, rgba(0,0,0,1) 10%, rgba(0,0,0,0) 80%);
+        }
+        
+        :global(svg),
+        :global(img) {
+          top: .1rem;
+        }
+      }
+
+      &--prominent {
+        &::before {
+          border-color: rgba(255,255,255,.8);
+          background: rgba(0,0,0,.45);
+        }
+      }
+
+      &--thick-border {
+        &::before { border-width: .2rem !important; }
+      }
+    }
 
     &::before {
       content: '';

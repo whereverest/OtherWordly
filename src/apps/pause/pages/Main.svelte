@@ -182,7 +182,7 @@ onMount(() => {
   transitionFrom.update(() => '');
   transitionTo.update(() => '');
 
-  window.showHaiku = () => setTimeout(() => push('/'), 600);
+  window.showHaiku = () => setTimeout(() => push('/haiku-poem'), 600);
   window.tapHelp = () => setTimeout(() => push('/how-to'), 600);
   window.tapInfo = () => setTimeout(() => push('/info'), 600);
   window.tapAccess = () => setTimeout(() => push('/accessibility'), 600);

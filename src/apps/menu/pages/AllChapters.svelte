@@ -163,6 +163,7 @@ z-index: 100000000;
                 class="all-chapters-page__settings-button"
                 id="optionsButton"
                 iconName="gear"
+                isMiniFontMode={!$isPortraitMode}
                 isTextOnTop={true}
                 on:click={ handleSettingsButtonClick }
         />

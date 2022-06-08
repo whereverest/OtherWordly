@@ -211,7 +211,7 @@ onMount(() => {
   transitionFrom.update(() => '');
   transitionTo.update(() => '');
 
-  window.showHaiku = () => setTimeout(() => push('/'), 600);
+  window.showHaiku = () => setTimeout(() => push('/haiku-poem'), 600);
   window.tapHelp = () => setTimeout(() => push('/how-to'), 600);
   window.tapInfo = () => setTimeout(() => push('/info'), 600);
   window.tapAccess = () => setTimeout(() => push('/accessibility'), 600);
@@ -451,8 +451,8 @@ function handleGoToPage(pageToGoTo) {
 
 // Frames list ----------------------------------------------------------------
 .frames-list {
-  width: calc(100vw - 18.0rem);
-  min-width: calc(100vw - 18.0rem);
+  width: calc(100vw - 8.0rem);
+  min-width: calc(100vw - 8.0rem);
   height: calc(100vh - 10.0rem);
   min-height: calc(100vh - 10.0rem);
   display: flex;
@@ -535,7 +535,7 @@ function handleGoToPage(pageToGoTo) {
 
       &__frames-list {
         position: absolute;
-        inset: calc(50% - (50vh - 5.0rem)) auto auto calc(50% - (50vw - 9.0rem));
+        inset: calc(50% - (50vh - 5.0rem)) auto auto calc(50% - (50vw - 4.0rem));
       }
 
   // footer ---------------------------

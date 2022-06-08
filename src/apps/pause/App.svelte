@@ -15,7 +15,8 @@
     '/how-to': HowTo,
     '/info': Info,
     '/accessibility': Accessibility,
-    '/settings': Settings
+    '/settings': Settings,
+    '/haiku-poem': HaikuPoem,
   }}
 />
 
@@ -57,6 +58,7 @@ import HowTo from '@pages-ps/HowTo/index.svelte';
 import Info from '@pages-ps/Info/index.svelte';
 import Main from '@pages-ps/Main.svelte';
 import Settings from '@pages-ps/Settings/index.svelte';
+import HaikuPoem from '@pages-ps/HaikuPoem/index.svelte';
 
 // Stores
 import { basicFontSize, isDeviceIpad, isPortraitMode } from '@stores/miscellaneous.js';

@@ -55,17 +55,25 @@
       <div class="privacy-n-data__divider-horizontal"></div>
 
       <!-- Separate section -->
-      <div class="separate-section
-                  privacy-n-data__separate-section">
-        <div class="separate-section__col-left">
-          <div class="separate-section__title">iCloud Sync</div>
+      <div class={`separate-section
+                  privacy-n-data__separate-section
+                  ${$isPortraitMode && 'privacy-n-data__separate-section--portrait-mode'}
+                  `}>
+        <div class={`separate-section__col-left
+          ${$isPortraitMode && 'separate-section__col-left--portrait-mode'}
+        `}>
+          <div class={`separate-section__title
+          ${$isPortraitMode && 'separate-section__title--portrait-mode'}
+          `}>iCloud Sync</div>
           <Switch
             class="separate-section__switch"
             bind:isChecked={ $isICloudSync }
             on:click={ () => dispatchIosEvent({'tapped':'OWJSMsgPlayClickSound'}) }
           />
         </div>
-        <div class="separate-section__col-right">
+        <div class={`separate-section__col-right
+                    ${$isPortraitMode && 'separate-section__col-right--portrait-mode'}
+                  `}>
 
           <p style="margin-bottom: 1.5rem;">
             Sync your game level progress and stars to your other iCloud devices.
@@ -94,10 +102,16 @@
       <div class="privacy-n-data__divider-horizontal"></div>
 
       <!-- Separate section -->
-      <div class="separate-section
-                  privacy-n-data__separate-section">
-        <div class="separate-section__col-left">
-          <div class="separate-section__title">Want a Fresh Start?</div>
+      <div class={`separate-section
+        privacy-n-data__separate-section
+        ${$isPortraitMode && 'privacy-n-data__separate-section--portrait-mode'}
+        `}>
+        <div class={`separate-section__col-left
+          ${$isPortraitMode && 'separate-section__col-left--portrait-mode-long'}
+        `}>
+          <div class={`separate-section__title
+            ${$isPortraitMode && 'separate-section__title--portrait-mode'}
+            `}>Want a Fresh Start?</div>
           <ButtonPill
             class="separate-section__button-pill
                     separate-section__button-pill--clear-my-data-btn"
@@ -105,7 +119,9 @@
             on:click={ () => isClearDataModalVisible = true }
           />
         </div>
-        <div class="separate-section__col-right">
+        <div class={`separate-section__col-right
+          ${$isPortraitMode && 'separate-section__col-right--portrait-mode'}
+        `}>
           <p>
             Your game progress and cumulative stats are stored on your device. These stats are shown on the "Info" panel in "All-Time Stats." The number of stars you earned on each level appears on the main menu. You can clear your history and start over by resetting the game. (Once you clear your data, it can’t be retrieved.)
           </p>
@@ -115,17 +131,25 @@
       <div class="privacy-n-data__divider-horizontal"></div>
 
       <!-- Separate section -->
-      <div class="separate-section
-                  privacy-n-data__separate-section">
-        <div class="separate-section__col-left">
-          <div class="separate-section__title">Analytics</div>
+      <div class={`separate-section
+        privacy-n-data__separate-section
+        ${$isPortraitMode && 'privacy-n-data__separate-section--portrait-mode'}
+        `}>
+        <div class={`separate-section__col-left
+          ${$isPortraitMode && 'separate-section__col-left--portrait-mode'}
+        `}>
+          <div class={`separate-section__title
+            ${$isPortraitMode && 'separate-section__title--portrait-mode'}
+            `}>Analytics</div>
           <Switch
             class="separate-section__switch"
             bind:isChecked={ $isAnalytics }
             on:click={ () => dispatchIosEvent({'tapped':'OWJSMsgPlayClickSound'}) }
           />
         </div>
-        <div class="separate-section__col-right">
+        <div class={`separate-section__col-right
+          ${$isPortraitMode && 'separate-section__col-right--portrait-mode'}
+        `}>
           {#if $isAnalytics}
             <p>
               <b>
@@ -166,6 +190,7 @@ import ButtonPill from '@components/formElements/ButtonPill.svelte';
 import ScrollableBlock from '@components/ScrollableBlock.svelte';
 import Switch from '@components/formElements/Switch.svelte';
 import TwoColorsTitle from '@components/TwoColorsTitle.svelte';
+import { isPortraitMode } from "@stores/miscellaneous.js";
 
 let isClearDataModalVisible = false;
 
@@ -256,6 +281,18 @@ $: { if ($isAnalytics !== undefined) {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+
+    &--portrait-mode {
+      flex-direction: row;
+      align-items: center;
+      width: 100%;
+    }
+
+    &--portrait-mode-long {
+      align-items: space-around;
+      width: 100%;
+      padding-bottom: 1rem;
+    }
   }
 
   &__col-right {
@@ -263,6 +300,10 @@ $: { if ($isAnalytics !== undefined) {
     font-size: 1.6rem;
     line-height: 2.4rem;
     text-align: left;
+
+    &--portrait-mode {
+      width: 100%;
+    }
 
     b {
       font-family: 'MuseoSlabRounded-500',sans-serif;
@@ -278,6 +319,11 @@ $: { if ($isAnalytics !== undefined) {
       color: #fff;
       text-transform: uppercase;
       text-align: right;
+
+      &--portrait-mode {
+        margin-bottom: 0rem;
+        margin-right: 1rem;
+      }
     }
 
     :global(.separate-section__button-pill) {}
@@ -353,6 +399,10 @@ $: { if ($isAnalytics !== undefined) {
     &__separate-section {
       width: 100%;
       margin-bottom: 2.5rem;
+
+      &--portrait-mode {
+        flex-direction: column;
+      }
     }
 
 }

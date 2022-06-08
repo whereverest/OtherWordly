@@ -20,16 +20,22 @@
       <div class="access-form__divider-horizontal"></div>
 
       <!-- Separate section -->
-      <div class="separate-section
-                    access-form__section">
+      <div class={`separate-section
+                    access-form__section
+                    ${$isPortraitMode && 'separate-section--portrait-mode'}
+                  `}>
 
-        <div class="separate-section__col-left">
-          <div class="separate-section__title">
+        <div class={`separate-section__col-left
+          ${$isPortraitMode && 'separate-section__col-left--portrait-mode'}`}>
+          <div class={`separate-section__title
+                      ${$isPortraitMode && 'separate-section__title--portrait-mode'}
+                    `}>
             Reveal letters
           </div>
         </div>
 
-        <div class="separate-section__col-right">
+        <div class={`separate-section__col-right
+          ${$isPortraitMode && 'separate-section__col-right--portrait-mode'}`}>
 
           <div class="separate-section__form-elements-container">
             <RadioButton
@@ -63,11 +69,16 @@
       <div class="access-form__divider-horizontal"></div>
 
       <!-- Separate section -->
-      <div class="separate-section
-                    access-form__section">
+      <div class={`separate-section
+                  access-form__section
+                  ${$isPortraitMode && 'separate-section--portrait-mode'}
+                `}>
 
-        <div class="separate-section__col-left">
-          <div class="separate-section__title">
+        <div class={`separate-section__col-left
+                    ${$isPortraitMode && 'separate-section__col-left--portrait-mode'}`}>
+          <div class={`separate-section__title
+            ${$isPortraitMode && 'separate-section__title--portrait-mode'}
+          `}>
             Reduce motion
           </div>
           <Switch
@@ -77,7 +88,8 @@
           />
         </div>
 
-        <div class="separate-section__col-right">
+        <div class={`separate-section__col-right
+          ${$isPortraitMode && 'separate-section__col-right--portrait-mode'}`}>
           Slow down swirling words, moving obstacles, and messages. Reduce flashing visuals. When active, during play, press the hare or empty sun to speed up.
         </div>
 
@@ -86,11 +98,16 @@
       <div class="access-form__divider-horizontal"></div>
 
       <!-- Separate section -->
-      <div class="separate-section
-                    access-form__section">
+      <div class={`separate-section
+        access-form__section
+        ${$isPortraitMode && 'separate-section--portrait-mode'}
+      `}>
 
-        <div class="separate-section__col-left">
-          <div class="separate-section__title">
+        <div class={`separate-section__col-left
+          ${$isPortraitMode && 'separate-section__col-left--portrait-mode'}`}>
+          <div class={`separate-section__title
+            ${$isPortraitMode && 'separate-section__title--portrait-mode'}
+          `}>
             Alternative font
           </div>
           <Switch
@@ -100,7 +117,8 @@
           />
         </div>
 
-        <div class="separate-section__col-right">
+        <div class={`separate-section__col-right
+          ${$isPortraitMode && 'separate-section__col-right--portrait-mode'}`}>
           Change to a chunky, bottom-heavy font. Some players, especially dyslexic players, find it more readable.
         </div>
 
@@ -109,11 +127,16 @@
       <div class="access-form__divider-horizontal"></div>
 
       <!-- Separate section -->
-      <div class="separate-section
-                    access-form__section">
+      <div class={`separate-section
+        access-form__section
+        ${$isPortraitMode && 'separate-section--portrait-mode'}
+      `}>
 
-        <div class="separate-section__col-left">
-          <div class="separate-section__title">
+        <div class={`separate-section__col-left
+          ${$isPortraitMode && 'separate-section__col-left--portrait-mode'}`}>
+          <div class={`separate-section__title
+            ${$isPortraitMode && 'separate-section__title--portrait-mode'}
+          `}>
             Finger touches
           </div>
           <Switch
@@ -123,7 +146,8 @@
           />
         </div>
 
-        <div class="separate-section__col-right">
+        <div class={`separate-section__col-right
+          ${$isPortraitMode && 'separate-section__col-right--portrait-mode'}`}>
           For streaming and making screen recordings. Show finger touch positions with a little circle.
         </div>
 
@@ -149,6 +173,7 @@ import RadioButton from '@components/formElements/RadioButton.svelte';
 import ScrollableBlock from '@components/ScrollableBlock.svelte';
 import Switch from '@components/formElements/Switch.svelte';
 import TwoColorsTitle from '@components/TwoColorsTitle.svelte';
+import { isPortraitMode } from "@stores/miscellaneous.js";
 
 // Stores
 import {
@@ -204,6 +229,10 @@ $: { if ($isFingerTouches !== undefined) {
   justify-content: space-between;
   flex-wrap: nowrap;
 
+  &--portrait-mode {
+    flex-direction: column;
+  }
+
   &__col-left {
     width: 21%;
     min-width: 21%;
@@ -211,6 +240,13 @@ $: { if ($isFingerTouches !== undefined) {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+
+    &--portrait-mode {
+      width: 100%;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+    }
   }
 
   &__col-right {
@@ -218,16 +254,25 @@ $: { if ($isFingerTouches !== undefined) {
     font-size: 1.6rem;
     line-height: 2.4rem;
     text-align: left;
+
+    &--portrait-mode {
+      width: 100%;
+    }
   }
 
   &__title {
     margin-bottom: 1.0rem;
+    margin-right: 1rem;
     font-size: 1.6rem;
     line-height: 2.0rem;
     //color: #ffffae;
     color: #fff;
     text-transform: uppercase;
     text-align: right;
+
+    &--portrait-mode {
+      margin-bottom: 0.0rem;
+    }
   }
 
   &__form-elements-container {
