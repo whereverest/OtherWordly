@@ -185,10 +185,7 @@
       color: #e8e6e3 !important;
     }
   </style>
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1"
-  />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <style>
     html {

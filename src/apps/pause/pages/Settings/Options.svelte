@@ -1,248 +1,324 @@
-<div class={ `options-container
-              ${$isPortraitMode && 'options-container--portrait-mode'}
-              ${mixClass}` }>
-
-    <!-- Switches row -->
-    <ul class={`switches-row
-                options-container__switches-row`}>
-      <li class={`switches-row__switch-container
-       ${$isPortraitMode && 'switches-row__switch-container--portrait-mode'}
-       ${$isPortraitMode && $isDeviceIpad && 'switches-row__switch-container--ipad-mode'}
-       `}>
-        <div class="switches-row__title">Music</div>
-        <Switch
-          class="switches-row__switch"
-          bind:isChecked={ $isMusic }
-          on:click={ () => dispatchIosEvent({'tapped':'OWJSMsgPlayClickSound'}) }
-        />
-      </li>
-      <li class={`switches-row__switch-container 
-       ${$isPortraitMode && 'switches-row__switch-container--portrait-mode'}
-       ${$isPortraitMode && $isDeviceIpad && 'switches-row__switch-container--ipad-mode'}
-      `}>
-        <div class="switches-row__title--long">SOUND FX</div>
-        <Switch
-          class="switches-row__switch"
-          bind:isChecked={ $isSoundFx }
-          on:click={ () => dispatchIosEvent({'tapped':'OWJSMsgPlayClickSound'}) }
-        />
-      </li>
-      <li class={`switches-row__switch-container 
-       ${$isPortraitMode && 'switches-row__switch-container--portrait-mode'}
-       ${$isPortraitMode && $isDeviceIpad && 'switches-row__switch-container--ipad-mode'}
-      `}>
-        <div class="switches-row__title">Haptic</div>
-        <Switch
-          class="switches-row__switch"
-          bind:isChecked={ $isHaptics }
-          on:click={ () => dispatchIosEvent({'tapped':'OWJSMsgPlayClickSound'}) }
-        />
-      </li>
-    </ul><!-- / Switches row -->
-
-
-    <div class={`options-container__divider-horizontal
-                ${$isPortraitMode && 'options-container__divider-horizontal--big-bot-margin'}`}></div>
-
-
-    <div class={`options-container__difficulty-level-list ${$isPortraitMode && 'options-container__difficulty-level-list--portrait-mode'}`}>
-      {#each levelsList as level,index (level.complexity)}
-        <DifficultyLevelSnippet
-          class={ `separate-section__difficulty-level-snippet
-                    ${$isPortraitMode && index === selectedLevelIndex && 'separate-section__difficulty-level-snippet--portrait-mode'}
-                    ${$isPortraitMode && index !== selectedLevelIndex && 'separate-section__difficulty-level-snippet--half-transparent--portrait-mode'}
-                    ${!$isPortraitMode && index !== selectedLevelIndex && 'separate-section__difficulty-level-snippet--half-transparent'}`
-                }
-          isMiniFontMode={$isPortraitMode}
-          levelName={ level.name }
-          levelComplexity={ level.complexity }
-          levelDescription={ level.description }
-          isActive={ level.id === $difficultyLevel }
-          isWithDivider={ !(index === levelsList.length - 1
-                                          || index === selectedLevelIndex
-                                          || index === selectedLevelIndex - 1 ) }
-          on:click={ () => {
-            difficultyLevel.update(() => level.id);
-            dispatchIosEvent({'tapped':'OWJSMsgPlayClickSound'});
-          }}
-          on:deactivate={ handleChallengeDeactivation }
-          isSimplified={ true }
-        />
-      {/each}
-    </div>
-
-</div>
-
-
-
 <script>
-let mixClass;
-export { mixClass as class };
+  let mixClass;
+  export { mixClass as class };
 
+  // Stores
+  import {
+    difficultyLevel,
+    isMusic,
+    isSoundFx,
+    isHaptics,
+  } from "@stores/options.js";
 
-// Stores
-import {
-  difficultyLevel,
-  isMusic,
-  isSoundFx,
-  isHaptics
-} from '@stores/options.js';
+  // Components
+  import DifficultyLevelSnippet from "@components/DifficultyLevelSnippet";
+  import Switch from "@components/formElements/Switch.svelte";
+  import TwoColorsTitle from "@components/TwoColorsTitle.svelte";
+  import { isPortraitMode, isDeviceIpad } from "@stores/miscellaneous.js";
 
-// Components
-import DifficultyLevelSnippet from "@components/DifficultyLevelSnippet";
-import Switch from '@components/formElements/Switch.svelte';
-import TwoColorsTitle from '@components/TwoColorsTitle.svelte';
-import { isPortraitMode, isDeviceIpad } from '@stores/miscellaneous.js';
+  // Icons
+  import flingNoTraceIcon from "@icons/features/flingNoTrace.integrated.svg";
 
+  // Dispatch iOS events --------------------------------------------------------
+  import { dispatchIosEvent } from "@helpers/iosEvents.js";
+  import { onMount } from "svelte";
 
-// Icons
-import flingNoTraceIcon from '@icons/features/flingNoTrace.integrated.svg';
+  // without block it will dispatch iOS events on page load
+  let isIOSMessagesBlocked = true;
 
+  onMount(() => {
+    setTimeout(() => {
+      isIOSMessagesBlocked = false;
+    }, 300);
+  });
 
-
-// Dispatch iOS events --------------------------------------------------------
-import { dispatchIosEvent } from '@helpers/iosEvents.js';
-import { onMount } from 'svelte';
-
-// without block it will dispatch iOS events on page load
-let isIOSMessagesBlocked = true;
-
-onMount(() => {
-  setTimeout(() => {
-    isIOSMessagesBlocked = false;
-  }, 300);
-});
-
-function dispatchIOSEventWrapper(iOSvent) {
-  if (!isIOSMessagesBlocked) {
-    dispatchIosEvent(iOSvent);
+  function dispatchIOSEventWrapper(iOSvent) {
+    if (!isIOSMessagesBlocked) {
+      dispatchIosEvent(iOSvent);
+    }
   }
-}
 
-$: { if ($isMusic !== undefined) {
-    dispatchIOSEventWrapper({'tapped':'OWJSMsgIsMusicChange','value': $isMusic}); }}
+  $: {
+    if ($isMusic !== undefined) {
+      dispatchIOSEventWrapper({
+        tapped: "OWJSMsgIsMusicChange",
+        value: $isMusic,
+      });
+    }
+  }
 
-$: { if ($isSoundFx !== undefined) {
-    dispatchIOSEventWrapper({'tapped':'OWJSMsgIsSoundFxChange','value': $isSoundFx}); }}
+  $: {
+    if ($isSoundFx !== undefined) {
+      dispatchIOSEventWrapper({
+        tapped: "OWJSMsgIsSoundFxChange",
+        value: $isSoundFx,
+      });
+    }
+  }
 
-$: { if ($isHaptics !== undefined) {
-    dispatchIOSEventWrapper({'tapped':'OWJSMsgIsHapticsChange','value': $isHaptics}); }}
+  $: {
+    if ($isHaptics !== undefined) {
+      dispatchIOSEventWrapper({
+        tapped: "OWJSMsgIsHapticsChange",
+        value: $isHaptics,
+      });
+    }
+  }
 
-$: { if ($difficultyLevel !== undefined) {
-    dispatchIOSEventWrapper({'tapped':'OWJSMsgDifficultyLevelChange','value': $difficultyLevel}); }}
+  $: {
+    if ($difficultyLevel !== undefined) {
+      dispatchIOSEventWrapper({
+        tapped: "OWJSMsgDifficultyLevelChange",
+        value: $difficultyLevel,
+      });
+    }
+  }
 
+  // Levels list ----------------------------------------------------------------
+  const levelsList = [
+    {
+      id: "X",
+      complexity: "Easy",
+      name: "Pioneer",
+      description: ["Kid-", "friendly"],
+    },
+    {
+      id: "Y",
+      complexity: "Adaptive",
+      name: "Wayfinder",
+      description: ["Adapts to your ", "vocab level"],
+    },
+    {
+      id: "Z",
+      complexity: "Hard",
+      name: "Voyager",
+      description: ["A motley ", "challenge"],
+    },
+  ];
+  $: selectedLevelIndex = levelsList.findIndex(
+    (item) => item.id === $difficultyLevel
+  );
 
-
-// Levels list ----------------------------------------------------------------
-const levelsList = [
-  { id: 'X', complexity: 'Easy', name: 'Pioneer', description: ['Kid-','friendly'] },
-  { id: 'Y', complexity: 'Adaptive', name: 'Wayfinder', description: ['Adapts to your ','vocab level'] },
-  { id: 'Z', complexity: 'Hard', name: 'Voyager', description: ['A motley ','challenge'] }
-];
-$: selectedLevelIndex = levelsList.findIndex(item => item.id === $difficultyLevel);
-
-function handleChallengeDeactivation() {
-  setTimeout(() => $difficultyLevel.update(() => ''));
-}
-
+  function handleChallengeDeactivation() {
+    setTimeout(() => $difficultyLevel.update(() => ""));
+  }
 </script>
 
+<div
+  class={`options-container
+              ${$isPortraitMode && "options-container--portrait-mode"}
+              ${mixClass}`}
+>
+  <!-- Switches row -->
+  <ul
+    class={`switches-row
+                options-container__switches-row`}
+  >
+    <li
+      class={`switches-row__switch-container
+       ${$isPortraitMode && "switches-row__switch-container--portrait-mode"}
+       ${
+         $isPortraitMode &&
+         $isDeviceIpad &&
+         "switches-row__switch-container--ipad-mode"
+       }
+       `}
+    >
+      <div class="switches-row__title">Music</div>
+      <Switch
+        class="switches-row__switch"
+        bind:isChecked={$isMusic}
+        on:click={() => dispatchIosEvent({ tapped: "OWJSMsgPlayClickSound" })}
+      />
+    </li>
+    <li
+      class={`switches-row__switch-container 
+       ${$isPortraitMode && "switches-row__switch-container--portrait-mode"}
+       ${
+         $isPortraitMode &&
+         $isDeviceIpad &&
+         "switches-row__switch-container--ipad-mode"
+       }
+      `}
+    >
+      <div class="switches-row__title--long">SOUND FX</div>
+      <Switch
+        class="switches-row__switch"
+        bind:isChecked={$isSoundFx}
+        on:click={() => dispatchIosEvent({ tapped: "OWJSMsgPlayClickSound" })}
+      />
+    </li>
+    <li
+      class={`switches-row__switch-container 
+       ${$isPortraitMode && "switches-row__switch-container--portrait-mode"}
+       ${
+         $isPortraitMode &&
+         $isDeviceIpad &&
+         "switches-row__switch-container--ipad-mode"
+       }
+      `}
+    >
+      <div class="switches-row__title">Haptic</div>
+      <Switch
+        class="switches-row__switch"
+        bind:isChecked={$isHaptics}
+        on:click={() => dispatchIosEvent({ tapped: "OWJSMsgPlayClickSound" })}
+      />
+    </li>
+  </ul>
+  <!-- / Switches row -->
 
+  <div
+    class={`options-container__divider-horizontal
+                ${
+                  $isPortraitMode &&
+                  "options-container__divider-horizontal--big-bot-margin"
+                }`}
+  />
+
+  <div
+    class={`options-container__difficulty-level-list ${
+      $isPortraitMode &&
+      "options-container__difficulty-level-list--portrait-mode"
+    }`}
+  >
+    {#each levelsList as level, index (level.complexity)}
+      <DifficultyLevelSnippet
+        class={`separate-section__difficulty-level-snippet
+                    ${
+                      $isPortraitMode &&
+                      index === selectedLevelIndex &&
+                      "separate-section__difficulty-level-snippet--portrait-mode"
+                    }
+                    ${
+                      $isPortraitMode &&
+                      index !== selectedLevelIndex &&
+                      "separate-section__difficulty-level-snippet--half-transparent--portrait-mode"
+                    }
+                    ${
+                      !$isPortraitMode &&
+                      index !== selectedLevelIndex &&
+                      "separate-section__difficulty-level-snippet--half-transparent"
+                    }`}
+        isMiniFontMode={$isPortraitMode}
+        levelName={level.name}
+        levelComplexity={level.complexity}
+        levelDescription={level.description}
+        isActive={level.id === $difficultyLevel}
+        isWithDivider={!(
+          index === levelsList.length - 1 ||
+          index === selectedLevelIndex ||
+          index === selectedLevelIndex - 1
+        )}
+        on:click={() => {
+          difficultyLevel.update(() => level.id);
+          dispatchIosEvent({ tapped: "OWJSMsgPlayClickSound" });
+        }}
+        on:deactivate={handleChallengeDeactivation}
+        isSimplified={true}
+      />
+    {/each}
+  </div>
+</div>
 
 <style lang="scss">
-
-// Switches row ---------------------------------------------------------------
-.switches-row {
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  list-style: none;
-
-  &__switch-container {
-    margin-right: 2.5rem;
+  // Switches row ---------------------------------------------------------------
+  .switches-row {
+    padding: 0;
+    margin: 0;
     display: flex;
+    justify-content: center;
     align-items: center;
+    list-style: none;
 
-    &--portrait-mode {
-      flex-direction: column-reverse;
-      margin-right: 0;
-    }
+    &__switch-container {
+      margin-right: 2.5rem;
+      display: flex;
+      align-items: center;
 
-    &--ipad-mode {
-      flex-direction: column-reverse;
-      margin-right: 3rem;
-    }
+      &--portrait-mode {
+        flex-direction: column-reverse;
+        margin-right: 0;
+      }
 
-    &:last-child {
-      margin-right: 0;
+      &--ipad-mode {
+        flex-direction: column-reverse;
+        margin-right: 3rem;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
     }
-  }
 
     &__title {
-      margin-right: 1.0rem;
-      margin-left: 1.0rem;
+      margin-right: 1rem;
+      margin-left: 1rem;
       text-transform: uppercase;
       min-width: 96px;
       padding-top: 1rem;
 
       &--long {
-        margin-right: 1.0rem;
-        margin-left: 1.0rem;
+        margin-right: 1rem;
+        margin-left: 1rem;
         min-width: 96px;
         padding-top: 1rem;
       }
     }
 
-    &__switch {}
-}
-
-
-// Options container ----------------------------------------------------------
-.options-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  &--portrait-mode {
-    justify-content: flex-start;
-    padding-top: 5rem;
-  }
-
-  :global(.options-container__main-title) {
-    margin-bottom: 4.0rem;
-  }
-
-  &__divider-horizontal {
-    width: calc(100% + 6.0rem);
-    height: .1rem;
-    margin-bottom: 5.0rem;
-    background-image: linear-gradient(to right, rgba(222, 222, 222, 0), rgba(222, 222, 222, 0.25), rgba(222, 222, 222, 0));
-
-    &--small-bot-margin {
-      margin-bottom: 1.0rem;
-    }
-
-    &--big-bot-margin {
-      margin-bottom: 8.0rem;
+    &__switch {
     }
   }
 
-  &__switches-row {
-    margin-bottom: 3.0rem;
-  }
-
-  &__difficulty-level-list {
+  // Options container ----------------------------------------------------------
+  .options-container {
     display: flex;
-    transform-origin: center center;
-    transform: scale(1.3);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     &--portrait-mode {
-      flex-direction: column;
+      justify-content: flex-start;
+      padding-top: 5rem;
     }
-  }
+
+    :global(.options-container__main-title) {
+      margin-bottom: 4rem;
+    }
+
+    &__divider-horizontal {
+      width: calc(100% + 6rem);
+      height: 0.1rem;
+      margin-bottom: 5rem;
+      background-image: linear-gradient(
+        to right,
+        rgba(222, 222, 222, 0),
+        rgba(222, 222, 222, 0.25),
+        rgba(222, 222, 222, 0)
+      );
+
+      &--small-bot-margin {
+        margin-bottom: 1rem;
+      }
+
+      &--big-bot-margin {
+        margin-bottom: 8rem;
+      }
+    }
+
+    &__switches-row {
+      margin-bottom: 3rem;
+    }
+
+    &__difficulty-level-list {
+      display: flex;
+      transform-origin: center center;
+      transform: scale(1.3);
+
+      &--portrait-mode {
+        flex-direction: column;
+      }
+    }
 
     :global(.separate-section__difficulty-level-snippet) {
       opacity: 1;
@@ -253,12 +329,11 @@ function handleChallengeDeactivation() {
     }
 
     :global(.separate-section__difficulty-level-snippet--half-transparent) {
-      opacity: .75;
+      opacity: 0.75;
     }
 
     :global(.separate-section__difficulty-level-snippet--half-transparent--portrait-mode) {
       padding-bottom: 1rem;
     }
-}
-
+  }
 </style>

@@ -84,10 +84,7 @@
     <svelte:fragment slot="content">
       <div
         class={`challenges-page__page-content
-        ${
-          $isPortraitMode &&
-          'challenges-page__page-content__bottom-down'
-        }
+        ${$isPortraitMode && "challenges-page__page-content__bottom-down"}
         ${
           !isAllPageElementsVisible &&
           "challenges-page__page-content--invisible"
@@ -103,30 +100,32 @@
           class={`main-title
         challenges-page__main-title 
         ${
-          $isPortraitMode && !$isDeviceIpad &&
-          'challenges-page__main-title--portrait-mode'
+          $isPortraitMode &&
+          !$isDeviceIpad &&
+          "challenges-page__main-title--portrait-mode"
         } 
         ${
-          $isPortraitMode && $isDeviceIpad &&
-          'challenges-page__main-title--ipad-portrait-mode'
+          $isPortraitMode &&
+          $isDeviceIpad &&
+          "challenges-page__main-title--ipad-portrait-mode"
         }
         `}
         >
           {#if $isPortraitMode}
-          <TwoColorsTitleLP
-            class={`main-title__first-line`}
-            isMiniMode={$isPortraitMode}
-            text="Choose Your"
-            secondText="Challenge"
-            isNoWrap={true}
-          />
+            <TwoColorsTitleLP
+              class={`main-title__first-line`}
+              isMiniMode={$isPortraitMode}
+              text="Choose Your"
+              secondText="Challenge"
+              isNoWrap={true}
+            />
           {:else}
-          <TwoColorsTitleLP
-            class={`main-title__first-line`}
-            isMiniMode={$isPortraitMode}
-            text="Choose Your Challenge"
-            isNoWrap={true}
-          />
+            <TwoColorsTitleLP
+              class={`main-title__first-line`}
+              isMiniMode={$isPortraitMode}
+              text="Choose Your Challenge"
+              isNoWrap={true}
+            />
           {/if}
 
           <div
@@ -135,7 +134,7 @@
             }`}
           >
             {#if $isPortraitMode}
-              What kinds of <b>words</b> do <br/>you want to play with?
+              What kinds of <b>words</b> do <br />you want to play with?
             {:else}
               What kinds of <b>words</b> do you want to play with?
             {/if}

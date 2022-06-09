@@ -120,13 +120,35 @@
 
   // Go to Challenges page ------------------------------------------------------
   function goToChallengesPage() {
-    document.getElementById("transition-scale-button").classList.add("transition-scale-button");
+    document
+      .getElementById("transition-scale-button")
+      .classList.add("transition-scale-button");
 
-    setTimeout(() => document.getElementById("transition-scale-button").style.transform = 'scale(1.05, 1.05)', 150);
-    setTimeout(() => document.getElementById("transition-scale-button").style.transform = 'scale(1.1, 1.1)', 175);
-    setTimeout(() => document.getElementById("transition-scale-button").style.transform = 'scale(1.15, 1.15)', 190);
-    setTimeout(() => document.getElementById("transition-scale-button").style.transform = 'scale(1.2, 1.2)', 200);
-    
+    setTimeout(
+      () =>
+        (document.getElementById("transition-scale-button").style.transform =
+          "scale(1.05, 1.05)"),
+      150
+    );
+    setTimeout(
+      () =>
+        (document.getElementById("transition-scale-button").style.transform =
+          "scale(1.1, 1.1)"),
+      175
+    );
+    setTimeout(
+      () =>
+        (document.getElementById("transition-scale-button").style.transform =
+          "scale(1.15, 1.15)"),
+      190
+    );
+    setTimeout(
+      () =>
+        (document.getElementById("transition-scale-button").style.transform =
+          "scale(1.2, 1.2)"),
+      200
+    );
+
     setTimeout(() => transitionFrom.update(() => "Welcome"), 300);
     setTimeout(() => transitionTo.update(() => "Challenges"), 300);
     setTimeout(() => push("/challenges"), 600);
@@ -172,7 +194,12 @@
             />
           </div>
 
-          <div class={`greeting-snippet__text-n-button ${$isPortraitMode && 'greeting-snippet__text-n-button--portrait-mode'}`}>
+          <div
+            class={`greeting-snippet__text-n-button ${
+              $isPortraitMode &&
+              "greeting-snippet__text-n-button--portrait-mode"
+            }`}
+          >
             <!-- Greeting text -->
             <div
               class="greeting-text
@@ -182,7 +209,9 @@
                 class={`greeting-text__chat-bubble-bg ${
                   $isPortraitMode && "chat-bubble-portrait-mode"
                 }`}
-                data={$isPortraitMode ? chatBubbleIconVertical : chatBubbleIconLeft}
+                data={$isPortraitMode
+                  ? chatBubbleIconVertical
+                  : chatBubbleIconLeft}
               />
 
               <div class="greeting-text__title" id="greeting-text__title">
@@ -233,7 +262,10 @@
                 id="transition-scale-button"
                 class={`tap-to-continue-but
                         character-speech__tap-to-continue-but
-                        ${$isPortraitMode && 'tap-to-continue-but--portrait-mode'}
+                        ${
+                          $isPortraitMode &&
+                          "tap-to-continue-but--portrait-mode"
+                        }
                         `}
                 transition:fadeScale={{
                   delay: 0,
@@ -242,13 +274,9 @@
                   baseScale: 0.5,
                 }}
               >
-                <div class="tap-to-continue-transparent-background"></div>
-                <span class="tap-span">
-                  Tap
-                </span>
-                <span class="to-continue-span">
-                  to Continue 
-                </span>
+                <div class="tap-to-continue-transparent-background" />
+                <span class="tap-span"> Tap </span>
+                <span class="to-continue-span"> to Continue </span>
               </div>
               <!-- / Tap to continue but -->
             </div>
@@ -280,26 +308,26 @@
   }
   .transition-scale-button {
     animation-duration: 1s;
-      animation-name: scale-bounce;
-      animation-iteration-count: infinite;
+    animation-name: scale-bounce;
+    animation-iteration-count: infinite;
 
-      @keyframes scale-bounce {
-        from {
-          transform: scale(1);
-        }
-        7% {
-          transform: scale(1.1);
-        }
-        25% {
-          transform: scale(0.95);
-        }
-        50% {
-          transform: scale(1);
-        }
-        to {
-          transform: scale(1);
-        }
+    @keyframes scale-bounce {
+      from {
+        transform: scale(1);
       }
+      7% {
+        transform: scale(1.1);
+      }
+      25% {
+        transform: scale(0.95);
+      }
+      50% {
+        transform: scale(1);
+      }
+      to {
+        transform: scale(1);
+      }
+    }
   }
   .greeting-text {
     position: relative;
@@ -386,7 +414,7 @@
     left: 0;
     width: 100%;
     height: 30px;
-    opacity: .2;
+    opacity: 0.2;
     margin-top: -1.5rem;
   }
 
@@ -402,12 +430,12 @@
   }
 
   .tap-span {
-    font-family: 'MuseoSlabRounded-500' !important;
+    font-family: "MuseoSlabRounded-500" !important;
     opacity: 1;
   }
 
   .to-continue-span {
-    font-family: 'MuseoSlabRounded-100' !important;
+    font-family: "MuseoSlabRounded-100" !important;
   }
 
   // Greeting snippet -----------------------------------------------------------

@@ -6,16 +6,16 @@
   <div id="content-win" class="content-common" style="visibility: visible">
     <div class="content-common-interior">
       <div class="row">
-        <div class="col-33 fullheight"></div>
+        <div class="col-33 fullheight" />
         <div class="col-33 fullheight">
           <div class="v-center">
             <div
               id="SidekickPlaceholder-normal"
               class="sidekick-placeholder-normal h-center"
-            ></div>
+            />
           </div>
         </div>
-        <div class="col-33 fullheight h-alignleft-content"></div>
+        <div class="col-33 fullheight h-alignleft-content" />
       </div>
     </div>
   </div>
@@ -23,16 +23,16 @@
   <div id="content-lose" class="content-common" style="visibility: visible">
     <div class="content-common-interior">
       <div class="row">
-        <div class="col-33 fullheight"></div>
+        <div class="col-33 fullheight" />
         <div class="col-33 fullheight">
           <div class="v-center">
             <div
               id="SidekickPlaceholder-normal-lose"
               class="sidekick-placeholder-normal-lose h-center"
-            ></div>
+            />
           </div>
         </div>
-        <div class="col-33 fullheight"></div>
+        <div class="col-33 fullheight" />
       </div>
     </div>
   </div>
@@ -43,8 +43,14 @@
     style="visibility: visible"
   >
     <div class="content-common-interior">
-      <div class={`row ${$isPortraitMode && 'content-readytoplay-above-center'}`}>
-        <div class={`col-33 fullheight ${$isPortraitMode && 'content-readytoplay-height-controller'}`}>
+      <div
+        class={`row ${$isPortraitMode && "content-readytoplay-above-center"}`}
+      >
+        <div
+          class={`col-33 fullheight ${
+            $isPortraitMode && "content-readytoplay-height-controller"
+          }`}
+        >
           <div
             id="SidekickPlaceholder-readytoplay"
             class="sidekick-placeholder-readytoplay hv-center"
@@ -72,8 +78,12 @@
     style="visibility: visible"
   >
     <div class="content-common-interior">
-      <div class={`row ${$isPortraitMode && 'readytoplay-height-controller'}`}>
-        <div class={`col-25 fullheight ${$isPortraitMode && 'readytoplay-above-center'}`}>
+      <div class={`row ${$isPortraitMode && "readytoplay-height-controller"}`}>
+        <div
+          class={`col-25 fullheight ${
+            $isPortraitMode && "readytoplay-above-center"
+          }`}
+        >
           <div
             id="SidekickPlaceholder-readytoplay-dialogue"
             class="sidekick-placeholder-readytoplay-dialogue hv-center"
@@ -90,8 +100,16 @@
             data-darkreader-inline-border-left=""
           />
         </div>
-        <div class={`col-50 fullheight ${$isPortraitMode && 'readytoplay-above-center'}`} />
-        <div class={`col-25 fullheight ${$isPortraitMode && 'readytoplay-below-center'}`}>
+        <div
+          class={`col-50 fullheight ${
+            $isPortraitMode && "readytoplay-above-center"
+          }`}
+        />
+        <div
+          class={`col-25 fullheight ${
+            $isPortraitMode && "readytoplay-below-center"
+          }`}
+        >
           <div
             id="SidekickPlaceholder-readytoplay-dialogue-B"
             class="sidekick-placeholder-readytoplay-dialogue hv-center"
@@ -129,15 +147,21 @@
 
   <div id="content-bonus" class="content-common" style="visibility: visible">
     <div class="content-common-interior">
-      <div class={`row ${$isPortraitMode && 'bonus-height-controller'}`}>
-        <div class={`col-25 fullheight ${$isPortraitMode && 'bonus-above-center'}`}>
+      <div class={`row ${$isPortraitMode && "bonus-height-controller"}`}>
+        <div
+          class={`col-25 fullheight ${$isPortraitMode && "bonus-above-center"}`}
+        >
           <div
             id="SidekickPlaceholder-bonus"
             class="sidekick-placeholder-bonus hv-center"
           />
         </div>
-        <div class={`col-25 fullheight ${$isPortraitMode && 'bonus-above-center'}`} />
-        <div class={`col-25 fullheight ${$isPortraitMode && 'bonus-below-center'}`}>
+        <div
+          class={`col-25 fullheight ${$isPortraitMode && "bonus-above-center"}`}
+        />
+        <div
+          class={`col-25 fullheight ${$isPortraitMode && "bonus-below-center"}`}
+        >
           <div
             id="SidekickPlaceholder-bonus-B"
             class="sidekick-placeholder-bonus hv-center"
@@ -153,15 +177,27 @@
     style="visibility: visible"
   >
     <div class="content-common-interior">
-      <div class={`row ${$isPortraitMode && 'bonus-lose-height-controller'}`}>
-        <div class={`col-25 fullheight ${$isPortraitMode && 'bonus-lose-above-center'}`}>
+      <div class={`row ${$isPortraitMode && "bonus-lose-height-controller"}`}>
+        <div
+          class={`col-25 fullheight ${
+            $isPortraitMode && "bonus-lose-above-center"
+          }`}
+        >
           <div
             id="SidekickPlaceholder-bonus-lose"
             class="sidekick-placeholder-bonus-lose hv-center"
           />
         </div>
-        <div class={`col-50 fullheight ${$isPortraitMode && 'bonus-lose-above-center'}`} />
-        <div class={`col-25 fullheight ${$isPortraitMode && 'bonus-lose-below-center'}`}>
+        <div
+          class={`col-50 fullheight ${
+            $isPortraitMode && "bonus-lose-above-center"
+          }`}
+        />
+        <div
+          class={`col-25 fullheight ${
+            $isPortraitMode && "bonus-lose-below-center"
+          }`}
+        >
           <div
             id="SidekickPlaceholder-bonus-lose-B"
             class="sidekick-placeholder-bonus-lose hv-center"
@@ -177,9 +213,17 @@
     style="visibility: visible"
   >
     <div class="content-common-interior">
-      <div class={`row ${$isPortraitMode && 'side-kick-above-center'}`}>
-        <div class={`col-50 fullheight ${$isPortraitMode && 'side-kick-height-controller'}`} />
-        <div class={`col-50 fullheight ${$isPortraitMode && 'side-kick-height-controller'}`}>
+      <div class={`row ${$isPortraitMode && "side-kick-above-center"}`}>
+        <div
+          class={`col-50 fullheight ${
+            $isPortraitMode && "side-kick-height-controller"
+          }`}
+        />
+        <div
+          class={`col-50 fullheight ${
+            $isPortraitMode && "side-kick-height-controller"
+          }`}
+        >
           <div
             id="SidekickPlaceholder-bonus-B-transformed"
             class="sidekick-placeholder-bonus-b-transformed hv-center"
@@ -195,8 +239,12 @@
     style="visibility: visible"
   >
     <div class="content-common-interior">
-      <div class={`row ${$isPortraitMode && 'content-firstplay-above-center'}`}>
-        <div class={`col-33 fullheight ${$isPortraitMode && 'content-firstplay-height-controller'}`}>
+      <div class={`row ${$isPortraitMode && "content-firstplay-above-center"}`}>
+        <div
+          class={`col-33 fullheight ${
+            $isPortraitMode && "content-firstplay-height-controller"
+          }`}
+        >
           <div class="v-center">
             <div
               id="SidekickPlaceholder-firstPlay"
@@ -212,8 +260,12 @@
 
   <div id="content-premium" class="content-common" style="visibility: visible">
     <div class="content-common-interior">
-      <div class={`row ${$isPortraitMode && 'common-iterator-above-center'}`}>
-        <div class={`col-25 fullheight ${$isPortraitMode && 'common-iterator-height-controller'}`}>
+      <div class={`row ${$isPortraitMode && "common-iterator-above-center"}`}>
+        <div
+          class={`col-25 fullheight ${
+            $isPortraitMode && "common-iterator-height-controller"
+          }`}
+        >
           <div class="v-center">
             <div
               id="SidekickPlaceholder-premium"
