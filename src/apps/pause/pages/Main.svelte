@@ -58,32 +58,24 @@
 
   let localRandomHaiku = [];
   onMount(() => {
-    localRandomHaiku = [...$randomHaiku];
+    randomHaiku.subscribe(value => {
+      localRandomHaiku = [...value];
+    });
 
     setInterval(() => {
       localRandomHaiku = [];
       setTimeout(() => {
         changeRandomHaiku();
-        localRandomHaiku = [...$randomHaiku];
+        randomHaiku.subscribe(value => {
+          localRandomHaiku = [...value];
+        });
       }, 1000);
-      // setLocalRandomHaiku(randomHaiku);
     }, 12000);
   });
 
-  function setLocalRandomHaiku(newHaiku) {
-    localRandomHaiku = [];
-
-    setTimeout(() => {
-      localRandomHaiku = lodashCloneDeep(newHaiku);
-    }, 700);
-  }
-
-  // $: {
-  //   setLocalRandomHaiku($randomHaiku);
-  // }
-
   // Handle go to page ----------------------------------------------------------
   import { dispatchIosEvent } from "@helpers/iosEvents.js";
+import random from "lodash-es/random";
   function handleGoToPage(pageToGoTo) {
     dispatchIosEvent({ tapped: "OWJSMsgPlayClickSound" });
     push(pageToGoTo);
