@@ -117,7 +117,7 @@ function setBasicDeviceParams() {
   isPortraitMode.update(defineIsPortraitMode);
   // hack by Michael Douma
   //isPortraitMode.update(false);
-  basicFontSize.update(() => calcFontSize($isDeviceIpad, $isPortraitMode));
+  basicFontSize.update(() => calcFontSize($isDeviceIpad, $isPortraitMode, true));
   document.querySelector('html').style.fontSize = $basicFontSize + 'px';
   const appHeight = () => {
     const doc = document.documentElement
