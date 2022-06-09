@@ -428,7 +428,7 @@
 
       &--portrait-mode {
         top: calc(80% + 11rem);
-        left: auto;
+        left: auto !important;
       }
     }
 
