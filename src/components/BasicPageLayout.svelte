@@ -119,7 +119,7 @@
       }
 
       &--right {
-        left: 18rem;
+        right: 2rem;
         justify-content: flex-end;
         .all-chapters-page__profile-button {
           background: #fde6c7;

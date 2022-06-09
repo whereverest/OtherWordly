@@ -43,6 +43,7 @@
 const _IS_DEV_ENV = IS_DEV_ENV,
       _IS_PROD_ENV = IS_PROD_ENV;
 
+import { fade } from "svelte/transition";
 import Router from 'svelte-spa-router';
 import { onDestroy, onMount, tick } from 'svelte';
 import { push } from 'svelte-spa-router';
@@ -63,11 +64,10 @@ import HaikuPoem from '@pages-ps/HaikuPoem/index.svelte';
 // Stores
 import { basicFontSize, isDeviceIpad, isPortraitMode } from '@stores/miscellaneous.js';
 import { isErrorsOverlayVisible, errorsList } from '@stores/errors.js';
-
-let changeHaikuInterval;
 import { changeRandomHaiku } from '@stores-ps/haiku.js';
 
 
+let changeHaikuInterval;
 
 onMount(async () => {
   fillStoresWithData(window.dataSource || [], storesToImport);
@@ -76,7 +76,7 @@ onMount(async () => {
   changeRandomHaiku();
   changeHaikuInterval = setInterval(() => {
     changeRandomHaiku();
-  }, 120000);
+  }, 12000);
 
   setBasicDeviceParams();
   await tick();
@@ -111,8 +111,6 @@ function setBasicDeviceParams() {
 
 
 <style lang="scss">
-
-
 
 // App root -------------------------------------------------------------------
 .app-root {

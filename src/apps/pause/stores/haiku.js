@@ -19,7 +19,7 @@ function deriveHaikuNumFromTime() {
   // const date2 = Date.parse('2022-01-24T01:00:59.000Z');
   const timePassed = date2 - date1;
 
-  let numberOfHaikuToShow = Math.floor(timePassed / (msInOneDay / (numberOfHaikus + 1) )); // dunno why we should add 1 but only in that way it returns correct result
+  let numberOfHaikuToShow = Math.floor(timePassed % (numberOfHaikus + 1)); // dunno why we should add 1 but only in that way it returns correct result
 
   if (numberOfHaikuToShow < 0) numberOfHaikuToShow = 0;
   if (numberOfHaikuToShow > haiku.haikuList.length) numberOfHaikuToShow = haiku.haikuList.length;

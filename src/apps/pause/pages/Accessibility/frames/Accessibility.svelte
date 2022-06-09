@@ -6,7 +6,7 @@
   import ButtonPill from "@components/formElements/ButtonPill.svelte";
   import RadioButton from "@components/formElements/RadioButton.svelte";
   import ScrollableBlock from "@components/ScrollableBlock.svelte";
-  import Switch from "@components/formElements/Switch.svelte";
+  import SwitchLP from "@components/formElements/SwitchLP.svelte";
   import TwoColorsTitle from "@components/TwoColorsTitle.svelte";
   import { isPortraitMode } from "@stores/miscellaneous.js";
 
@@ -177,7 +177,8 @@
             >
               Reduce motion
             </div>
-            <Switch
+            <SwitchLP
+              isMiniFontMode={$isPortraitMode}
               class="separate-section__switch"
               bind:isChecked={$isReduceMotion}
               on:click={() =>
@@ -216,7 +217,8 @@
             >
               Alternative font
             </div>
-            <Switch
+            <SwitchLP
+              isMiniFontMode={$isPortraitMode}
               class="separate-section__switch"
               bind:isChecked={$isBottomHeavyFont}
               on:click={() =>
@@ -254,7 +256,8 @@
             >
               Finger touches
             </div>
-            <Switch
+            <SwitchLP
+              isMiniFontMode={$isPortraitMode}
               class="separate-section__switch"
               bind:isChecked={$isFingerTouches}
               on:click={() =>
@@ -298,9 +301,9 @@
 
       &--portrait-mode {
         width: 100%;
-        flex-direction: row;
+        flex-direction: row-reverse;
         align-items: center;
-        justify-content: flex-start;
+        justify-content: flex-end;
       }
     }
 
@@ -326,7 +329,9 @@
       text-align: right;
 
       &--portrait-mode {
-        margin-bottom: 0rem;
+        margin-bottom: 2rem;
+        margin-left: 1rem;
+        text-align: left;
       }
     }
 

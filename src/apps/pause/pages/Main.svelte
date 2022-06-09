@@ -4,6 +4,7 @@
 
   import { push } from "svelte-spa-router";
   import { onMount } from "svelte";
+  import { isPortraitMode } from "@stores/miscellaneous.js";
 
   // Components
   import BasicPageLayout from "@components/BasicPageLayout.svelte";
@@ -49,15 +50,25 @@
   }
 
   // Get random haiku -----------------------------------------------------------
+  import { changeRandomHaiku } from "@stores-ps/haiku.js";
   import { randomHaiku } from "@stores-ps/haiku.js";
   import lodashCloneDeep from "lodash-es/cloneDeep.js";
 
   import { fly, fade } from "svelte/transition";
 
   let localRandomHaiku = [];
-  // onMount(() => {
-  //   localRandomHaiku = [...$randomHaiku];
-  // });
+  onMount(() => {
+    localRandomHaiku = [...$randomHaiku];
+
+    setInterval(() => {
+      localRandomHaiku = [];
+      setTimeout(() => {
+        changeRandomHaiku();
+        localRandomHaiku = [...$randomHaiku];
+      }, 1000);
+      // setLocalRandomHaiku(randomHaiku);
+    }, 12000);
+  });
 
   function setLocalRandomHaiku(newHaiku) {
     localRandomHaiku = [];
@@ -119,43 +130,48 @@
     <svelte:fragment slot="content">
       <!-- Big haiku -->
       <ul
-        class="big-haiku
-                  empty-settings-page__big-haiku"
+        class={`big-haiku
+                empty-settings-page__big-haiku
+              `}
       >
         <li
-          class="big-haiku__line
-                    big-haiku__line--first"
+          class={`big-haiku__line
+                  ${$isPortraitMode && "big-haiku__line--portrait-mode"}
+                  big-haiku__line--first
+                `}
         >
           {#if localRandomHaiku[0]}
             <div
               in:fly|fade={{ x: -80, delay: 200 }}
-              out:fade={{ duration: 300 }}
+              out:fly|fade={{ x: 200, delay: 200, duration: 300 }}
             >
               {localRandomHaiku[0]}
             </div>
           {/if}
         </li>
         <li
-          class="big-haiku__line
-                    big-haiku__line--second"
+          class={`big-haiku__line
+                  ${$isPortraitMode && "big-haiku__line--portrait-mode"}
+                  big-haiku__line--second`}
         >
           {#if localRandomHaiku[1]}
             <div
               in:fly|fade={{ x: -80, delay: 600 }}
-              out:fade={{ duration: 300 }}
+              out:fly|fade={{ x: 200, delay: 500, duration: 300 }}
             >
               {localRandomHaiku[1]}
             </div>
           {/if}
         </li>
         <li
-          class="big-haiku__line
-                    big-haiku__line--third"
+          class={`big-haiku__line
+                  ${$isPortraitMode && "big-haiku__line--portrait-mode"}
+                  big-haiku__line--third`}
         >
           {#if localRandomHaiku[2]}
             <div
               in:fly|fade={{ x: -80, delay: 1000 }}
-              out:fade={{ duration: 300 }}
+              out:fly|fade={{ x: 200, delay: 800, duration: 300 }}
             >
               {localRandomHaiku[2]}
             </div>
@@ -245,6 +261,12 @@
       color: #fcff9c;
       white-space: nowrap;
       text-align: left;
+      padding: 1rem;
+
+      &--portrait-mode {
+        padding-left: 19rem;
+        font-size: 2rem;
+      }
 
       &--first {
       }

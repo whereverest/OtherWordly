@@ -651,8 +651,8 @@
     }
 
     &__avatar {
-      width: 16rem;
-      height: 16rem;
+      width: 22rem;
+      height: 22rem;
       margin-bottom: -2.7rem;
 
       &--slightly-bigger {

@@ -18,7 +18,7 @@ function calcFontSize(isDeviceIpad, isPortraitMode) {
   if (isPortraitMode) {
     coefficient = .25;
   } else if (isDeviceIpad) {
-    coefficient = .9;
+    coefficient = 1.5;
   }
 
   console.log('isDeviceIpad-', isDeviceIpad, ' isPortraitMode-', isPortraitMode, ' coefficient-', coefficient);

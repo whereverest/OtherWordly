@@ -8,7 +8,7 @@
   // Components
   import ButtonPill from "@components/formElements/ButtonPill.svelte";
   import ScrollableBlock from "@components/ScrollableBlock.svelte";
-  import Switch from "@components/formElements/Switch.svelte";
+  import SwitchLP from "@components/formElements/SwitchLP.svelte";
   import TwoColorsTitle from "@components/TwoColorsTitle.svelte";
   import { isPortraitMode } from "@stores/miscellaneous.js";
 
@@ -142,7 +142,8 @@
           >
             iCloud Sync
           </div>
-          <Switch
+          <SwitchLP
+            isMiniFontMode={$isPortraitMode}
             class="separate-section__switch"
             bind:isChecked={$isICloudSync}
             on:click={() =>
@@ -246,7 +247,8 @@
           >
             Analytics
           </div>
-          <Switch
+          <SwitchLP
+            isMiniFontMode={$isPortraitMode}
             class="separate-section__switch"
             bind:isChecked={$isAnalytics}
             on:click={() =>
@@ -334,13 +336,14 @@
       align-items: flex-end;
 
       &--portrait-mode {
-        flex-direction: row;
+        flex-direction: row-reverse;
         align-items: center;
         width: 100%;
+        justify-content: flex-end;
       }
 
       &--portrait-mode-long {
-        align-items: space-around;
+        align-items: center;
         width: 100%;
         padding-bottom: 1rem;
       }
@@ -372,8 +375,9 @@
       text-align: right;
 
       &--portrait-mode {
-        margin-bottom: 0rem;
+        margin-bottom: 2rem;
         margin-right: 1rem;
+        margin-left: 1rem;
       }
     }
 
