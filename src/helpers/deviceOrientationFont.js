@@ -13,10 +13,10 @@ function defineIsPortraitMode() {
 
 function calcFontSize(isDeviceIpad, isPortraitMode, isMenu = false) {
   let coefficient = 1.5;
-
+  
   if (isMenu) {
     if (isPortraitMode) {
-      coefficient = .6;
+      coefficient = .45;
     } else if (isDeviceIpad) {
       coefficient = 1.5;
     } else {
