@@ -58,6 +58,13 @@
 
   let localRandomHaiku = [];
   onMount(() => {
+
+    /*
+      On chrome browser, it works properly
+      On Safari desktop, it is considered as a bug to use [...$randomHaiku]
+      So convention is to use subscribe
+    */
+
     randomHaiku.subscribe(value => {
       localRandomHaiku = [...value];
     });

@@ -38,6 +38,9 @@
     transitionTo.update(() => "");
   });
 
+  // Which layout to use
+  let isSpecialLayout = true;
+
   // Show elements on page opening ----------------------------------------------
   let isAllPageElementsVisible = false;
   onMount(() => {
@@ -113,7 +116,7 @@
 
   <div class="test-button" on:click={changeCurrentLevelData} />
 
-  <BasicPageLayout class="main-page__basic-layout-container">
+  <BasicPageLayout class="main-page__basic-layout-container" isNoRightHeader={true}>
     <!-- slot: header left -->
     <svelte:fragment slot="header-left">
       {#if !isTutorial}
@@ -140,6 +143,7 @@
     <svelte:fragment slot="content">
       <div class="main-page__page-content" on:click={goToNextSpeechDialog}>
         <!-- Character speech -->
+        {#if !isSpecialLayout}
         <div
           class={`character-speech
                       ${$isPortraitMode && "character-speech--vertical"}
@@ -171,6 +175,24 @@
               class="character-speech__name-ribbon"
               text="Tyto"
               ribbonColors={["white", "#8e7942", "#a78f5b"]}
+            />
+          </div>
+
+          <div
+            class={`character-speech__avatar-n-name-second
+                        ${
+                          $isPortraitMode &&
+                          "character-speech__avatar-n-name-second--no-right-margin"
+                        }`}
+          >
+            <img
+              class={`character-speech__avatar-second
+                        ${
+                          $isPortraitMode &&
+                          "character-speech__avatar-second--slightly-bigger"
+                        }`}
+              src={char01_tyto}
+              alt="Avatar"
             />
           </div>
 
@@ -210,6 +232,111 @@
             />
           </div>
         </div>
+        {:else}
+        <div
+          class={`character-speech
+                      ${$isPortraitMode && "character-speech--vertical"}
+                      ${
+                        $isDeviceIpad &&
+                        $isPortraitMode &&
+                        "character-speech--vertical-small"
+                      }
+                      main-page__character-speech`}
+        >
+          <div
+            class={`character-speech__avatar-n-name
+                        ${
+                          $isPortraitMode &&
+                          "character-speech__avatar-n-name--no-right-margin"
+                        }`}
+          >
+            <img
+              class={`character-speech__avatar
+                        ${
+                          !$isPortraitMode &&
+                          isSpecialLayout &&
+                          "character-speech__avatar--special-mode"
+                        }
+                        ${
+                          $isPortraitMode &&
+                          "character-speech__avatar--slightly-bigger"
+                        }`}
+              src={char01_tyto}
+              alt="Avatar"
+            />
+
+            <RibbonStraight
+              class="character-speech__name-ribbon"
+              text="Tyto"
+              ribbonColors={["white", "#8e7942", "#a78f5b"]}
+            />
+          </div>
+
+          <div
+            class={`character-speech__avatar-n-name-second
+                        ${
+                          $isPortraitMode &&
+                          "character-speech__avatar-n-name-second--no-right-margin"
+                        }`}
+          >
+            <img
+              class={`character-speech__avatar-second
+                        ${
+                          !$isPortraitMode &&
+                          isSpecialLayout &&
+                          "character-speech__avatar-second--special-mode"
+                        }
+                        ${
+                          $isPortraitMode &&
+                          "character-speech__avatar-second--slightly-bigger"
+                        }`}
+              src={char01_tyto}
+              alt="Avatar"
+            />
+          </div>
+
+          {#if currentStoryArray[storyIndex].title}
+            <TwoColorsTitle
+              class={`character-speech__level
+                        ${
+                          !$isPortraitMode &&
+                          isSpecialLayout &&
+                          "character-speech__level--special-mode"
+                        }
+                        ${
+                          $isPortraitMode && "character-speech__level--centered"
+                        }
+                        ${$isPortraitMode && "character-speech__level--small"}`}
+              text={currentStoryArray[storyIndex].title}
+              isNoWrap={true}
+              isLeftAlign={!$isPortraitMode}
+            />
+          {/if}
+
+          <div
+            class={`character-speech__chatbox-wrap
+                        ${
+                          $isPortraitMode &&
+                          "character-speech__chatbox-wrap--no-bottom-margin"
+                        }
+                        ${
+                          !$isPortraitMode &&
+                          !currentStoryArray[storyIndex].title &&
+                          "character-speech__chatbox-wrap--higher"
+                        }`}
+          >
+            <SpeechChatbox
+              class={`character-speech__chatbox
+                        ${
+                          $isPortraitMode &&
+                          "character-speech__chatbox--no-bottom-margin"
+                        }`}
+              content={currentStoryArray[storyIndex].speech}
+              isVertical={$isPortraitMode}
+            />
+          </div>
+        </div>
+        {/if}
         <!-- / Character speech -->
         <div>
           {#if isTapToContinueVisible}
@@ -638,7 +765,22 @@
 
     &__avatar-n-name {
       grid-column: 1 / span 1;
-      grid-row: 5 / span 14;
+      grid-row: 8 / span 14;
+      margin-bottom: 6rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: -3rem;
+      //outline: 2px #0f0 solid;
+
+      &--no-right-margin {
+        margin-right: 0;
+      }
+    }
+
+    &__avatar-n-name-second {
+      grid-column: 3 / span 1;
+      grid-row: 13 / span 14;
       margin-bottom: 6rem;
       display: flex;
       flex-direction: column;
@@ -651,9 +793,30 @@
     }
 
     &__avatar {
-      width: 22rem;
-      height: 22rem;
+      width: 20rem;
+      height: 20rem;
       margin-bottom: -2.7rem;
+
+      &--special-mode {
+        width: 12rem;
+        height: 12rem;
+      }
+
+      &--slightly-bigger {
+        width: 19rem;
+        height: 19rem;
+      }
+    }
+
+    &__avatar-second {
+      width: 12rem;
+      height: 12rem;
+      opacity: 0.3;
+
+      &--special-mode {
+        width: 20rem;
+        height: 20rem;
+      }
 
       &--slightly-bigger {
         width: 19rem;
@@ -675,6 +838,11 @@
       transform: scale(1.4);
       transform-origin: left center;
       //outline: 2px rgba(0,255,0,.2) solid;
+    }
+
+    :global(.character-speech__level--special-mode) {
+      grid-column: 1 / span 1;
+      grid-row: 19 / span 1;
     }
 
     :global(.character-speech__level--centered) {

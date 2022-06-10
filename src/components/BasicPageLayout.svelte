@@ -3,6 +3,7 @@
     _IS_PROD_ENV = IS_PROD_ENV;
 
   let mixClass;
+  export let isNoRightHeader = false;
   export { mixClass as class };
 
   // Stores
@@ -35,6 +36,7 @@
   <div
     class={`basic-page-layout__header
     basic-page-layout__header--right
+    ${!$isPortraitMode && isNoRightHeader && 'basic-page-layout__header--right--no-right-header'}
     ${$isPortraitMode && "basic-page-layout__header--smaller-right-indent"}`}
   >
     <slot name="header-right">
@@ -131,6 +133,11 @@
             height: 100%;
             transform: rotate(20deg);
           }
+        }
+
+        &--no-right-header {
+          right: auto;
+          left: 19rem;
         }
       }
 
